@@ -1,0 +1,43 @@
+{
+  "name": "liumangchao/justice",
+  "description": "Just another OJ",
+  "homepage": "https://www.justice.plus",
+  "minimum-stability": "stable",
+  "require": {
+    "php": "~7.1",
+    "yiisoft/yii2": "~2.0",
+    "yiisoft/yii2-redis": "~2.0",
+    "yiisoft/yii2-debug": "~2.0",
+    "yiisoft/yii2-bootstrap": "~2.0",
+    "endroid/qrcode": "~2.2",
+    "gregwar/captcha": "~1.1",
+    "amstaffix/pagination": "~1.1",
+    "hashids/hashids": "~2.0",
+    "ramsey/uuid": "~3.6",
+    "guzzlehttp/guzzle": "~6.2",
+    "php-amqplib/php-amqplib": "~2.6",
+    "fxp/composer-asset-plugin": "^1.3.1"
+  },
+  "require-dev": {
+    "yiisoft/yii2-debug": "~2.0",
+    "yiisoft/yii2-faker": "~2.0",
+    "codeception/base": "^2.2.3",
+    "codeception/verify": "~0.3.1"
+  },
+  "config": {
+    "preferred-install": "dist",
+    "process-timeout": 1800,
+    "fxp-asset": {
+      "installer-paths": {
+        "npm-asset-library": "vendor/npm",
+        "bower-asset-library": "vendor/bower"
+      }
+    }
+  },
+  "repositories": {
+    "packagist": {
+      "type": "composer",
+      "url": "https://packagist.laravel-china.org"
+    }
+  }
+}
