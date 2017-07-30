@@ -47,9 +47,10 @@ class LoginController extends BaseController {
             ];
         }
 
-        if ($this->userService->validateUserPassword($password)) {
-            Yii::$app->session->set('logged_in', 1);
-
+        if (password_verify($password, $user->password)) {
+            Yii::$app->session->set(Yii::$app->params['userLoggedInKey'], 1);
+            Yii::$app->session->set(Yii::$app->params['userIdKey'], $user->id);
+            Yii::$app->session->set(Yii::$app->params['userNameKey'], $user->username);
             return [
                 'message' => 'OK',
                 'code' => 0

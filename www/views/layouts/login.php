@@ -14,7 +14,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.11/semantic.min.js"></script>
     <?= Html::csrfMetaTags() ?>
-    <title><?= Html::encode($this->title) ?></title>
+    <title>Justice PLUS - Login</title>
     <style type="text/css">
         body {  background-color: #DADADA;  }
         body > .grid {  height: 100%;  }
@@ -24,9 +24,8 @@
     <?php $this->head() ?>
 </head>
 <body>
-<?php $this->beginBody() ?>
-<?= $content ?>
-<?php $this->endBody() ?>
+    <?php $this->beginBody() ?>
+    <?= $content ?>
     <script type="text/javascript">
         $.ajaxSetup({
             headers: {
@@ -36,8 +35,8 @@
 
         $(document).ready(function () {
             $('#auth').on('click', function () {
-                var email = $('#email'), password = $('#password'), modal = $('#modal_content'),
-                    s_modal = ('.small.modal');
+                var email = $('#email'), password = $('#password');
+                var modal = $('#modal_content'), s_modal = $('.small.modal');
 
                 if (email.val().length === 0) {
                     modal.text('Please input your email address.');
@@ -63,18 +62,19 @@
                         if (data.code === 0) {
                             location.href = '/';
                         } else {
-                            $('#modal_content').text(data.message);
+                            modal.text(data.message);
                             s_modal.modal('show');
                         }
                     },
                     error: function () {
-                        $('#modal_content').text("An error occurred. Please login later.");
+                        modal.text("An error occurred. Please login later.");
                         s_modal.modal('show');
                     }
                 });
             });
         });
     </script>
+    <?php $this->endBody() ?>
 </body>
 </html>
 <?php $this->endPage() ?>
