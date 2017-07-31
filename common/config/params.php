@@ -1,6 +1,8 @@
 <?php
 return [
-    'adminEmail' => 'admin@example.com',
-    'supportEmail' => 'support@example.com',
-    'user.passwordResetTokenExpire' => 3600,
+    'adminEmail' => 'i@liuchao.me',
+    'userLoggedInKey' => 'logged_in',
+    'userIdKey' => 'id',
+    'userNameKey' => 'name',
+    'paginationPerPage' => 20,
 ];
