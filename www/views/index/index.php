@@ -40,24 +40,24 @@
                 Your program is correct, congratulations!
             </div>
             <div class="item">
-                <h4 class="ui yellow header">Time Limit Exceeded:</h4>
-                Your program runs longer than specified time limitation.
-            </div>
-            <div class="item">
-                <h4 class="ui red header">Wrong Answer:</h4>
-                Your program is incorrect, please check again.
-            </div>
-            <div class="item">
                 <h4 class="ui orange header">Compile Error:</h4>
                 Your program can't be compiled, please check again.
+            </div>
+            <div class="item">
+                <h4 class="ui teal header">Runtime Error:</h4>
+                Something went wrong during the execution.
+            </div>
+            <div class="item">
+                <h4 class="ui yellow header">Time Limit Exceeded:</h4>
+                Your program runs longer than specified time limitation.
             </div>
             <div class="item">
                 <h4 class="ui olive header">Memory Limit Exceeded:</h4>
                 Your program allocates more memory than the specified memory limitation.
             </div>
             <div class="item">
-                <h4 class="ui teal header">Run Time Error:</h4>
-                Something went wrong during the execution.
+                <h4 class="ui red header">Wrong Answer:</h4>
+                Your program is incorrect, please check again.
             </div>
         </div>
     </div>

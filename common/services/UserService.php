@@ -9,14 +9,6 @@ use common\models\User;
  * @package common\services
  */
 class UserService {
-    protected $user = null;
-
-
-    public function __construct(User $user) {
-        $this->user = $user;
-    }
-
-
     /**
      * @author  liuchao
      * @mail    i@liuchao.me
@@ -25,7 +17,7 @@ class UserService {
      * @desc
      */
     public function getUserByID(int $id) {
-        return $this->user->findOne($id);
+        return User::findOne($id);
     }
 
 
@@ -37,6 +29,6 @@ class UserService {
      * @return  \common\models\User|null
      */
     public function getUserByEmail(string $email) {
-        return $this->user->find()->where(['email' => $email])->one();
+        return User::find()->where(['email' => $email])->one();
     }
 }

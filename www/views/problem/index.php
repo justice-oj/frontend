@@ -4,9 +4,9 @@
 <h2 class="ui header"><?= $problem->title ?></h2>
 <div class="ui top fluid four item menu">
     <a class="item active">Problem</a>
-    <a class="item" href="#">Submissions</a>
-    <a class="item" href="#">Discussions</a>
-    <a class="item" href="#">Editorial</a>
+    <a class="item" href="/problem/submissions?problem_id=<?= $problem->id ?>">Submissions</a>
+    <a class="item" href="/problem/discussions?problem_id=<?= $problem->id ?>">Discussions</a>
+    <a class="item" href="/problem/editorial?problem_id=<?= $problem->id ?>">Editorial</a>
 </div>
 <div class="ui info small message">
     <ul class="list">

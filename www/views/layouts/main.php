@@ -25,9 +25,6 @@
         .main.container {
             margin-top: 7em;
         }
-        .wireframe {
-            margin-top: 2em;
-        }
         .ui.footer.segment {
             margin: 3em 0em 0em;
             padding: 3em 0em;

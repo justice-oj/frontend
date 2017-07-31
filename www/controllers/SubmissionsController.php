@@ -27,13 +27,6 @@ class SubmissionsController extends BaseController {
     }
 
 
-    public function actionProblem(int $id) {
-        $this->view->title = 'Justice PLUS - Submission';
-
-        $query = $this->submissionService->
-
-        return $this->render('problem', [
-
-        ]);
+    public function actionIndex() {
     }
 }

@@ -26,7 +26,27 @@ class Submission extends ActiveRecord {
     const LANGUAGE_PYTHON3 = 3;
     const LANGUAGE_JAVA = 4;
 
+
+    const STATUS_QUEUE = -1;
+    const STATUS_AC = 0;
+    const STATUS_CE = 1;
+    const STATUS_RE = 2;
+    const STATUS_TLE = 3;
+    const STATUS_MLE = 4;
+    const STATUS_WA = 5;
+
+
     public static function tableName() {
         return 't_submission';
+    }
+
+
+    public function getProblem() {
+        return $this->hasOne(Problem::className(), ['id' => 'problem_id']);
+    }
+
+
+    public function getUser() {
+        return $this->hasOne(User::className(), ['id' => 'user_id']);
     }
 }
