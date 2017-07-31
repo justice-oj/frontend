@@ -1,22 +1,16 @@
-# yii console commands
-/yii
-/yii_test
-/yii_test.bat
-
 # phpstorm project files
 .idea/
-
-# windows thumbnail cache
-Thumbs.db
 
 # composer vendor dir
 /vendor
 
 # composer itself is not needed
 composer.phar
+composer.lock
 
 # phpunit itself is not needed
 phpunit.phar
+
 # local phpunit config
 /phpunit.xml
 
