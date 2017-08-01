@@ -1,7 +1,5 @@
 <?php
-
 use www\widgets\common\PaginationWidget;
-
 $presenter = new \www\presenters\SubmissionPresenter();
 ?>
 

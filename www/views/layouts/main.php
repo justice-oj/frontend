@@ -40,9 +40,8 @@
             <img class="logo" src="/images/logo/justice-white.png">&nbsp;Justice +
         </a>
         <a href="/problems" class="item">Problems</a>
-        <a href="/discussions" class="item">Discussions</a>
         <a href="/ranking" class="item">Ranking</a>
-        <a href="/editorials" class="item">Editorials</a>
+        <a href="https://gitter.im/justice-plus/justice.plus" class="item" target="_blank">Chat</a>
         <?php
         if (Yii::$app->session->get(Yii::$app->params['userLoggedInKey'])) {
             $user_name = Yii::$app->session->get(Yii::$app->params['userNameKey']);
