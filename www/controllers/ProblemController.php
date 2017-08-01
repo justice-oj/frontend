@@ -64,7 +64,7 @@ class ProblemController extends BaseController {
 
         $problem = $this->problemService->getProblemByID($problem_id);
 
-        return $this->render('index', [
+        return $this->render('discussions', [
             'problem' => $problem,
         ]);
     }
@@ -75,7 +75,7 @@ class ProblemController extends BaseController {
 
         $problem = $this->problemService->getProblemByID($problem_id);
 
-        return $this->render('index', [
+        return $this->render('editorial', [
             'problem' => $problem,
         ]);
     }
