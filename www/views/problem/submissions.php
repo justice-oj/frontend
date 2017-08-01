@@ -3,7 +3,7 @@ use www\widgets\common\PaginationWidget;
 $presenter = new \www\presenters\SubmissionPresenter();
 ?>
 
-<div class="ui large centered large leaderboard test ad">
+<div class="ui basic segment">
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <!-- justice.plus -->
     <ins class="adsbygoogle"

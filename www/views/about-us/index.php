@@ -1,6 +1,6 @@
 <div class="ui piled segment">
     <div class="ui left very close rail">
-        <div class="ui segment">
+        <div class="ui basic segment">
             <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
             <!-- justice.plus -->
             <ins class="adsbygoogle"
@@ -14,7 +14,7 @@
         </div>
     </div>
     <div class="ui right very close rail">
-        <div class="ui segment">
+        <div class="ui basic segment">
             <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
             <!-- justice.plus -->
             <ins class="adsbygoogle"

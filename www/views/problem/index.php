@@ -1,6 +1,6 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.28.0/codemirror.min.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.28.0/theme/monokai.min.css" rel="stylesheet">
-<div class="ui large centered large leaderboard test ad">
+<div class="ui basic segment">
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <!-- justice.plus -->
     <ins class="adsbygoogle"
@@ -107,7 +107,7 @@
         <div class="ui primary button ok">OK</div>
     </div>
 </div>
-<div class="ui large centered large leaderboard test ad">
+<div class="ui basic segment">
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <!-- justice.plus -->
     <ins class="adsbygoogle"
