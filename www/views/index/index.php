@@ -1,12 +1,30 @@
 <div class="ui piled segments">
     <div class="ui left rail">
         <div class="ui segment">
-            <div class="ui centered skyscraper test ad" data-text="AD"></div>
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- justice.plus -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-3748357229978150"
+                 data-ad-slot="6514368667"
+                 data-ad-format="auto"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
         </div>
     </div>
     <div class="ui right rail">
         <div class="ui segment">
-            <div class="ui centered skyscraper test ad" data-text="AD"></div>
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- justice.plus -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-3748357229978150"
+                 data-ad-slot="6514368667"
+                 data-ad-format="auto"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
         </div>
     </div>
     <div class="ui segment">

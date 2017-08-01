@@ -4,7 +4,18 @@ use www\widgets\common\PaginationWidget;
 
 $problem_presenter = new www\presenters\ProblemPresenter();
 ?>
-
+<div class="ui large centered large leaderboard test ad">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- justice.plus -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-3748357229978150"
+         data-ad-slot="6514368667"
+         data-ad-format="auto"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
 <h2 class="ui header">Problems</h2>
 <form class="ui form" action="/problems">
     <div class="fields">
@@ -52,3 +63,17 @@ PROBLEM;
     </tbody>
 </table>
 <?= PaginationWidget::widget(['pagination' => $pagination]); ?>
+<div class="ui basic segment">
+    <div class="ui large centered large leaderboard test ad">
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- justice.plus -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-3748357229978150"
+             data-ad-slot="6514368667"
+             data-ad-format="auto"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+</div>

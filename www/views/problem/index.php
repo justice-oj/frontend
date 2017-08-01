@@ -1,7 +1,8 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.28.0/codemirror.min.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.28.0/theme/monokai.min.css" rel="stylesheet">
-<div class="ui large centered leaderboard test ad">
+<div class="ui large centered large leaderboard test ad">
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- justice.plus -->
     <ins class="adsbygoogle"
          style="display:block"
          data-ad-client="ca-pub-3748357229978150"
@@ -106,8 +107,9 @@
         <div class="ui primary button ok">OK</div>
     </div>
 </div>
-<div class="ui large centered leaderboard test ad">
+<div class="ui large centered large leaderboard test ad">
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- justice.plus -->
     <ins class="adsbygoogle"
          style="display:block"
          data-ad-client="ca-pub-3748357229978150"
