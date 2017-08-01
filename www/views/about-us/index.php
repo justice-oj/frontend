@@ -1,27 +1,25 @@
 <div class="ui piled segment">
-    <div class="ui left very close rail">
+    <div class="ui left close rail">
         <div class="ui basic segment">
             <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
             <!-- justice.plus -->
             <ins class="adsbygoogle"
                  style="display:inline-block;width:300px;height:600px"
                  data-ad-client="ca-pub-3748357229978150"
-                 data-ad-slot="6514368667"
-                 data-ad-format="auto"></ins>
+                 data-ad-slot="6514368667"></ins>
             <script>
                 (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
         </div>
     </div>
-    <div class="ui right very close rail">
+    <div class="ui right close rail">
         <div class="ui basic segment">
             <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
             <!-- justice.plus -->
             <ins class="adsbygoogle"
                  style="display:inline-block;width:300px;height:600px"
                  data-ad-client="ca-pub-3748357229978150"
-                 data-ad-slot="6514368667"
-                 data-ad-format="auto"></ins>
+                 data-ad-slot="6514368667"></ins>
             <script>
                 (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
