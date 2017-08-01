@@ -1,17 +1,39 @@
 <div class="ui piled segment">
     <div class="ui left rail">
         <div class="ui segment">
-            <div class="ui centered skyscraper test ad" data-text="AD"></div>
+            <div class="ui centered skyscraper test ad">
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- justice.plus -->
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-3748357229978150"
+                     data-ad-slot="6514368667"
+                     data-ad-format="auto"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
         </div>
     </div>
     <div class="ui right rail">
         <div class="ui segment">
-            <div class="ui centered skyscraper test ad" data-text="AD"></div>
+            <div class="ui centered skyscraper test ad">
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- justice.plus -->
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-3748357229978150"
+                     data-ad-slot="6514368667"
+                     data-ad-format="auto"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
         </div>
     </div>
     <h2 class="ui center aligned icon header">
         <i class="circular users icon"></i>
-        About US(me for now)
+        About Us(me for now)
     </h2>
     <div class="ui three column grid">
         <div class="column">
