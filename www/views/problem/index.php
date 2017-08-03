@@ -102,7 +102,7 @@ MathJax.Hub.Config({
             onChange: function(val) {
                 switch (val) {
                     case "0":
-                        editor.setValue("public class Main {\n    public static void main() {\n        \n    }\n}");
+                        editor.setValue("public class Main {\n    public static void main(String[] args) {\n        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Main. */\n    }\n}");
                         editor.setOption('mode', 'text/x-java');
                         msg.removeClass('hidden').addClass('visible');
                         break;

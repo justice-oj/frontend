@@ -2,6 +2,7 @@
 
 namespace www\controllers;
 
+use common\services\EditorialService;
 use common\services\ProblemService;
 use Kilte\Pagination\Pagination;
 use www\filters\UserLoggedinFilter;
@@ -9,15 +10,18 @@ use Yii;
 
 class ProblemController extends BaseController {
     protected $problemService;
+    protected $editorialService;
 
 
     public function __construct(
         $id,
         $module,
         ProblemService $problemService,
+        EditorialService $editorialService,
         $config = []
     ) {
         $this->problemService = $problemService;
+        $this->editorialService = $editorialService;
         parent::__construct($id, $module, $config);
     }
 
@@ -74,9 +78,11 @@ class ProblemController extends BaseController {
         $this->view->title = 'Justice PLUS - Editorial';
 
         $problem = $this->problemService->getProblemByID($problem_id);
+        $editorial = $this->editorialService->getEditorialByProblemID($problem_id);
 
         return $this->render('editorial', [
             'problem' => $problem,
+            'editorial' => $editorial,
         ]);
     }
 }

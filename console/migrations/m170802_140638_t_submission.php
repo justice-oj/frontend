@@ -41,7 +41,6 @@ class m170802_140638_t_submission extends Migration {
             'problem_id'
         );
 
-
         $this->createIndex(
             'idx_user_id',
             't_submission',

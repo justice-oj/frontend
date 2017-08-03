@@ -20,27 +20,33 @@
     <a class="item active">Discussions</a>
     <a class="item" href="/problem/editorial?problem_id=<?= $problem->id ?>">Editorial</a>
 </div>
-<table class="ui selectable celled table">
+<table class="ui very basic table">
     <thead>
     <tr>
-        <th class="one wide">#</th>
-        <th class="two wide">Username</th>
-        <th class="two wide">Language</th>
-        <th class="two wide">Status</th>
-        <th class="two wide">Time (ms)</th>
-        <th class="two wide">Memory (MB)</th>
-        <th class="three wide">Submit Time</th>
+        <th>Topic</th>
+        <th>Replies</th>
+        <th>Views</th>
+        <th>Activity</th>
     </tr>
     </thead>
     <tbody>
     <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>John</td>
+        <td>John</td>
+        <td>Approved</td>
+        <td>None</td>
+    </tr>
+    <tr>
+        <td>Jamie</td>
+        <td>Approved</td>
+        <td>Approved</td>
+        <td>Requires call</td>
+    </tr>
+    <tr>
+        <td>Jill</td>
+        <td>Denied</td>
+        <td>Denied</td>
+        <td>None</td>
     </tr>
     </tbody>
 </table>
