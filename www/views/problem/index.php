@@ -1,5 +1,11 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.28.0/codemirror.min.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.28.0/theme/monokai.min.css" rel="stylesheet">
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  displayAlign: "left"
+});
+</script>
 <div class="ui basic segment">
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <!-- justice.plus -->
@@ -25,51 +31,8 @@
         <li>Time Limit: <?= $problem->runtime_limit ?> ms</li>
     </ul>
 </div>
-<div class="ui items">
-    <div class="item">
-        <div class="content">
-            <a class="header">Description</a>
-            <div class="description">
-                <?= $problem->description ?>
-            </div>
-        </div>
-    </div>
-    <div class="item">
-        <div class="content">
-            <a class="header">Input</a>
-            <div class="description">
-                <?= $problem->input ?>
-            </div>
-        </div>
-    </div>
-    <div class="item">
-        <div class="content">
-            <a class="header">Output</a>
-            <div class="description">
-                <?= $problem->output ?>
-            </div>
-        </div>
-    </div>
-    <div class="item">
-        <div class="content">
-            <div class="description">
-                <div class="ui two column relaxed grid">
-                    <div class="eight wide column">
-                        <div class="ui segment">
-                            <div class="ui top tiny attached button" tabindex="0">Sample Input</div>
-                            <pre><?= $problem->sample_input ?></pre>
-                        </div>
-                    </div>
-                    <div class="eight wide column">
-                        <div class="ui segment">
-                            <div class="ui top tiny attached button" tabindex="0">Sample Output</div>
-                            <pre><?= $problem->sample_output ?></pre>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="content">
+    <?= $problem->description ?>
 </div>
 <h4 class="ui horizontal divider header">
     <i class="write icon"></i>

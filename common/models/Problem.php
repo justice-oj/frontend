@@ -11,10 +11,6 @@ use yii\db\ActiveRecord;
  * @property int $id [int(10) unsigned]
  * @property string $title [varchar(255)]  title of problem
  * @property string $description description of problem
- * @property string $input description of input
- * @property string $output description of output
- * @property string $sample_input one or more input samples
- * @property string $sample_output the correct output of input samples above
  * @property int $level [int(11)]  AKA difficulty, from 1(easy) to 10(difficult)
  * @property int $runtime_limit [int(11)]  runtime limitation(ms)
  * @property int $memory_limit [int(11)]  memory limitation(MB)

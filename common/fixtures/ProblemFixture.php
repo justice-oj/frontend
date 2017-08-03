@@ -10,25 +10,14 @@ class ProblemFixture extends ActiveFixture {
     protected function getData() {
         return [
             [
-                'title' => 'File Retrieval',
-                'description' => 'The operating system of your computer indexes the files on your hard disk based on their contents, and provides textual search over them. The content of each file is a non-empty string of lowercase letters. To do a search, you specify a key, which is also a non-empty string of lowercase letters. The result is a list of all the files that contain the key as a substring. A string s is a substring of a string t if t contains all characters of s as a contiguous sequence. For instance, "foofoo", "cafoo", "foota" and "foo" all contain "foo" as a substring, while "foa", "fofo", "fioo" and “oofo" do not.<br>You know the content of each file on your hard disk, and wonder whether each subset of the files is searchable. A subset of the files is searchable if there exists at least one key that produces exactly the list of those files as a result. Given the contents of the files on your hard disk, you are asked to compute the number of non-empty searchable subsets.',
-                'input' => '<p>Each test case is described using several lines. The first line contains an integer <strong>F</strong> representing the number of files on your hard disk (1 ≤ <strong>F</strong> ≤ 60). Each of the next <strong>F</strong> lines indicates the content of one of the files. The content of a file is a non-empty string of at most 10<sup>4</sup> characters; each character is one of the 26 standard lowercase letters (from \'a\' to \'z\').</p>
-<p>The last test case is followed by a line containing one zero.</p>',
-                'output' => 'For each test case output a line with an integer representing the number of non-empty searchable subsets.',
-                'sample_input' => '6
-form
-formal
-malformed
-for
-man
-remake
-3
-cool
-cool
-old
-0',
-                'sample_output' => '11
-3',
+                'title' => 'The Longest Common Subsequence',
+                'description' => '<h2>Description</h2>A subsequence is a sequence that can be derived from another sequence by deleting some elements without changing the order of the remaining elements.  Longest common subsequence (<em>LCS</em>) of 2 sequences is a subsequence, with maximal length, which is common to both the sequences. <br><br>Given two sequence of integers, \(A = \left [ a_{1}, a_{2}, ... a_{n} \right ]\) and \(B = \left [ b_{1}, b_{2}, ... b_{m} \right ]\), find <b>any one</b> longest common subsequence.<br><br>In case multiple solutions exist, print any of them. It is guaranteed that at least one non-empty common subsequence will exist.<h2>Input</h2>First line contains two space separated integers, \(n\) and \(m\), where \(n\) is the size of sequence \(A\), while \(m\) is size of sequence \(B\). In next line there are \(n\) space separated integers representing sequence \(A\), and in third line there are \(m\) space separated integers representing sequence \(B\).<pre>n m
+A<sub>1</sub> A<sub>2</sub> ... A<sub>n</sub>
+B<sub>1</sub> B<sub>2</sub> ... B<sub>m</sub></pre><h2>Constraints</h2>$$1 \leqslant n \leqslant 100$$ $$1 \leqslant m \leqslant 100$$ $$1 \leqslant a_{i} < 1000, \forall i \in \left [ 1, n \right ]$$ $$1 \leqslant b_{j} < 1000, \forall j \in \left [ 1, m \right ]$$<h2>Output</h2>Print the longest common subsequence and each element should be separated by at least one white-space. In case of multiple answers, print any one of them.<h2>Sample Input</h2>
+<pre>5 6
+1 2 3 4 1
+3 4 1 2 1 3</pre>
+<h2>Sample Output</h2><pre>1 2 3</pre><h2>Explanation</h2><p>There is no common subsequence with length larger than 3. And "1 2 3", "1 2 1", "3 4 1" are all correct answers.</p>',
                 'level' => 7,
                 'runtime_limit' => 8000,
                 'memory_limit' => 64,
