@@ -38,17 +38,17 @@ class SubmissionPresenter {
         if ($status == Submission::STATUS_QUEUE) {
             return 'In Queue';
         } elseif ($status == Submission::STATUS_AC) {
-            return 'In Queue';
+            return 'Accepted';
         } elseif ($status == Submission::STATUS_CE) {
-            return 'In Queue';
+            return 'Compile Error';
         } elseif ($status == Submission::STATUS_RE) {
-            return 'In Queue';
+            return 'Runtime Error';
         } elseif ($status == Submission::STATUS_TLE) {
-            return 'In Queue';
+            return 'Time Limit Exceeded';
         } elseif ($status == Submission::STATUS_MLE) {
-            return 'In Queue';
+            return 'Memory Limit Exceeded';
         } elseif ($status == Submission::STATUS_WA) {
-            return 'In Queue';
+            return 'Wrong Answer';
         } else {
             return 'Unknown';
         }

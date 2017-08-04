@@ -20,8 +20,8 @@
                 <div class="ui fluid large teal submit button" id="auth">Login</div>
             </div>
         </form>
-        <div class="ui message">
-            New to us? <a href="/register">Sign Up</a>
+        <div class="ui orange message">Try with
+            <a class="ui label">i@liuchao.me</a> /<a class="ui label">demo</a>if you don't have an account.
         </div>
     </div>
 </div>

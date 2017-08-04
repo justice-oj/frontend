@@ -26,9 +26,9 @@ $presenter = new \www\presenters\SubmissionPresenter();
     <thead>
     <tr>
         <th class="one wide">#</th>
-        <th class="two wide">Username</th>
-        <th class="two wide">Language</th>
-        <th class="two wide">Status</th>
+        <th class="two wide">User</th>
+        <th class="one wide">Language</th>
+        <th class="three wide">Status</th>
         <th class="two wide">Time (ms)</th>
         <th class="two wide">Memory (MB)</th>
         <th class="three wide">Submit Time</th>
@@ -40,7 +40,10 @@ $presenter = new \www\presenters\SubmissionPresenter();
         echo <<< SUBMISSION
     <tr>
         <td>{$record->id}</td>
-        <td>{$record->user->username}</td>
+        <td>
+        <i class="{$record->user->country} flag"></i>
+        <a href="/profile/{$record->user->username}" target="_blank">{$record->user->username}</a>
+        </td>
         <td>{$presenter->showLanguage($record->language)}</td>
         <td><a href="/submission?id={$record->id}" target="_blank">{$presenter->showStatus($record->status)}</a></td>
         <td>{$record->runtime}</td>

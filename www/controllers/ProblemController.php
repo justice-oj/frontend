@@ -7,6 +7,7 @@ use common\services\ProblemService;
 use Kilte\Pagination\Pagination;
 use www\filters\UserLoggedinFilter;
 use Yii;
+use yii\helpers\Html;
 
 class ProblemController extends BaseController {
     protected $problemService;
@@ -34,9 +35,8 @@ class ProblemController extends BaseController {
 
 
     public function actionIndex(int $id) {
-        $this->view->title = 'Justice PLUS - Problem';
-
         $problem = $this->problemService->getProblemByID($id);
+        $this->view->title = 'Justice PLUS - ' . Html::encode($problem->title);
 
         return $this->render('index', [
             'problem' => $problem,
@@ -45,8 +45,6 @@ class ProblemController extends BaseController {
 
 
     public function actionSubmissions(int $problem_id) {
-        $this->view->title = 'Justice PLUS - Submissions';
-
         $problem = $this->problemService->getProblemByID($problem_id);
         $query = $this->problemService->findSubmissionsByProblemID($problem_id);
         $pagination = new Pagination(
@@ -55,6 +53,7 @@ class ProblemController extends BaseController {
             Yii::$app->params['paginationPerPage']
         );
 
+        $this->view->title = 'Justice PLUS - Submissions of ' . Html::encode($problem->title);
         return $this->render('submissions', [
             'problem' => $problem,
             'pagination' => $pagination->build(),
@@ -64,9 +63,8 @@ class ProblemController extends BaseController {
 
 
     public function actionDiscussions(int $problem_id) {
-        $this->view->title = 'Justice PLUS - Discussions';
-
         $problem = $this->problemService->getProblemByID($problem_id);
+        $this->view->title = 'Justice PLUS - Discussions of ' . Html::encode($problem->title);
 
         return $this->render('discussions', [
             'problem' => $problem,
@@ -75,10 +73,9 @@ class ProblemController extends BaseController {
 
 
     public function actionEditorial(int $problem_id) {
-        $this->view->title = 'Justice PLUS - Editorial';
-
         $problem = $this->problemService->getProblemByID($problem_id);
         $editorial = $this->editorialService->getEditorialByProblemID($problem_id);
+        $this->view->title = 'Justice PLUS - Editorial of ' . Html::encode($problem->title);
 
         return $this->render('editorial', [
             'problem' => $problem,

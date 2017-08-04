@@ -42,11 +42,11 @@ class Submission extends ActiveRecord {
 
 
     public function getProblem() {
-        return $this->hasOne(Problem::className(), ['id' => 'problem_id']);
+        return $this->hasOne(Problem::className(), ['id' => 'problem_id'])->one();
     }
 
 
     public function getUser() {
-        return $this->hasOne(User::className(), ['id' => 'user_id']);
+        return $this->hasOne(User::className(), ['id' => 'user_id'])->one();
     }
 }

@@ -13,8 +13,6 @@ class m170802_140548_t_user extends Migration {
             'email' => $this->string()->notNull(),
             'website' => $this->string()->notNull(),
             'country' => $this->string()->notNull(),
-            'submission_count' => $this->integer()->notNull(),
-            'accepted_count' => $this->integer()->notNull(),
             'created_at' => $this->dateTime()->notNull(),
             'updated_at' => $this->dateTime()->notNull()
         ]);

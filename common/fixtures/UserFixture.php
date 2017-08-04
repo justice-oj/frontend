@@ -17,10 +17,19 @@ class UserFixture extends ActiveFixture {
                 'email' => 'thesedays@126.com',
                 'website' => 'https://www.liuchao.me',
                 'country' => 'jp',
-                'submission_count' => 1024,
-                'accepted_count' => 512,
-                'created_at' => '2000-01-01 00:00:00',
+                'created_at' => '1988-08-29 12:00:00',
                 'updated_at' => '2017-08-02 23:46:03',
+            ],
+            [
+                'username' => 'demo',
+                'password' => '$2a$12$Lgi8HoRwGbxzVA5JpZ.PTe3ouDMR/KjYihX.KJyP3/ryPlJIkImce',
+                'nickname' => 'demo',
+                'bio' => 'I am a robot.',
+                'email' => 'i@liuchao.me',
+                'website' => 'https://www.liuchao.me',
+                'country' => 'us',
+                'created_at' => '1970-01-01 00:00:00',
+                'updated_at' => '2038-01-19 03:14:07',
             ],
         ];
     }

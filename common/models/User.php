@@ -15,13 +15,33 @@ use yii\db\ActiveRecord;
  * @property string $email [varchar(128)]  email address
  * @property string $website [varchar(512)]  personal website
  * @property string $country [varchar(64)]  location(also associated with flag icon)
- * @property int $submission_count [int(11)]  total submissions count of this user
- * @property int $accepted_count [int(11)]  unique solved problems count of this user
  * @property string $created_at [datetime]
  * @property string $updated_at [datetime]
  */
 class User extends ActiveRecord {
     public static function tableName() {
         return 't_user';
+    }
+
+
+    public function getSubmissionCount() {
+        return $this
+            ->hasMany(Submission::className(), ['user_id' => 'id'])
+            ->count();
+    }
+
+
+    public function getTriedCount() {
+        return $this
+            ->hasMany(UserProblem::className(), ['user_id' => 'id'])
+            ->count();
+    }
+
+
+    public function getAcceptedCount() {
+        return $this
+            ->hasMany(Submission::className(), ['user_id' => 'id'])
+            ->andOnCondition(['status' => Submission::STATUS_AC])
+            ->count();
     }
 }

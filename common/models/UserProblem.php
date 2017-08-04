@@ -19,7 +19,18 @@ class UserProblem extends ActiveRecord {
     const STATUS_SOLVED = 1;
     const STATUS_TRIED = 2;
 
+
     public static function tableName() {
         return 't_user_problem';
+    }
+
+
+    public function getProblem() {
+        return $this->hasOne(Problem::className(), ['id' => 'problem_id']);
+    }
+
+
+    public function getUser() {
+        return $this->hasOne(User::className(), ['id' => 'user_id']);
     }
 }
