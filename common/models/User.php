@@ -31,13 +31,6 @@ class User extends ActiveRecord {
     }
 
 
-    public function getTriedCount() {
-        return $this
-            ->hasMany(UserProblem::className(), ['user_id' => 'id'])
-            ->count();
-    }
-
-
     public function getAcceptedCount() {
         return $this
             ->hasMany(Submission::className(), ['user_id' => 'id'])

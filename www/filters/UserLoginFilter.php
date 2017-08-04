@@ -15,7 +15,7 @@ class UserLoginFilter extends ActionFilter {
                 'message' => 'email or password error.',
                 'code' => 255
             ]);
-            return FALSE;
+            return false;
         }
         return parent::beforeAction($action);
     }

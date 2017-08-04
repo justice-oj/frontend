@@ -2,8 +2,10 @@
 
 namespace common\services;
 
+use common\models\Submission;
 use common\models\User;
-use common\models\UserProblem;
+use Yii;
+use yii\db\Query;
 
 /**
  * Class UserService
@@ -43,6 +45,16 @@ class UserService {
      * @return  array
      */
     public function getUserRanking($offset, $limit) {
+        // SELECT `problem_id`, `user_id` FROM t_submission WHERE status = 0 GROUP BY problem_id, user_id;
+        $sub_query = (new Query())
+            ->from(['t_submission'])
+            ->select(['problem_id', 'user_id'])
+            ->where(['status' => Submission::STATUS_AC])
+            ->groupBy(['user_id', 'problem_id']);
+
+        // SELECT `user_id`, count(*) AS count FROM
+        //   (SELECT `problem_id`, `user_id` FROM t_submission WHERE status = 0 GROUP BY problem_id, user_id) r
+        // GROUP BY `user_id` ORDER BY count DESC;
         return array_map(function($record) {
             $user = User::findOne($record['user_id']);
             $submissions = $user->getSubmissionCount();
@@ -50,20 +62,17 @@ class UserService {
                 'country' => $user->country,
                 'username' => $user->username,
                 'solved' => $record['count'],
-                'tried' => $user->getTriedCount(),
+                'tried' => Yii::$app->redis->bitcount(Yii::$app->params['userTriedCountKey'] . $record['user_id']),
                 'submissions' => $submissions,
                 'AC' => $submissions == 0 ? 0 : number_format($user->getAcceptedCount() * 100 / $submissions, 2),
                 'since' => $user->created_at
             ];
-        }, UserProblem::find()
-            ->select([
-                'user_id',
-                'count(*) AS count'
-            ])
-            ->where(['status' => UserProblem::STATUS_SOLVED])
+        }, (new Query())
+            ->from(['r' => $sub_query])
+            ->select(['user_id', 'count(*) AS count'])
             ->groupBy(['user_id'])
             ->orderBy(['count' => SORT_DESC])
-            ->offset($offset)->limit($limit)->asArray()->all()
+            ->offset($offset)->limit($limit)->all()
         );
     }
 }

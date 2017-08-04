@@ -17,7 +17,7 @@ $presenter = new \www\presenters\SubmissionPresenter();
 </div>
 <h2 class="ui header"><?= $problem->title ?></h2>
 <div class="ui top fluid four item menu">
-    <a class="item" href="/problem?id=<?= $problem->id ?>">Problem</a>
+    <a class="item" href="/problem?problem_id=<?= $problem->id ?>">Problem</a>
     <a class="item active">Submissions</a>
     <a class="item" href="/problem/discussions?problem_id=<?= $problem->id ?>">Discussions</a>
     <a class="item" href="/problem/editorial?problem_id=<?= $problem->id ?>">Editorial</a>

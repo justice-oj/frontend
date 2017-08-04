@@ -33,7 +33,7 @@ class ProblemsController extends BaseController {
     public function actionIndex(string $id = null, string $title = null) {
         $this->view->title = 'Justice PLUS - Problems';
 
-        $query = $this->problemService->getProblemsWithStatus($id, $title);
+        $query = $this->problemService->getProblemsWithConditions($id, $title);
         $pagination = new Pagination(
             $query->count(),
             intval(Yii::$app->request->get('page', 1)),
@@ -44,7 +44,7 @@ class ProblemsController extends BaseController {
             'id' => Html::encode($id),
             'title' => Html::encode($title),
             'pagination' => $pagination->build(),
-            'records' => $query->offset($pagination->offset())->limit($pagination->limit())->asArray()->all(),
+            'records' => $this->problemService->getProblemsWithStatus($query, $pagination->offset(), $pagination->limit()),
         ]);
     }
 }

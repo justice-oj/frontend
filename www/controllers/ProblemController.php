@@ -5,6 +5,7 @@ namespace www\controllers;
 use common\services\EditorialService;
 use common\services\ProblemService;
 use Kilte\Pagination\Pagination;
+use www\filters\ProblemExistsFilter;
 use www\filters\UserLoggedinFilter;
 use Yii;
 use yii\helpers\Html;
@@ -30,12 +31,13 @@ class ProblemController extends BaseController {
     public function behaviors() {
         return [
             ['class' => UserLoggedinFilter::className()],
+            ['class' => ProblemExistsFilter::className(), 'only' => ['index', 'submissions', 'discussions', 'editorial']]
         ];
     }
 
 
-    public function actionIndex(int $id) {
-        $problem = $this->problemService->getProblemByID($id);
+    public function actionIndex(int $problem_id) {
+        $problem = $this->problemService->getProblemByID($problem_id);
         $this->view->title = 'Justice PLUS - ' . Html::encode($problem->title);
 
         return $this->render('index', [

@@ -15,7 +15,7 @@
 </div>
 <h2 class="ui header"><?= $problem->title ?></h2>
 <div class="ui top fluid four item menu">
-    <a class="item" href="/problem?id=<?= $problem->id ?>">Problem</a>
+    <a class="item" href="/problem?problem_id=<?= $problem->id ?>">Problem</a>
     <a class="item" href="/problem/submissions?problem_id=<?= $problem->id ?>">Submissions</a>
     <a class="item active">Discussions</a>
     <a class="item" href="/problem/editorial?problem_id=<?= $problem->id ?>">Editorial</a>

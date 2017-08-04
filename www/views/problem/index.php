@@ -54,9 +54,7 @@ MathJax.Hub.Config({
     </div>
 </div>
 <h4 class="ui header">Paste your source code:</h4>
-<div class="ui segment">
-    <textarea id="editor" rows="5"></textarea>
-</div>
+<textarea id="editor" rows="50"></textarea>
 <button class="ui primary basic button" id="submit">Submit</button>
 <div class="ui tiny modal" id="null">
     <div class="header">Please select a language.</div>

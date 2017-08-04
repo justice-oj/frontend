@@ -2,7 +2,7 @@
 
 namespace www\presenters;
 
-use common\models\UserProblem;
+use common\models\Problem;
 
 class ProblemPresenter {
     /**
@@ -11,10 +11,10 @@ class ProblemPresenter {
      * @param   int $status problem solved status
      * @return  String user's AC percentage
      */
-    public function showTRClass(?int $status) {
-        if ($status === UserProblem::STATUS_TRIED) {
+    public function showTRClass(int $status) {
+        if ($status === Problem::STATUS_TRIED) {
             return 'negative';
-        } elseif ($status === UserProblem::STATUS_SOLVED) {
+        } elseif ($status === Problem::STATUS_SOLVED) {
             return 'positive';
         } else {
             return '';
@@ -28,10 +28,10 @@ class ProblemPresenter {
      * @param   int $status problem solved status
      * @return  String user's AC percentage
      */
-    public function showProblemIcon(?int $status) {
-        if ($status === UserProblem::STATUS_TRIED) {
+    public function showProblemIcon(int $status) {
+        if ($status === Problem::STATUS_TRIED) {
             return ' <i class="remove icon"></i>';
-        } elseif ($status === UserProblem::STATUS_SOLVED) {
+        } elseif ($status === Problem::STATUS_SOLVED) {
             return ' <i class="checkmark icon"></i>';
         } else {
             return '';

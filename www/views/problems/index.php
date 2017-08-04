@@ -1,9 +1,8 @@
 <?php
-
 use www\widgets\common\PaginationWidget;
-
 $problem_presenter = new www\presenters\ProblemPresenter();
 ?>
+
 <div class="ui basic segment">
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <!-- justice.plus -->
@@ -46,7 +45,7 @@ $problem_presenter = new www\presenters\ProblemPresenter();
         echo <<< PROBLEM
     <tr class="{$problem_presenter->showTRClass($record['status'])}">
         <td>{$record['id']} {$problem_presenter->showProblemIcon($record['status'])}</td>
-        <td><a href="/problem?id={$record['id']}">{$record['title']}</a></td>
+        <td><a href="/problem?problem_id={$record['id']}">{$record['title']}</a></td>
         <td class="center aligned">
             <div class="ui horizontal grey mini statistic">
                 <div class="value">{$record['total']}</div>

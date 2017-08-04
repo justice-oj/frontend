@@ -11,8 +11,6 @@ class m170801_143442_t_problem extends Migration {
             'level' => $this->integer()->notNull(),
             'runtime_limit' => $this->integer()->notNull(),
             'memory_limit' => $this->integer()->notNull(),
-            'submission_count' => $this->integer()->notNull(),
-            'accepted_count' => $this->integer()->notNull(),
             'created_at' => $this->dateTime()->notNull(),
             'updated_at' => $this->dateTime()->notNull()
         ]);

@@ -29,13 +29,13 @@ class SubmissionController extends BaseController {
 
     public function actionIndex(int $id) {
         $submission = $this->submissionService->getSubmissionByID($id);
-        $uid = Yii::$app->session->get(Yii::$app->params['userIdKey']);
 
-        if ($uid != 1 && $uid != $submission->user_id) {
+        if (is_null($submission)) {
             Yii::$app->response->redirect([
                 'error/index',
-                'message' => 'You do not have access to this submission.'
+                'message' => 'This submission does not exist.'
             ]);
+            return false;
         }
 
         return $this->render('index', [

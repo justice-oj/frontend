@@ -5,4 +5,5 @@ return [
     'userIdKey' => 'id',
     'userNameKey' => 'name',
     'paginationPerPage' => 20,
+    'userTriedCountKey' => '_utck_',
 ];

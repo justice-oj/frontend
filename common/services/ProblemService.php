@@ -27,20 +27,49 @@ class ProblemService {
      * @return  yii\db\ActiveQuery
      * @desc
      */
-    public function getProblemsWithStatus(?string $code, ?string $title) {
-        $id = Yii::$app->session->get(Yii::$app->params['userIdKey']);
+    public function getProblemsWithConditions(?string $code, ?string $title) {
         return Problem::find()
-            ->select([
-                't_problem.id               AS id',
-                't_problem.title            AS title',
-                't_problem.submission_count AS total',
-                't_problem.accepted_count   AS accepted',
-                't_problem.level            AS level',
-                't_user_problem.status      AS status'
-            ])
-            ->leftJoin('t_user_problem', "t_problem.id = t_user_problem.problem_id AND t_user_problem.user_id = $id")
             ->andFilterWhere(['t_problem.id' => $code])
             ->andFilterWhere(['LIKE', 't_problem.title', $title]);
+    }
+
+
+    /**
+     * @author  liuchao
+     * @mail    i@liuchao.me
+     * @param   \yii\db\ActiveQuery $query
+     * @param   int $offset
+     * @param   int $limit
+     * @return  array
+     * @desc
+     */
+    public function getProblemsWithStatus($query, int $offset, int $limit) {
+        $uid = Yii::$app->session->get(Yii::$app->params['userIdKey']);
+
+        return array_map(function($record) use ($uid) {
+            if (!is_null(Submission::findOne([
+                'problem_id'=> $record->id,
+                'user_id' => $uid,
+                'status' => Problem::STATUS_SOLVED
+            ]))) {
+                $status = Problem::STATUS_SOLVED;
+            } elseif (
+                Yii::$app->redis->getbit(Yii::$app->params['userTriedCountKey'] . $uid, $record->id) == Problem::STATUS_TRIED
+            ) {
+                $status = Problem::STATUS_TRIED;
+            } else {
+                $status = Problem::STATUS_UNSOLVED;
+            }
+
+            return [
+                'id' => $record->id,
+                'title' => $record->title,
+                'accepted' => $record->getAcceptedCount(),
+                'total' => $record->getSubmissionCount(),
+                'level' => $record->level,
+                'status' => $status
+            ];
+        }, $query->offset($offset)->limit($limit)->all());
     }
 
 

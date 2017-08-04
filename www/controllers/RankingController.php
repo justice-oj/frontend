@@ -2,7 +2,7 @@
 
 namespace www\controllers;
 
-use common\models\UserProblem;
+use common\models\Submission;
 use common\services\UserService;
 use Kilte\Pagination\Pagination;
 use www\filters\UserLoggedinFilter;
@@ -34,7 +34,7 @@ class RankingController extends BaseController {
         $this->view->title = 'Justice PLUS - Ranking';
 
         $pagination = new Pagination(
-            UserProblem::find()->select(['user_id'])->distinct()->count(),
+            Submission::find()->select(['user_id'])->distinct()->count(),
             intval(Yii::$app->request->get('page', 1)),
             Yii::$app->params['paginationPerPage']
         );
