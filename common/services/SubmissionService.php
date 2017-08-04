@@ -19,4 +19,16 @@ class SubmissionService {
     public function getSubmissionByID(int $id) {
         return Submission::findOne($id);
     }
+
+
+    /**
+     * @author  liuchao
+     * @mail    i@liuchao.me
+     * @param  int $user_id
+     * @return \yii\db\ActiveQuery
+     * @desc
+     */
+    public function getSubmissionsByUserID(int $user_id) {
+        return Submission::find()->where(['user_id' => $user_id]);
+    }
 }

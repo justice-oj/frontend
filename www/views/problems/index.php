@@ -1,6 +1,6 @@
 <?php
 use www\widgets\common\PaginationWidget;
-$problem_presenter = new www\presenters\ProblemPresenter();
+$presenter = new www\presenters\ProblemPresenter();
 ?>
 
 <div class="ui basic segment">
@@ -43,8 +43,8 @@ $problem_presenter = new www\presenters\ProblemPresenter();
     <?php
     foreach ((array) $records as $record) {
         echo <<< PROBLEM
-    <tr class="{$problem_presenter->showTRClass($record['status'])}">
-        <td>{$record['id']} {$problem_presenter->showProblemIcon($record['status'])}</td>
+    <tr class="{$presenter->showTRClass($record['status'])}">
+        <td>{$record['id']} {$presenter->showProblemIcon($record['status'])}</td>
         <td><a href="/problem?problem_id={$record['id']}">{$record['title']}</a></td>
         <td class="center aligned">
             <div class="ui horizontal grey mini statistic">
@@ -52,7 +52,7 @@ $problem_presenter = new www\presenters\ProblemPresenter();
             </div>
         </td>
         <td>
-            {$problem_presenter->showProblemRate($record['accepted'], $record['total'])}
+            {$presenter->showProblemRate($record['accepted'], $record['total'])}
         </td>
         <td>{$record['level']}</td>
     </tr>

@@ -39,6 +39,18 @@ class UserService {
     /**
      * @author  liuchao
      * @mail    i@liuchao.me
+     * @param   string $username
+     * @return  \common\models\User|null
+     * @desc
+     */
+    public function getUserByName(string $username) {
+        return User::find()->where(['username' => $username])->one();
+    }
+
+
+    /**
+     * @author  liuchao
+     * @mail    i@liuchao.me
      * @desc    the big ranking
      * @param   int $offset
      * @param   int $limit

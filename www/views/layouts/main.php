@@ -51,8 +51,8 @@
             <div class="menu">
                 <a class="item" href="/settings">Settings</a>
                 <div class="divider"></div>
-                <a class="item" href="/my/statistics">My Statistics</a>
-                <a class="item" href="/my/submissions">My Submissions</a>
+                <a class="item" href="/profile/{$user_name}">My Profile</a>
+                <a class="item" href="/submissions?user={$user_name}">My Submissions</a>
                 <div class="divider"></div>
                 <a class="item" href="/logout">Logout</a>
             </div>
