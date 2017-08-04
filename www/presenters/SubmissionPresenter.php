@@ -21,7 +21,7 @@ class SubmissionPresenter {
         } elseif ($language === Submission::LANGUAGE_PYTHON3) {
             return 'Python 3';
         } elseif ($language === Submission::LANGUAGE_JAVA) {
-            return 'JAVA';
+            return 'Java';
         } else {
             return 'Other';
         }

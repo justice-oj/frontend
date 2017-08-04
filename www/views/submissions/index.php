@@ -1,5 +1,7 @@
 <?php
+
 use www\widgets\common\PaginationWidget;
+
 $presenter = new \www\presenters\SubmissionPresenter();
 ?>
 
@@ -44,8 +46,8 @@ $presenter = new \www\presenters\SubmissionPresenter();
         </td>
         <td>{$presenter->showLanguage($record->language)}</td>
         <td><a href="/submission?id={$record->id}" target="_blank">{$presenter->showStatus($record->status)}</a></td>
-        <td>{$record->runtime} (ms)</td>
-        <td>{$record->memory} (MB)</td>
+        <td>{$record->runtime} ms</td>
+        <td>{$record->memory} MB</td>
         <td>{$record->created_at}</td>
     </tr>
 SUBMISSION;

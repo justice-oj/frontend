@@ -1,5 +1,3 @@
-<link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.28.0/codemirror.min.css" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.28.0/theme/monokai.min.css" rel="stylesheet">
 <div class="ui basic segment">
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <!-- justice.plus -->
@@ -19,9 +17,26 @@
     <a class="item" href="/problem/discussions?problem_id=<?= $problem->id ?>">Discussions</a>
     <a class="item active">Editorial</a>
 </div>
-<div class="ui raised segment">
-    <?= $editorial->content ?>
+<?php
+if (is_null($editorial)) {
+    echo <<< NULL
+<div class="ui basic center aligned segment">
+  <i class="massive icons">
+    <i class="file text outline icon"></i>
+    <i class="bottom right corner help icon"></i>
+  </i>
+  <h2 class="ui header">To be done.</h2>
 </div>
+NULL;
+} else {
+    echo <<< ARTICLE
+<div class="ui basic segment">
+    {$editorial->content}
+</div>
+ARTICLE;
+}
+?>
+
 <div class="ui basic segment">
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <!-- justice.plus -->

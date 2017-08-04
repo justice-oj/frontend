@@ -40,6 +40,7 @@
             <img class="logo" src="/images/logo/justice-white.png">&nbsp;Justice +
         </a>
         <a href="/problems" class="item">Problems</a>
+        <a href="/submissions" class="item">Submissions</a>
         <a href="/ranking" class="item">Ranking</a>
         <a href="https://gitter.im/justice-plus/justice.plus" class="item" target="_blank">Chat</a>
         <?php
@@ -52,7 +53,6 @@
                 <a class="item" href="/settings">Settings</a>
                 <div class="divider"></div>
                 <a class="item" href="/profile/{$user_name}">My Profile</a>
-                <a class="item" href="/submissions?user={$user_name}">My Submissions</a>
                 <div class="divider"></div>
                 <a class="item" href="/logout">Logout</a>
             </div>
