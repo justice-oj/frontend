@@ -7,6 +7,7 @@ use common\models\Submission;
 use common\models\User;
 use Yii;
 use yii\db\Query;
+use yii\helpers\ArrayHelper;
 
 /**
  * Class UserService
@@ -120,12 +121,7 @@ class UserService {
             ->where(['user_id' => $user_id])
             ->groupBy('status')
             ->asArray()->all();
-
-        $result = [];
-        foreach ($status as $d) {
-            $result[$d['status']] = $d['count'];
-        }
-        return $result;
+        return ArrayHelper::map($status, 'status', 'count');
     }
 
 
@@ -142,11 +138,6 @@ class UserService {
             ->where(['user_id' => $user_id])
             ->groupBy('language')
             ->asArray()->all();
-
-        $result = [];
-        foreach ($status as $d) {
-            $result[$d['language']] = $d['count'];
-        }
-        return $result;
+        return ArrayHelper::map($status, 'language', 'count');
     }
 }
