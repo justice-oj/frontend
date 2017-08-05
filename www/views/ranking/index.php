@@ -1,20 +1,13 @@
 <?php
 
+use www\widgets\common\GoogleAdSenseWidget;
 use www\widgets\common\PaginationWidget;
 
 $problem_presenter = new www\presenters\ProblemPresenter();
 ?>
+
 <div class="ui basic segment">
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- justice.plus -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-3748357229978150"
-         data-ad-slot="6514368667"
-         data-ad-format="auto"></ins>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
+    <?= GoogleAdSenseWidget::widget(); ?>
 </div>
 <h2 class="ui header">Ranking</h2>
 <table class="ui selectable celled table">
@@ -35,7 +28,7 @@ $problem_presenter = new www\presenters\ProblemPresenter();
     <tr>
         <td>
             <i class="{$record['country']} flag"></i>
-            <a href="/profile/{$record['username']}" target="_blank">{$record['username']}</a>
+            <a href="/profile?name={$record['username']}" target="_blank">{$record['username']}</a>
         </td>
         <td>{$record['solved']}</td>
         <td>{$record['tried']}</td>
@@ -50,14 +43,5 @@ USER;
 </table>
 <?= PaginationWidget::widget(['pagination' => $pagination]); ?>
 <div class="ui basic segment">
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- justice.plus -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-3748357229978150"
-         data-ad-slot="6514368667"
-         data-ad-format="auto"></ins>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
+    <?= GoogleAdSenseWidget::widget(); ?>
 </div>

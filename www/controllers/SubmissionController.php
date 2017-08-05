@@ -5,9 +5,11 @@ namespace www\controllers;
 use common\services\SubmissionService;
 use www\filters\UserLoggedinFilter;
 use Yii;
+use yii\helpers\Html;
 
 class SubmissionController extends BaseController {
     protected $submissionService;
+
 
     public function __construct(
         $id,
@@ -38,10 +40,13 @@ class SubmissionController extends BaseController {
             return false;
         }
 
+        $problem = $submission->getProblem();
+        $this->view->title = 'Justice PLUS - Submission of ' . Html::encode($problem->title);
+
         return $this->render('index', [
             'submission' => $submission,
             'user' => $submission->getUser(),
-            'problem' => $submission->getProblem()
+            'problem' => $problem
         ]);
     }
 }

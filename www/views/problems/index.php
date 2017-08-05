@@ -1,19 +1,13 @@
 <?php
+
+use www\widgets\common\GoogleAdSenseWidget;
 use www\widgets\common\PaginationWidget;
+
 $presenter = new www\presenters\ProblemPresenter();
 ?>
 
 <div class="ui basic segment">
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- justice.plus -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-3748357229978150"
-         data-ad-slot="6514368667"
-         data-ad-format="auto"></ins>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
+    <?= GoogleAdSenseWidget::widget(); ?>
 </div>
 <h2 class="ui header">Problems</h2>
 <form class="ui form" action="/problems">
@@ -63,14 +57,5 @@ PROBLEM;
 </table>
 <?= PaginationWidget::widget(['pagination' => $pagination]); ?>
 <div class="ui basic segment">
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- justice.plus -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-3748357229978150"
-         data-ad-slot="6514368667"
-         data-ad-format="auto"></ins>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
+    <?= GoogleAdSenseWidget::widget(); ?>
 </div>

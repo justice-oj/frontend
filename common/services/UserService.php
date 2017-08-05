@@ -2,6 +2,7 @@
 
 namespace common\services;
 
+use common\models\Problem;
 use common\models\Submission;
 use common\models\User;
 use Yii;
@@ -76,7 +77,7 @@ class UserService {
                 'solved' => $record['count'],
                 'tried' => Yii::$app->redis->bitcount(Yii::$app->params['userTriedCountKey'] . $record['user_id']),
                 'submissions' => $submissions,
-                'AC' => $submissions == 0 ? 0 : number_format($user->getAcceptedCount() * 100 / $submissions, 2),
+                'AC' => $submissions == 0 ? 0 : number_format($user->getAcceptedSubmissionCount() * 100 / $submissions, 2),
                 'since' => $user->created_at
             ];
         }, (new Query())
@@ -86,5 +87,66 @@ class UserService {
             ->orderBy(['count' => SORT_DESC])
             ->offset($offset)->limit($limit)->all()
         );
+    }
+
+
+    /**
+     * @author  liuchao
+     * @mail    i@liuchao.me
+     * @param   int $user_id
+     * @return int
+     * @desc
+     */
+    public function getSolvedProblemCount(int $user_id) {
+        return Submission::find()
+            ->select('problem_id')
+            ->where(['user_id' => $user_id])
+            ->andWhere(['status' => Problem::STATUS_SOLVED])
+            ->groupBy(['problem_id'])
+            ->count();
+    }
+
+
+    /**
+     * @author  liuchao
+     * @mail    i@liuchao.me
+     * @param   int $user_id
+     * @return  array
+     * @desc    for user profile
+     */
+    public function getProblemSolvedStatus(int $user_id) {
+        $status = Submission::find()
+            ->select(['status', 'count(*) AS count'])
+            ->where(['user_id' => $user_id])
+            ->groupBy('status')
+            ->asArray()->all();
+
+        $result = [];
+        foreach ($status as $d) {
+            $result[$d['status']] = $d['count'];
+        }
+        return $result;
+    }
+
+
+    /**
+     * @author  liuchao
+     * @mail    i@liuchao.me
+     * @param   int $user_id
+     * @return  array
+     * @desc    for user profile
+     */
+    public function getSubmissionLanguages(int $user_id) {
+        $status = Submission::find()
+            ->select(['language', 'count(*) AS count'])
+            ->where(['user_id' => $user_id])
+            ->groupBy('language')
+            ->asArray()->all();
+
+        $result = [];
+        foreach ($status as $d) {
+            $result[$d['language']] = $d['count'];
+        }
+        return $result;
     }
 }

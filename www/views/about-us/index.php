@@ -1,28 +1,18 @@
+<?php
+
+use www\widgets\common\GoogleAdSenseWidget;
+
+?>
+
 <div class="ui piled segment">
     <div class="ui left close rail">
         <div class="ui basic segment">
-            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-            <!-- justice.plus -->
-            <ins class="adsbygoogle"
-                 style="display:inline-block;width:300px;height:600px"
-                 data-ad-client="ca-pub-3748357229978150"
-                 data-ad-slot="6514368667"></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
+            <?= GoogleAdSenseWidget::widget(['type' => '300x600']); ?>
         </div>
     </div>
     <div class="ui right close rail">
         <div class="ui basic segment">
-            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-            <!-- justice.plus -->
-            <ins class="adsbygoogle"
-                 style="display:inline-block;width:300px;height:600px"
-                 data-ad-client="ca-pub-3748357229978150"
-                 data-ad-slot="6514368667"></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
+            <?= GoogleAdSenseWidget::widget(['type' => '300x600']); ?>
         </div>
     </div>
     <h2 class="ui center aligned icon header">

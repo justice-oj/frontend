@@ -1,21 +1,13 @@
 <?php
 
+use www\widgets\common\GoogleAdSenseWidget;
 use www\widgets\common\PaginationWidget;
 
 $presenter = new \www\presenters\SubmissionPresenter();
 ?>
 
 <div class="ui basic segment">
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- justice.plus -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-3748357229978150"
-         data-ad-slot="6514368667"
-         data-ad-format="auto"></ins>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
+    <?= GoogleAdSenseWidget::widget(); ?>
 </div>
 <h2 class="ui header">Submissions</h2>
 <table class="ui selectable striped celled table">
@@ -39,7 +31,7 @@ $presenter = new \www\presenters\SubmissionPresenter();
         <td>{$record->id}</td>
         <td>
         <i class="{$record->user->country} flag"></i>
-        <a href="/profile/{$record->user->username}" target="_blank">{$record->user->username}</a>
+        <a href="/profile?name={$record->user->username}" target="_blank">{$record->user->username}</a>
         </td>
         <td>
         <a href="/problem/?problem_id={$record->problem->id}" target="_blank">{$record->problem->title}</a>
@@ -57,14 +49,5 @@ SUBMISSION;
 </table>
 <?= PaginationWidget::widget(['pagination' => $pagination]); ?>
 <div class="ui basic segment">
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- justice.plus -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-3748357229978150"
-         data-ad-slot="6514368667"
-         data-ad-format="auto"></ins>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
+    <?= GoogleAdSenseWidget::widget(); ?>
 </div>

@@ -31,7 +31,7 @@ class User extends ActiveRecord {
     }
 
 
-    public function getAcceptedCount() {
+    public function getAcceptedSubmissionCount() {
         return $this
             ->hasMany(Submission::className(), ['user_id' => 'id'])
             ->andOnCondition(['status' => Submission::STATUS_AC])

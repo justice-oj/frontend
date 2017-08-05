@@ -42,6 +42,7 @@ class SubmissionsController extends BaseController {
             Yii::$app->params['paginationPerPage']
         );
 
+        $this->view->title = 'Justice PLUS - Submissions';
         return $this->render('index', [
             'pagination' => $pagination->build(),
             'records' => $query->offset($pagination->offset())->limit($pagination->limit())->all(),

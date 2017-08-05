@@ -1,20 +1,14 @@
 <?php
+
+use www\widgets\common\GoogleAdSenseWidget;
+
 $presenter = new \www\presenters\SubmissionPresenter();
 ?>
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.28.0/codemirror.min.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.28.0/theme/monokai.min.css" rel="stylesheet">
 <div class="ui basic segment">
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- justice.plus -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-3748357229978150"
-         data-ad-slot="6514368667"
-         data-ad-format="auto"></ins>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
+    <?= GoogleAdSenseWidget::widget(); ?>
 </div>
 <table class="ui single line table">
     <thead>
@@ -34,7 +28,7 @@ $presenter = new \www\presenters\SubmissionPresenter();
         <td><?= $submission->id ?></td>
         <td>
             <i class="<?= $user->country ?> flag"></i>
-            <a href="/profile/<?= $user->username ?>" target="_blank"><?= $user->username ?></a>
+            <a href="/profile?name=<?= $user->username ?>" target="_blank"><?= $user->username ?></a>
         </td>
         <td><a href="/problem?problem_id=<?= $problem->id ?>" target="_blank"><?= $problem->title ?></a></td>
         <td><?= $presenter->showLanguage($submission->language) ?></td>
@@ -49,16 +43,7 @@ $presenter = new \www\presenters\SubmissionPresenter();
     <textarea id="editor"><?= $submission->code ?></textarea>
 </div>
 <div class="ui basic segment">
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- justice.plus -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-3748357229978150"
-         data-ad-slot="6514368667"
-         data-ad-format="auto"></ins>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
+    <?= GoogleAdSenseWidget::widget(); ?>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.28.0/codemirror.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.28.0/addon/edit/matchbrackets.min.js"></script>

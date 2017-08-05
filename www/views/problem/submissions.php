@@ -1,19 +1,13 @@
 <?php
+
+use www\widgets\common\GoogleAdSenseWidget;
 use www\widgets\common\PaginationWidget;
+
 $presenter = new \www\presenters\SubmissionPresenter();
 ?>
 
 <div class="ui basic segment">
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- justice.plus -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-3748357229978150"
-         data-ad-slot="6514368667"
-         data-ad-format="auto"></ins>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
+    <?= GoogleAdSenseWidget::widget(); ?>
 </div>
 <h2 class="ui header"><?= $problem->title ?></h2>
 <div class="ui top fluid four item menu">
@@ -42,7 +36,7 @@ $presenter = new \www\presenters\SubmissionPresenter();
         <td>{$record->id}</td>
         <td>
         <i class="{$record->user->country} flag"></i>
-        <a href="/profile/{$record->user->username}" target="_blank">{$record->user->username}</a>
+        <a href="/profile?name={$record->user->username}" target="_blank">{$record->user->username}</a>
         </td>
         <td>{$presenter->showLanguage($record->language)}</td>
         <td><a href="/submission?id={$record->id}" target="_blank">{$presenter->showStatus($record->status)}</a></td>
@@ -57,16 +51,7 @@ SUBMISSION;
 </table>
 <?= PaginationWidget::widget(['pagination' => $pagination]); ?>
 <div class="ui basic segment">
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- justice.plus -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-3748357229978150"
-         data-ad-slot="6514368667"
-         data-ad-format="auto"></ins>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
+    <?= GoogleAdSenseWidget::widget(); ?>
 </div>
 <script>
     $(document).ready(function () {
