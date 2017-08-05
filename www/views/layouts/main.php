@@ -30,6 +30,13 @@
             padding: 3em 0em;
         }
     </style>
+    <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+    </script>
     <?php $this->head() ?>
 </head>
 <body>
