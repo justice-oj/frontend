@@ -38,16 +38,12 @@ MathJax.Hub.Config({
     <div class="four wide field">
         <select class="ui dropdown" id="language">
             <option value="">Select Language</option>
-            <option value="0">Java</option>
-            <option value="1">C</option>
-            <option value="2">C++</option>
-            <option value="3">Python</option>
+            <option value="0">C</option>
+            <option value="1">C++</option>
+            <option value="2">Python 2</option>
+            <option value="3">Python 3</option>
+            <option value="4">Java</option>
         </select>
-    </div>
-</div>
-<div class="ui hidden negative message" id="msg">
-    <div class="header">
-        static main method must be contained in public class Main
     </div>
 </div>
 <h4 class="ui header">Paste your source code:</h4>
@@ -89,25 +85,51 @@ MathJax.Hub.Config({
         language.dropdown({
             onChange: function(val) {
                 switch (val) {
-                    case "0":
-                        editor.setValue("public class Main {\n    public static void main(String[] args) {\n        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Main. */\n    }\n}");
-                        editor.setOption('mode', 'text/x-java');
-                        msg.removeClass('hidden').addClass('visible');
-                        break;
-                    case "1":
-                        editor.setValue("");
+                    case "<?= \common\models\Submission::LANGUAGE_C ?>":
+                        editor.setValue(
+                            "#include <stdio.h>\n" +
+                            "\n" +
+                            "int main() {\n" +
+                            "    /* Enter your code here. Read input from STDIN. Print output to STDOUT */\n" +
+                            "    return 0;\n" +
+                            "}"
+                        );
                         editor.setOption('mode', 'text/x-csrc');
-                        msg.removeClass('visible').addClass('hidden');
                         break;
-                    case "2":
-                        editor.setValue("");
+                    case "<?= \common\models\Submission::LANGUAGE_CPP ?>":
+                        editor.setValue(
+                            "#include <iostream>\n" +
+                            "\n" +
+                            "using namespace std;\n" +
+                            "int main() {\n" +
+                            "    /* Enter your code here. Read input from STDIN. Print output to STDOUT */\n" +
+                            "    return 0;\n" +
+                            "}"
+                        );
                         editor.setOption('mode', 'text/x-c++src');
-                        msg.removeClass('visible').addClass('hidden');
                         break;
-                    case "3":
-                        editor.setValue("");
+                    case "<?= \common\models\Submission::LANGUAGE_PYTHON2 ?>":
+                        editor.setValue(
+                            "# Enter your code here. Read input from STDIN. Print output to STDOUT\n"
+                        );
                         editor.setOption('mode', 'text/x-python');
-                        msg.removeClass('visible').addClass('hidden');
+                        break;
+                    case "<?= \common\models\Submission::LANGUAGE_PYTHON3 ?>":
+                        editor.setValue("# Enter your code here. Read input from STDIN. Print output to STDOUT\n");
+                        editor.setOption('mode', 'text/x-python');
+                        break;
+                    case "<?= \common\models\Submission::LANGUAGE_JAVA ?>":
+                        editor.setValue(
+                            "import java.io.*;\n" +
+                            "import java.util.*;\n" +
+                            "\n" +
+                            "public class Main {\n" +
+                            "    public static void main(String args[] ) throws Exception {\n" +
+                            "        /* Enter your code here. Read input from STDIN. Print output to STDOUT */\n" +
+                            "    }\n" +
+                            "}"
+                        );
+                        editor.setOption('mode', 'text/x-java');
                         break;
                 }
             }
@@ -132,7 +154,7 @@ MathJax.Hub.Config({
                 timeout: 3000,
                 success: function (res) {
                     if (res.code === 0) {
-                        location.href = "/submission/" + res.data.submission_id;
+                        location.href = "/submission?id=" + res.data.submission_id;
                     } else {
                         $('#tip_header').text("Error");
                         $('#tip_desc').text(res.message);
@@ -141,7 +163,7 @@ MathJax.Hub.Config({
                 },
                 error: function () {
                     $('#tip_header').text("Error");
-                    $('#tip_desc').text("Please try later.");
+                    $('#tip_desc').text("An error occurred, please try later.");
                     $('#tip').modal('show');
                 }
             });

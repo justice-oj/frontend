@@ -11,3 +11,15 @@
 
 # php yii serve --docroot="your_web_root"
 ```
+
+### RabbitMQ
+
+```
+# yum install -y rabbitmq-server
+
+# systemctl start rabbitmq-server
+
+# rabbitmq-plugins enable rabbitmq_management
+
+
+```

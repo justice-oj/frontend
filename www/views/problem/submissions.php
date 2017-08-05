@@ -23,8 +23,8 @@ $presenter = new \www\presenters\SubmissionPresenter();
         <th class="two wide">User</th>
         <th class="one wide">Language</th>
         <th class="three wide">Status</th>
-        <th class="two wide">Time (ms)</th>
-        <th class="two wide">Memory (MB)</th>
+        <th class="two wide">Time</th>
+        <th class="two wide">Memory</th>
         <th class="three wide">Submit Time</th>
     </tr>
     </thead>
@@ -40,8 +40,8 @@ $presenter = new \www\presenters\SubmissionPresenter();
         </td>
         <td>{$presenter->showLanguage($record->language)}</td>
         <td><a href="/submission?id={$record->id}" target="_blank">{$presenter->showStatus($record->status)}</a></td>
-        <td>{$record->runtime}</td>
-        <td>{$record->memory}</td>
+        <td>{$presenter->showRuntime($record->runtime)}</td>
+        <td>{$presenter->showMemory($record->memory)}</td>
         <td>{$record->created_at}</td>
     </tr>
 SUBMISSION;

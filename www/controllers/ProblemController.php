@@ -9,6 +9,7 @@ use www\filters\ProblemExistsFilter;
 use www\filters\UserLoggedinFilter;
 use Yii;
 use yii\helpers\Html;
+use yii\web\Response;
 
 class ProblemController extends BaseController {
     protected $problemService;
@@ -83,5 +84,30 @@ class ProblemController extends BaseController {
             'problem' => $problem,
             'editorial' => $editorial,
         ]);
+    }
+
+
+    public function actionSubmit() {
+        Yii::$app->response->format = Response::FORMAT_JSON;
+
+        $problem_id = intval(Yii::$app->request->post('problem_id'));
+        $language = Yii::$app->request->post('language');
+        $code = Yii::$app->request->post('code');
+
+        if (empty($problem_id) || strlen($language) === 0) {
+            return [
+                'code' => 1,
+                'message' => 'Parameter missing.'
+            ];
+        }
+
+        $submission_id = $this->problemService->submit($problem_id, $language, $code);
+        return [
+            'code' => 0,
+            'message' => 'OK',
+            'data' => [
+                'submission_id' => $submission_id
+            ]
+        ];
     }
 }

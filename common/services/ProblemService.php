@@ -83,4 +83,44 @@ class ProblemService {
     public function findSubmissionsByProblemID(int $problem_id) {
         return Submission::find()->where(['problem_id' => $problem_id])->orderBy(['id' => SORT_DESC]);
     }
+
+
+    /**
+     * @author  liuchao
+     * @mail    i@liuchao.me
+     * @param   int $problem_id
+     * @param   int $language
+     * @param   string $code
+     * @desc
+     * @return int
+     */
+    public function submit(int $problem_id, int $language, string $code) {
+        $user_id = Yii::$app->session->get(Yii::$app->params['userIdKey']);
+
+        $submission = new Submission();
+        $submission->user_id = $user_id;
+        $submission->problem_id = $problem_id;
+        $submission->language = $language;
+        $submission->code = $code;
+        $submission->status = Submission::STATUS_QUEUE;
+        $submission->runtime = -1;
+        $submission->memory = -1;
+        $submission->save();
+
+        // add tried record for current user
+        Yii::$app->redis->setbit(
+            Yii::$app->params['userTriedCountKey'] . $user_id,
+            $problem_id,
+            Problem::STATUS_TRIED
+        );
+
+        // push to rabbitMQ
+        Yii::$app->rabbitMQ->push([
+            'problem_id' => $problem_id,
+            'language' => $language,
+            'code' => $code,
+        ]);
+
+        return $submission->id;
+    }
 }

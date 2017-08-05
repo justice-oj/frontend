@@ -53,4 +53,36 @@ class SubmissionPresenter {
             return 'Unknown';
         }
     }
+
+
+    /**
+     * @author  liuchao
+     * @mail    i@liuchao.me
+     * @param   int $status
+     * @return  string submission's runtime
+     * @desc
+     */
+    public function showRuntime(int $status) {
+        if ($status == -1) {
+            return 'N/A';
+        } else {
+            return $status . ' ms';
+        }
+    }
+
+
+    /**
+     * @author  liuchao
+     * @mail    i@liuchao.me
+     * @param   int $status
+     * @return  string submission's memory cost
+     * @desc
+     */
+    public function showMemory(int $status) {
+        if ($status == -1) {
+            return 'N/A';
+        } else {
+            return $status . ' MB';
+        }
+    }
 }

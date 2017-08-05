@@ -14,5 +14,14 @@ return [
             'port' => 6379,
             'database' => 15,
         ],
+        'rabbitMQ' => [
+            'class' => \yii\queue\amqp\Queue::class,
+            'serializer' => \yii\queue\serializers\JsonSerializer::class,
+            'host' => '127.0.0.1',
+            'port' => 5672,
+            'user' => 'justice',
+            'password' => 'justice',
+            'queueName' => 'justice',
+        ],
     ],
 ];

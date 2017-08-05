@@ -35,7 +35,7 @@ class SubmissionsController extends BaseController {
 
 
     public function actionIndex() {
-        $query = Submission::find();
+        $query = Submission::find()->orderBy(['id' => SORT_DESC]);
         $pagination = new Pagination(
             $query->count(),
             intval(Yii::$app->request->get('page', 1)),
