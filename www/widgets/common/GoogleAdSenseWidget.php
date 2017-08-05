@@ -13,7 +13,7 @@ class GoogleAdSenseWidget extends Widget {
         ];
 
         return $this->render('google', [
-            'style' => array_key_exists($this->type, $size) ? $size[$this->type] : 'display:block'
+            'style' => $size[$this->type] ?? 'display:block'
         ]);
     }
 }

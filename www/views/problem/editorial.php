@@ -5,7 +5,7 @@ use www\widgets\common\GoogleAdSenseWidget;
 ?>
 
 <div class="ui basic segment">
-    <?= GoogleAdSenseWidget::widget(); ?>
+    <?= GoogleAdSenseWidget::widget() ?>
 </div>
 <h2 class="ui header"><?= $problem->title ?></h2>
 <div class="ui top fluid four item menu">
@@ -35,7 +35,7 @@ ARTICLE;
 ?>
 
 <div class="ui basic segment">
-    <?= GoogleAdSenseWidget::widget(); ?>
+    <?= GoogleAdSenseWidget::widget() ?>
 </div>
 <script>
     $(document).ready(function () {

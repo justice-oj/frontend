@@ -7,7 +7,7 @@ $presenter = new \www\presenters\SubmissionPresenter();
 ?>
 
 <div class="ui basic segment">
-    <?= GoogleAdSenseWidget::widget(); ?>
+    <?= GoogleAdSenseWidget::widget() ?>
 </div>
 <h2 class="ui header">Submissions</h2>
 <table class="ui selectable striped celled table">
@@ -47,7 +47,7 @@ SUBMISSION;
     ?>
     </tbody>
 </table>
-<?= PaginationWidget::widget(['pagination' => $pagination]); ?>
+<?= PaginationWidget::widget(['pagination' => $pagination]) ?>
 <div class="ui basic segment">
-    <?= GoogleAdSenseWidget::widget(); ?>
+    <?= GoogleAdSenseWidget::widget() ?>
 </div>

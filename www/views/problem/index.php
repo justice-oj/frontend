@@ -13,7 +13,7 @@ MathJax.Hub.Config({
 });
 </script>
 <div class="ui basic segment">
-    <?= GoogleAdSenseWidget::widget(); ?>
+    <?= GoogleAdSenseWidget::widget() ?>
 </div>
 <h2 class="ui header"><?= $problem->title ?></h2>
 <div class="ui top fluid four item menu">
@@ -68,7 +68,7 @@ MathJax.Hub.Config({
     </div>
 </div>
 <div class="ui basic segment">
-    <?= GoogleAdSenseWidget::widget(); ?>
+    <?= GoogleAdSenseWidget::widget() ?>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.28.0/codemirror.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.28.0/addon/edit/matchbrackets.min.js"></script>

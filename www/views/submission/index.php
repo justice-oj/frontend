@@ -8,7 +8,7 @@ $presenter = new \www\presenters\SubmissionPresenter();
 <link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.28.0/codemirror.min.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.28.0/theme/monokai.min.css" rel="stylesheet">
 <div class="ui basic segment">
-    <?= GoogleAdSenseWidget::widget(); ?>
+    <?= GoogleAdSenseWidget::widget() ?>
 </div>
 <table class="ui single line table">
     <thead>
@@ -43,7 +43,7 @@ $presenter = new \www\presenters\SubmissionPresenter();
     <textarea id="editor"><?= $submission->code ?></textarea>
 </div>
 <div class="ui basic segment">
-    <?= GoogleAdSenseWidget::widget(); ?>
+    <?= GoogleAdSenseWidget::widget() ?>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.28.0/codemirror.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.28.0/addon/edit/matchbrackets.min.js"></script>

@@ -7,7 +7,7 @@ $problem_presenter = new www\presenters\ProblemPresenter();
 ?>
 
 <div class="ui basic segment">
-    <?= GoogleAdSenseWidget::widget(); ?>
+    <?= GoogleAdSenseWidget::widget() ?>
 </div>
 <h2 class="ui header">Ranking</h2>
 <table class="ui selectable celled table">
@@ -41,7 +41,7 @@ USER;
     ?>
     </tbody>
 </table>
-<?= PaginationWidget::widget(['pagination' => $pagination]); ?>
+<?= PaginationWidget::widget(['pagination' => $pagination]) ?>
 <div class="ui basic segment">
-    <?= GoogleAdSenseWidget::widget(); ?>
+    <?= GoogleAdSenseWidget::widget() ?>
 </div>

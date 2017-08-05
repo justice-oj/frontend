@@ -7,12 +7,12 @@ use www\widgets\common\GoogleAdSenseWidget;
 <div class="ui piled segment">
     <div class="ui left close rail">
         <div class="ui basic segment">
-            <?= GoogleAdSenseWidget::widget(['type' => '300x600']); ?>
+            <?= GoogleAdSenseWidget::widget(['type' => '300x600']) ?>
         </div>
     </div>
     <div class="ui right close rail">
         <div class="ui basic segment">
-            <?= GoogleAdSenseWidget::widget(['type' => '300x600']); ?>
+            <?= GoogleAdSenseWidget::widget(['type' => '300x600']) ?>
         </div>
     </div>
     <h2 class="ui center aligned icon header">

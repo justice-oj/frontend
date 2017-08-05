@@ -7,7 +7,7 @@ $presenter = new www\presenters\ProblemPresenter();
 ?>
 
 <div class="ui basic segment">
-    <?= GoogleAdSenseWidget::widget(); ?>
+    <?= GoogleAdSenseWidget::widget() ?>
 </div>
 <h2 class="ui header">Problems</h2>
 <form class="ui form" action="/problems">
@@ -55,7 +55,7 @@ PROBLEM;
     ?>
     </tbody>
 </table>
-<?= PaginationWidget::widget(['pagination' => $pagination]); ?>
+<?= PaginationWidget::widget(['pagination' => $pagination]) ?>
 <div class="ui basic segment">
-    <?= GoogleAdSenseWidget::widget(); ?>
+    <?= GoogleAdSenseWidget::widget() ?>
 </div>

@@ -7,7 +7,7 @@ $presenter = new \www\presenters\UserPresenter();
 ?>
 
 <div class="ui basic segment">
-    <?= GoogleAdSenseWidget::widget(); ?>
+    <?= GoogleAdSenseWidget::widget() ?>
 </div>
 <h2 class="ui header">Settings - Profile</h2>
 <div class="ui top fluid two item menu">
@@ -315,7 +315,7 @@ $presenter = new \www\presenters\UserPresenter();
     </div>
 </div>
 <div class="ui basic segment">
-    <?= GoogleAdSenseWidget::widget(); ?>
+    <?= GoogleAdSenseWidget::widget() ?>
 </div>
 <script>
     $(document).ready(function () {
