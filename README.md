@@ -21,5 +21,7 @@
 
 # rabbitmq-plugins enable rabbitmq_management
 
-
+# rabbitmqctl add_user justice <PASSWORD>
+# rabbitmqctl set_user_tags justice administrator
+# rabbitmqctl set_permissions -p / justice ".*" ".*" ".*"
 ```

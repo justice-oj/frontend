@@ -20,7 +20,7 @@ return [
             'host' => '127.0.0.1',
             'port' => 5672,
             'user' => 'justice',
-            'password' => 'justice',
+            'password' => 'SQuHbc9FJTLqJqMUeTqdmsqORFPWVfWAHyrdJEaU',
             'queueName' => 'justice',
         ],
     ],
