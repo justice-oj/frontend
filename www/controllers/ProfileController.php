@@ -46,6 +46,7 @@ class ProfileController extends BaseController {
             'user' => $user,
             'ac_problems' => $this->userService->getSolvedProblemCount($user->id),
             'all_problems' => Problem::find()->count(),
+            'ac_submissions' => $user->getAcceptedSubmissionCount(),
             'all_submissions' => $user->getSubmissionCount(),
             'status' => $this->userService->getProblemSolvedStatus($user->id),
             'language' => $this->userService->getSubmissionLanguages($user->id)

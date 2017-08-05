@@ -75,10 +75,10 @@ $problem_presenter = new \www\presenters\ProblemPresenter();
             <div class="ui center aligned segment">
                 <div class="ui statistic">
                     <div class="value">
-                        23 %
+                        <?= $all_submissions == 0 ? '0.00' : number_format($ac_submissions * 100 / $all_submissions, 2) ?> %
                     </div>
                     <div class="label">
-                        AC RATE
+                        AC
                     </div>
                 </div>
             </div>
@@ -91,23 +91,26 @@ $problem_presenter = new \www\presenters\ProblemPresenter();
         type: 'doughnut',
         data: {
             labels: [
-                "AC",
-                "CE",
-                "RE",
-                "TLE",
-                "WA",
-                "MLE"
+                "In Queue",
+                "Accepted",
+                "Compile Error",
+                "Runtime Error",
+                "Time Limit Exceeded",
+                "Memory Limit Exceeded",
+                "Wrong Answer"
             ],
             datasets: [{
                 data: [
+                    <?= $status[\common\models\Submission::STATUS_QUEUE] ?? 0 ?>,
                     <?= $status[\common\models\Submission::STATUS_AC] ?? 0 ?>,
                     <?= $status[\common\models\Submission::STATUS_CE] ?? 0 ?>,
                     <?= $status[\common\models\Submission::STATUS_RE] ?? 0 ?>,
                     <?= $status[\common\models\Submission::STATUS_TLE] ?? 0 ?>,
-                    <?= $status[\common\models\Submission::STATUS_WA] ?? 0 ?>,
-                    <?= $status[\common\models\Submission::STATUS_MLE] ?? 0 ?>
+                    <?= $status[\common\models\Submission::STATUS_MLE] ?? 0 ?>,
+                    <?= $status[\common\models\Submission::STATUS_WA] ?? 0 ?>
                 ],
                 backgroundColor: [
+                    "#252525",
                     "#21ba45",
                     "#fbbd08",
                     "#6435c9",
