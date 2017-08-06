@@ -10,12 +10,11 @@ $presenter = new \www\presenters\SubmissionPresenter();
     <?= GoogleAdSenseWidget::widget() ?>
 </div>
 <h2 class="ui header">Submissions</h2>
-<table class="ui selectable striped celled table">
+<table class="ui single line table">
     <thead>
     <tr>
-        <th class="one wide">#</th>
         <th class="two wide">User</th>
-        <th class="three wide">Problem</th>
+        <th class="four wide">Problem</th>
         <th class="one wide">Language</th>
         <th class="two wide">Status</th>
         <th class="one wide">Time</th>
@@ -28,7 +27,6 @@ $presenter = new \www\presenters\SubmissionPresenter();
     foreach ((array) $records as $record) {
         echo <<< SUBMISSION
     <tr>
-        <td>{$record->id}</td>
         <td>
         <i class="{$record->user->country} flag"></i>
         <a href="/profile?name={$record->user->username}" target="_blank">{$record->user->username}</a>

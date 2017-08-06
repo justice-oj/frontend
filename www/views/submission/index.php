@@ -7,25 +7,24 @@ $presenter = new \www\presenters\SubmissionPresenter();
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.28.0/codemirror.min.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.28.0/theme/monokai.min.css" rel="stylesheet">
+<h2 class="ui header">Submission #<?= $submission->id ?></h2>
 <div class="ui basic segment">
     <?= GoogleAdSenseWidget::widget() ?>
 </div>
 <table class="ui single line table">
     <thead>
     <tr>
-        <th class="one wide">ID</th>
-        <th class="three wide">User</th>
+        <th class="two wide">User</th>
         <th class="four wide">Problem</th>
         <th class="one wide">Language</th>
-        <th class="one wide">Status</th>
-        <th class="one wide">Runtime</th>
+        <th class="two wide">Status</th>
+        <th class="one wide">Time</th>
         <th class="one wide">Memory</th>
-        <th class="two wide">Submit At</th>
+        <th class="two wide">Submit Time</th>
     </tr>
     </thead>
     <tbody>
     <tr>
-        <td><?= $submission->id ?></td>
         <td>
             <i class="<?= $user->country ?> flag"></i>
             <a href="/profile?name=<?= $user->username ?>" target="_blank"><?= $user->username ?></a>
@@ -33,15 +32,13 @@ $presenter = new \www\presenters\SubmissionPresenter();
         <td><a href="/problem?problem_id=<?= $problem->id ?>" target="_blank"><?= $problem->title ?></a></td>
         <td><?= $presenter->showLanguage($submission->language) ?></td>
         <td><?= $presenter->showStatus($submission->status) ?></td>
-        <td><?= $submission->runtime ?> ms</td>
-        <td><?= $submission->memory ?> MB</td>
+        <td><?= $presenter->showRuntime($submission->runtime) ?></td>
+        <td><?= $presenter->showMemory($submission->memory) ?></td>
         <td><?= $submission->created_at ?></td>
     </tr>
     </tbody>
 </table>
-<div class="ui segment">
-    <textarea id="editor"><?= $submission->code ?></textarea>
-</div>
+<textarea id="editor"><?= $submission->code ?></textarea>
 <div class="ui basic segment">
     <?= GoogleAdSenseWidget::widget() ?>
 </div>

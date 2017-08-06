@@ -16,16 +16,15 @@ $presenter = new \www\presenters\SubmissionPresenter();
     <a class="item" href="/problem/discussions?problem_id=<?= $problem->id ?>">Discussions</a>
     <a class="item" href="/problem/editorial?problem_id=<?= $problem->id ?>">Editorial</a>
 </div>
-<table class="ui selectable celled table">
+<table class="ui single line table">
     <thead>
     <tr>
-        <th class="one wide">#</th>
         <th class="two wide">User</th>
         <th class="one wide">Language</th>
-        <th class="three wide">Status</th>
-        <th class="two wide">Time</th>
-        <th class="two wide">Memory</th>
-        <th class="three wide">Submit Time</th>
+        <th class="two wide">Status</th>
+        <th class="one wide">Time</th>
+        <th class="one wide">Memory</th>
+        <th class="two wide">Submit Time</th>
     </tr>
     </thead>
     <tbody>
@@ -33,7 +32,6 @@ $presenter = new \www\presenters\SubmissionPresenter();
     foreach ((array) $records as $record) {
         echo <<< SUBMISSION
     <tr>
-        <td>{$record->id}</td>
         <td>
         <i class="{$record->user->country} flag"></i>
         <a href="/profile?name={$record->user->username}" target="_blank">{$record->user->username}</a>
