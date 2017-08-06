@@ -116,6 +116,7 @@ class ProblemService {
 
         // push to rabbitMQ
         Yii::$app->rabbitMQ->push([
+            'id' => $submission->id,
             'problem_id' => $problem_id,
             'language' => $language,
             'code' => $code,
