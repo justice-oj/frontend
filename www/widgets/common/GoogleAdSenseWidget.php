@@ -13,7 +13,8 @@ class GoogleAdSenseWidget extends Widget {
         ];
 
         return $this->render('google', [
-            'style' => $size[$this->type] ?? 'display:block'
+            'style' => $size[$this->type] ?? 'display:block',
+            'auto' => empty($this->type) ? 'data-ad-format="auto"' : ''
         ]);
     }
 }

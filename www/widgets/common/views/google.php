@@ -3,7 +3,8 @@
 <ins class="adsbygoogle"
      style="<?= $style ?>"
      data-ad-client="ca-pub-3748357229978150"
-     data-ad-slot="6514368667"></ins>
+     data-ad-slot="6514368667"
+     <?= $auto ?>></ins>
 <script>
     (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
