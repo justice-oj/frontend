@@ -32,7 +32,7 @@ class BasicRabbitMQProducer {
      * @author  liuchao
      * @mail    i@liuchao.me
      * @param   array $payload
-     * @desc
+     * @desc    send message to RabbitMQ
      */
     public function send(array $payload) {
         $this->open();
@@ -43,6 +43,13 @@ class BasicRabbitMQProducer {
         ]), $this->exchangeName);
     }
 
+
+    /**
+     * @author  liuchao
+     * @mail    i@liuchao.me
+     * @desc    init RabbitMQ connection
+     * @return  void
+     */
     private function open() {
         if ($this->channel) return;
         $this->connection = new AMQPStreamConnection($this->host, $this->port, $this->user, $this->password);
