@@ -30,7 +30,11 @@ class ProblemService {
     public function getProblemsWithConditions(?string $code, ?string $title) {
         return Problem::find()
             ->andFilterWhere(['t_problem.id' => $code])
-            ->andFilterWhere(['LIKE', 't_problem.title', $title]);
+            ->andFilterWhere([
+                'LIKE',
+                't_problem.title',
+                $title
+            ]);
     }
 
 
@@ -48,13 +52,14 @@ class ProblemService {
 
         return array_map(function($record) use ($uid) {
             if (!is_null(Submission::findOne([
-                'problem_id'=> $record->id,
+                'problem_id' => $record->id,
                 'user_id' => $uid,
                 'status' => Problem::STATUS_SOLVED
             ]))) {
                 $status = Problem::STATUS_SOLVED;
             } elseif (
-                Yii::$app->redis->getbit(Yii::$app->params['userTriedCountKey'] . $uid, $record->id) == Problem::STATUS_TRIED
+                Yii::$app->redis->getbit(Yii::$app->params['userTriedCountKey'] . $uid,
+                    $record->id) == Problem::STATUS_TRIED
             ) {
                 $status = Problem::STATUS_TRIED;
             } else {
@@ -102,9 +107,6 @@ class ProblemService {
         $submission->problem_id = $problem_id;
         $submission->language = $language;
         $submission->code = $code;
-        $submission->status = Submission::STATUS_QUEUE;
-        $submission->runtime = -1;
-        $submission->memory = -1;
         $submission->save();
 
         // add tried record for current user
@@ -115,12 +117,7 @@ class ProblemService {
         );
 
         // push to rabbitMQ
-        Yii::$app->rabbitMQ->push([
-            'id' => $submission->id,
-            'problem_id' => $problem_id,
-            'language' => $language,
-            'code' => $code,
-        ]);
+        Yii::$app->rabbitMQ->send(['id' => $submission->id]);
 
         return $submission->id;
     }

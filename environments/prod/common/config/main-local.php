@@ -15,13 +15,14 @@ return [
             'database' => 15,
         ],
         'rabbitMQ' => [
-            'class' => \yii\queue\amqp\Queue::class,
-            'serializer' => \yii\queue\serializers\JsonSerializer::class,
+            'class' => \common\components\queue\BasicRabbitMQProducer::class,
             'host' => '127.0.0.1',
             'port' => 5672,
             'user' => 'justice',
             'password' => 'SQuHbc9FJTLqJqMUeTqdmsqORFPWVfWAHyrdJEaU',
             'queueName' => 'justice',
+            'exchangeName' => 'justice',
+            'exchangeType' => 'topic',
         ],
     ],
 ];

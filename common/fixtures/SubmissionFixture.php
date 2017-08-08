@@ -36,8 +36,8 @@ class SubmissionFixture extends ActiveFixture {
                     Submission::STATUS_MLE,
                     Submission::STATUS_WA
                 ]),
-                'runtime' => $faker->numberBetween(10, 1000),
-                'memory' => $faker->numberBetween(10, 1000),
+                'runtime' => $faker->numberBetween(-1, 1000),
+                'memory' => $faker->numberBetween(-1, 1000),
                 'created_at' => $datetime_faker->dateTimeThisDecade('now')->format('Y-m-d H:i:s'),
                 'updated_at' => $datetime_faker->dateTimeThisMonth('now')->format('Y-m-d H:i:s'),
             ];

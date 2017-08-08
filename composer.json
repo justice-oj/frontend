@@ -7,7 +7,6 @@
     "php": "~7.1",
     "yiisoft/yii2": "~2.0",
     "yiisoft/yii2-redis": "~2.0",
-    "yiisoft/yii2-queue": "~2.0",
     "yiisoft/yii2-bootstrap": "~2.0",
     "endroid/qrcode": "~2.2",
     "gregwar/captcha": "~1.1",
