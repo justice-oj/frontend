@@ -39,7 +39,7 @@ class BasicRabbitMQProducer {
         $this->channel->basic_publish(new AMQPMessage(json_encode($payload), [
             'delivery_mode' => AMQPMessage::DELIVERY_MODE_PERSISTENT,
             'content_encoding' => 'UTF-8',
-            'content_type' => 'text/plain',
+            'content_type' => 'application/json',
         ]), $this->exchangeName);
     }
 
