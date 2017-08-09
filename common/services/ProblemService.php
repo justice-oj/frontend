@@ -54,7 +54,7 @@ class ProblemService {
             if (!is_null(Submission::findOne([
                 'problem_id' => $record->id,
                 'user_id' => $uid,
-                'status' => Problem::STATUS_SOLVED
+                'status' => Submission::STATUS_AC
             ]))) {
                 $status = Problem::STATUS_SOLVED;
             } elseif (
