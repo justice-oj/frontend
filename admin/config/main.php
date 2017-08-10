@@ -10,7 +10,7 @@ return [
     'id' => 'admin',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
-    'defaultRoute' => 'index/index',
+    'defaultRoute' => 'index',
     'controllerNamespace' => 'admin\controllers',
     'components' => [
         'request' => [
@@ -40,6 +40,10 @@ return [
             'rules' => [
             ],
         ],
+    ],
+    'modules' => [
+        'user' => ['class' => 'admin\modules\user\UserModule'],
+        'problem' => ['class' => 'admin\modules\problem\ProblemModule'],
     ],
     'params' => $params,
 ];
