@@ -21,17 +21,14 @@ B<sub>1</sub> B<sub>2</sub> ... B<sub>m</sub></pre><h2>Constraints</h2>$$1 \leqs
                 'level' => 7,
                 'runtime_limit' => 8000,
                 'memory_limit' => 64,
-                'created_at' => '2012-12-21 00:00:00',
-                'updated_at' => '2014-08-02 23:46:03',
             ],
             [
-                'title' => 'Just a test',
-                'description' => '<h2>Description</h2> A test',
+                'title' => 'Time Conversion',
+                'description' => '<h2>Description</h2>Given a time in 12-hour AM/PM format, convert it to military (24-hour) time.<h2>Input</h2>A single string containing a time in 12-hour clock format.<h2>Output</h2>Convert and print the given time in 24-hour format,<h2>Sample Input</h2>
+<pre>07:05:45PM</pre><h2>Sample Output</h2><pre>19:05:45</pre>',
                 'level' => 1,
                 'runtime_limit' => 1000,
-                'memory_limit' => 32,
-                'created_at' => '2012-12-21 00:00:00',
-                'updated_at' => '2014-08-02 23:46:03',
+                'memory_limit' => 64,
             ],
         ];
     }

@@ -28,8 +28,6 @@ class UserFixture extends ActiveFixture {
                 'email' => 'i@liuchao.me',
                 'website' => 'https://www.liuchao.me',
                 'country' => 'us',
-                'created_at' => '1970-01-01 00:00:00',
-                'updated_at' => '2038-01-19 03:14:07',
             ],
         ];
     }

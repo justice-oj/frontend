@@ -13,8 +13,8 @@ class m170802_140548_t_user extends Migration {
             'email' => $this->string()->notNull(),
             'website' => $this->string()->notNull(),
             'country' => $this->string()->notNull(),
-            'created_at' => $this->dateTime()->notNull(),
-            'updated_at' => $this->dateTime()->notNull()
+            'created_at' => $this->dateTime()->notNull()->defaultExpression('NOW()'),
+            'updated_at' => $this->dateTime()->notNull()->defaultExpression('NOW()'),
         ]);
 
         $this->createIndex(

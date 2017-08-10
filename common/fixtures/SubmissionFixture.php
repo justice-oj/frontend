@@ -10,12 +10,17 @@ use yii\test\ActiveFixture;
 class SubmissionFixture extends ActiveFixture {
     public $modelClass = 'common\models\Submission';
 
+    public $depends = [
+        'common\fixtures\ProblemFixture',
+        'common\fixtures\UserFixture',
+    ];
+
     protected function getData() {
         $faker = Factory::create();
         $datetime_faker = new DateTime($faker);
 
         $data = [];
-        for ($i = 0; $i < 100; $i++) {
+        for ($i = 0; $i < 10; $i++) {
             $data[] = [
                 'user_id' => $faker->randomElement([1, 2]),
                 'problem_id' => $faker->randomElement([1, 2]),
@@ -38,8 +43,6 @@ class SubmissionFixture extends ActiveFixture {
                 ]),
                 'runtime' => $faker->numberBetween(-1, 1000),
                 'memory' => $faker->numberBetween(-1, 1000),
-                'created_at' => $datetime_faker->dateTimeThisDecade('now')->format('Y-m-d H:i:s'),
-                'updated_at' => $datetime_faker->dateTimeThisMonth('now')->format('Y-m-d H:i:s'),
             ];
         }
         return $data;

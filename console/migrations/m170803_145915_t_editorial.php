@@ -9,8 +9,8 @@ class m170803_145915_t_editorial extends Migration {
             'problem_id' => $this->integer()->notNull(),
             'author_id' => $this->integer()->notNull()->defaultValue(1),
             'content' => $this->text()->notNull(),
-            'created_at' => $this->dateTime()->notNull(),
-            'updated_at' => $this->dateTime()->notNull()
+            'created_at' => $this->dateTime()->notNull()->defaultExpression('NOW()'),
+            'updated_at' => $this->dateTime()->notNull()->defaultExpression('NOW()'),
         ]);
 
         $this->addForeignKey(
