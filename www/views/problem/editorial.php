@@ -4,6 +4,10 @@ use www\widgets\common\GoogleAdSenseWidget;
 
 ?>
 
+<link href="https://cdn.quilljs.com/1.3.1/quill.snow.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" rel="stylesheet">
+<script src="https://cdn.quilljs.com/1.3.1/quill.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js"></script>
 <div class="ui basic segment">
     <?= GoogleAdSenseWidget::widget() ?>
 </div>
@@ -27,9 +31,17 @@ if (is_null($editorial)) {
 NULL;
 } else {
     echo <<< ARTICLE
-<div class="ui basic segment">
-    {$editorial->content}
-</div>
+<div class="ui basic segment" id="article"></div>
+<script>
+var quill = new Quill('#article', {
+    modules: {
+        toolbar: null
+    },
+    readOnly: true,
+    theme: 'snow'
+});
+quill.setContents({$editorial->content});
+</script>
 ARTICLE;
 }
 ?>
