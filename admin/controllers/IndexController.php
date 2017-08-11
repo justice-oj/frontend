@@ -2,9 +2,8 @@
 
 namespace admin\controllers;
 
-class LoginController extends BaseController {
+class IndexController extends BaseController {
     public function actionIndex() {
-        $this->layout = 'login';
         return $this->render('index');
     }
 }
