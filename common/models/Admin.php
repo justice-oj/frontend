@@ -4,19 +4,17 @@ namespace common\models;
 
 use yii\db\ActiveRecord;
 
-
 /**
- * Class TestCase
+ * Class Admin
  * @package common\models
  * @property int $id [int(11)]
- * @property int $problem_id [int(11)]
- * @property string $input
- * @property string $output
+ * @property string $username [varchar(255)]
+ * @property string $password [varchar(255)]
  * @property string $created_at [datetime]
  * @property string $updated_at [datetime]
  */
-class TestCase extends ActiveRecord {
+class Admin extends ActiveRecord {
     public static function tableName() {
-        return 't_test_case';
+        return 't_admin';
     }
 }
