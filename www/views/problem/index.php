@@ -6,12 +6,10 @@ use www\widgets\common\GoogleAdSenseWidget;
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.28.0/codemirror.min.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.28.0/theme/monokai.min.css" rel="stylesheet">
-<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  displayAlign: "left"
-});
-</script>
+<link href="https://cdn.quilljs.com/1.3.1/quill.snow.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" rel="stylesheet">
+<script src="https://cdn.quilljs.com/1.3.1/quill.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js"></script>
 <div class="ui basic segment">
     <?= GoogleAdSenseWidget::widget() ?>
 </div>
@@ -28,9 +26,8 @@ MathJax.Hub.Config({
         <li>Time Limit: <?= $problem->runtime_limit ?> ms</li>
     </ul>
 </div>
-<div class="content">
-    <?= $problem->description ?>
-</div>
+<input name="description" type="hidden">
+<div id="description"></div>
 <h4 class="ui horizontal divider header">
     <i class="write icon"></i>
 </h4>
@@ -134,6 +131,15 @@ MathJax.Hub.Config({
                 }
             }
         });
+
+        var quill = new Quill('#description', {
+            modules: {
+                toolbar: null
+            },
+            readOnly: true,
+            theme: 'snow'
+        });
+        quill.setContents(<?= $problem->description ?>);
 
         $('#submit').on('click', function () {
             if (language.val().length === 0) {

@@ -18,13 +18,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <?= Html::csrfMetaTags() ?>
     <style>
-        .container {
-            padding-top: 8%;
-        }
-        body {
-            background-color: #c1c1c1;
-        }
+        .container {padding-top: 8%;}
+        body {background-color: #c1c1c1;}
     </style>
+    <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+    </script>
 </head>
 <body>
 <?php $this->beginBody() ?>

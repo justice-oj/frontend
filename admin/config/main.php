@@ -42,8 +42,14 @@ return [
         ],
     ],
     'modules' => [
-        'user' => ['class' => 'admin\modules\user\UserModule'],
-        'problem' => ['class' => 'admin\modules\problem\ProblemModule'],
+        'user' => [
+            'class' => 'admin\modules\user\UserModule',
+            'defaultRoute' => 'manage'
+        ],
+        'problem' => [
+            'class' => 'admin\modules\problem\ProblemModule',
+            'defaultRoute' => 'manage',
+        ],
     ],
     'params' => $params,
 ];

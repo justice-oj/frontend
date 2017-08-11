@@ -140,4 +140,22 @@ class UserService {
             ->asArray()->all();
         return ArrayHelper::map($status, 'language', 'count');
     }
+
+
+    /**
+     * @author  liuchao
+     * @mail    i@liuchao.me
+     * @param   null|string $id
+     * @param   null|string $username
+     * @param   null|string $email
+     * @return  \yii\db\ActiveQuery
+     * @desc
+     */
+    public function searchUsers(?string $id, ?string $username, ?string $email) {
+        return User::find()
+            ->andFilterWhere(['id' => $id])
+            ->andFilterWhere(['LIKE', 'username', $username])
+            ->andFilterWhere(['LIKE', 'email', $email])
+            ->orderBy(['id' => SORT_DESC]);
+    }
 }

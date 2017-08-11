@@ -10,6 +10,54 @@ class ProblemService {
     /**
      * @author  liuchao
      * @mail    i@liuchao.me
+     * @param   string $title
+     * @param   string $description
+     * @param   int $level
+     * @param   int $runtime
+     * @param   int $memory
+     * @return  int problem id
+     * @desc
+     */
+    public function addProblem(string $title, string $description, int $level, int $runtime, int $memory) {
+        $problem = new Problem();
+        $problem->title = $title;
+        $problem->description = $description;
+        $problem->level = $level;
+        $problem->runtime_limit = $runtime;
+        $problem->memory_limit = $memory;
+        $problem->save();
+
+        return $problem->id;
+    }
+
+
+    /**
+     * @author  liuchao
+     * @mail    i@liuchao.me
+     * @param   \common\models\Problem $problem
+     * @param   string $title
+     * @param   string $description
+     * @param   int $level
+     * @param   int $runtime
+     * @param   int $memory
+     * @return  int problem id
+     * @desc
+     */
+    public function editProblem($problem, string $title, string $description, int $level, int $runtime, int $memory) {
+        $problem->title = $title;
+        $problem->description = $description;
+        $problem->level = $level;
+        $problem->runtime_limit = $runtime;
+        $problem->memory_limit = $memory;
+        $problem->save();
+
+        return $problem->id;
+    }
+
+
+    /**
+     * @author  liuchao
+     * @mail    i@liuchao.me
      * @param   int $id
      * @return  \common\models\Problem
      * @desc
@@ -27,14 +75,10 @@ class ProblemService {
      * @return  yii\db\ActiveQuery
      * @desc
      */
-    public function getProblemsWithConditions(?string $code, ?string $title) {
+    public function searchProblems(?string $code, ?string $title) {
         return Problem::find()
             ->andFilterWhere(['t_problem.id' => $code])
-            ->andFilterWhere([
-                'LIKE',
-                't_problem.title',
-                $title
-            ]);
+            ->andFilterWhere(['LIKE', 't_problem.title', $title]);
     }
 
 

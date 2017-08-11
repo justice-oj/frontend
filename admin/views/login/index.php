@@ -53,8 +53,42 @@
             <form class="form-signin">
                 <input class="form-control" placeholder="Username" id="username" required autofocus>
                 <input type="password" class="form-control" placeholder="Password" id="password" required>
-                <button class="btn btn-lg btn-primary btn-block">Sign in</button>
+                <button class="btn btn-lg btn-primary btn-block" id="auth">Sign in</button>
             </form>
         </div>
     </div>
 </div>
+<div class="modal fade" id="error" tabindex="-1" role="dialog" style="padding-top: 15%">
+    <div class="modal-dialog modal-sm" role="document">
+        <div id="error_message" class="alert alert-danger" role="alert"></div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('#auth').on('click', function (event) {
+            event.preventDefault();
+            var username = $('#username'), password = $('#password');
+            $.ajax({
+                type: 'POST',
+                url: '/login/auth',
+                data: {
+                    username: username.val(),
+                    password: password.val()
+                },
+                timeout: 3000,
+                success: function (data) {
+                    if (data.code === 0) {
+                        location.href = '/';
+                    } else {
+                        $('#error_message').text(data.message);
+                        $('#error').modal();
+                    }
+                },
+                error: function () {
+                    $('#error_message').text('an error occurred, lease login later');
+                    $('#error').modal();
+                }
+            });
+        });
+    });
+</script>

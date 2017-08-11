@@ -33,7 +33,7 @@ class ProblemsController extends BaseController {
     public function actionIndex(string $id = null, string $title = null) {
         $this->view->title = 'Justice PLUS - Problems';
 
-        $query = $this->problemService->getProblemsWithConditions($id, $title);
+        $query = $this->problemService->searchProblems($id, $title);
         $pagination = new Pagination(
             $query->count(),
             intval(Yii::$app->request->get('page', 1)),
