@@ -4,7 +4,6 @@ namespace common\fixtures;
 
 use common\models\Submission;
 use Faker\Factory;
-use Faker\Provider\DateTime;
 use yii\test\ActiveFixture;
 
 class SubmissionFixture extends ActiveFixture {
@@ -17,13 +16,12 @@ class SubmissionFixture extends ActiveFixture {
 
     protected function getData() {
         $faker = Factory::create();
-        $datetime_faker = new DateTime($faker);
 
         $data = [];
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 0; $i < 5; $i++) {
             $data[] = [
                 'user_id' => $faker->randomElement([1, 2]),
-                'problem_id' => $faker->randomElement([1, 2]),
+                'problem_id' => 1,
                 'language' => $faker->randomElement([
                     Submission::LANGUAGE_C,
                     Submission::LANGUAGE_CPP,

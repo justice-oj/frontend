@@ -22,9 +22,9 @@
     <table class="table table-striped">
         <tr>
             <th class="col-md-1">#</th>
-            <th class="col-md-2">Username</th>
-            <th class="col-md-2">Email</th>
-            <th class="col-md-7">Operation</th>
+            <th class="col-md-3">Username</th>
+            <th class="col-md-3">Email</th>
+            <th class="col-md-5">Operation</th>
         </tr>
         <?php
         foreach ($records as $record) {
@@ -34,8 +34,7 @@
         <td>{$record->username}</td>
         <td>{$record->email}</td>
         <td>
-            <a href="/user/submission/?user_id={$record->id}" target="_blank"><button type="button" class="btn btn-primary">Submissions</button></a>
-            <button type="button" class="btn btn-danger">Delete</button>
+            <button type="button" class="btn btn-danger btn-xs">Delete</button>
         </td>
     </tr>
 USER;

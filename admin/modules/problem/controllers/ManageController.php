@@ -33,7 +33,7 @@ class ManageController extends BaseController {
 
 
     public function actionIndex(string $id = null, string $title = null) {
-        $this->view->title = 'Justice PLUS - Problems';
+        $this->view->title = 'Justice PLUS Admin - Problems';
 
         $query = $this->problemService->searchProblems($id, $title)->orderBy(['id' => SORT_DESC]);
         $pagination = new Pagination(
@@ -52,6 +52,7 @@ class ManageController extends BaseController {
 
 
     public function actionNew() {
+        $this->view->title = 'Justice PLUS Admin - Add Problem';
         return $this->render('new');
     }
 
@@ -92,6 +93,8 @@ class ManageController extends BaseController {
 
 
     public function actionEdit(int $problem_id) {
+        $this->view->title = 'Justice PLUS Admin - Edit Problem';
+
         $problem = $this->problemService->getProblemByID($problem_id);
 
         return $this->render('edit', [
@@ -104,7 +107,7 @@ class ManageController extends BaseController {
         Yii::$app->response->format = Response::FORMAT_JSON;
 
         $problem_id = intval(Yii::$app->request->post('problem_id'));
-        $title = intval(Yii::$app->request->post('title'));
+        $title = Yii::$app->request->post('title');
         $description = Yii::$app->request->post('description');
         $level = Yii::$app->request->post('level');
         $runtime_limit = Yii::$app->request->post('runtime_limit');
@@ -138,6 +141,32 @@ class ManageController extends BaseController {
             'data' => [
                 'problem_id' => $pid
             ]
+        ];
+    }
+
+
+    public function actionDelete() {
+        Yii::$app->response->format = Response::FORMAT_JSON;
+
+        $problem_id = intval(Yii::$app->request->post('problem_id'));
+        if (empty($problem_id)) {
+            return [
+                'code' => 1,
+                'message' => 'missing argument(s)'
+            ];
+        }
+
+        $result = $this->problemService->deleteProblem($problem_id);
+        if ($result === false) {
+            return [
+                'code' => 2,
+                'message' => 'remove record failed'
+            ];
+        }
+
+        return [
+            'code' => 0,
+            'message' => 'OK'
         ];
     }
 }

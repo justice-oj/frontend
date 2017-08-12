@@ -3,7 +3,7 @@
 <script src="https://cdn.quilljs.com/1.3.1/quill.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js"></script>
 
-<h2 class="text-center">Add Problem</h2>
+<h2 class="text-center">Update Problem</h2>
 <input type="hidden" id="problem_id" value="<?= $problem->id ?>">
 <form>
     <div class="row form-group">
@@ -47,8 +47,7 @@
                     [{'list': 'ordered'}, {'list': 'bullet'}],
                     [{'script': 'sub'}, {'script': 'super'}],
                     [{'indent': '-1'}, {'indent': '+1'}],
-                    [{'size': ['small', false, 'large', 'huge']}],
-                    [{'header': [1, 2, 3, 4, 5, 6, false]}],
+                    ['link', 'image'],
                     ['formula'],
                     ['clean']
                 ]
@@ -96,7 +95,7 @@
                     if (res.code === 0) {
                         location.href = "/problem/manage/edit?problem_id=" + res.data.problem_id;
                     } else {
-                        error_message.text(data.message);
+                        error_message.text(res.message);
                         error.modal();
                     }
                 },

@@ -58,6 +58,18 @@ class ProblemService {
     /**
      * @author  liuchao
      * @mail    i@liuchao.me
+     * @param int $problem_id
+     * @return false|int
+     * @desc
+     */
+    public function deleteProblem(int $problem_id) {
+        return Problem::findOne($problem_id)->delete();
+    }
+
+
+    /**
+     * @author  liuchao
+     * @mail    i@liuchao.me
      * @param   int $id
      * @return  \common\models\Problem
      * @desc
