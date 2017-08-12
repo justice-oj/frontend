@@ -6,6 +6,7 @@
 
 # composer itself is not needed
 composer.phar
+composer.lock
 
 # phpunit itself is not needed
 phpunit.phar
