@@ -25,11 +25,6 @@ class TestCaseFixture extends ActiveFixture {
             ],
             [
                 'problem_id' => 1,
-                'input' => '12:00:00AM',
-                'output' => '00:00:00',
-            ],
-            [
-                'problem_id' => 1,
                 'input' => '12:00:00PM',
                 'output' => '12:00:00',
             ],
@@ -45,13 +40,28 @@ class TestCaseFixture extends ActiveFixture {
             ],
             [
                 'problem_id' => 1,
-                'input' => '11:59:59PM',
-                'output' => '23:59:59',
+                'input' => '11:59:59AM',
+                'output' => '11:59:59',
             ],
             [
                 'problem_id' => 1,
-                'input' => '11:59:59AM',
-                'output' => '11:59:59',
+                'input' => '04:59:59AM',
+                'output' => '04:59:59',
+            ],
+            [
+                'problem_id' => 1,
+                'input' => '04:59:59PM',
+                'output' => '16:59:59',
+            ],
+            [
+                'problem_id' => 1,
+                'input' => '12:00:00AM',
+                'output' => '00:00:00',
+            ],
+            [
+                'problem_id' => 1,
+                'input' => '11:59:59PM',
+                'output' => '23:59:59',
             ],
         ];
     }

@@ -3,19 +3,21 @@
 <h2 class="text-center">Problems</h2>
 <div>
     <form class="form-inline">
-        <div class="form-group col-md-4">
+        <div class="form-group">
             <label for="id">ID</label>
             <input name="id" class="form-control" id="id" placeholder="ID" value="<?= $id ?>">
         </div>
-        <div class="form-group col-md-4">
+        <div class="form-group">
             <label for="title">Title</label>
             <input name="title" class="form-control" id="title" placeholder="Title" value="<?= $title ?>">
         </div>
-        <div class="form-group col-md-2">
+        <div class="form-group">
             <button class="btn btn-default">Search</button>
         </div>
+        <div class="form-group pull-right">
+            <a href="/problem/manage/new" class="btn btn-success" target="_blank">add</a>
+        </div>
     </form>
-    <a href="/problem/manage/new" target="_blank"><button class="btn btn-success">Add</button></a>
 </div>
 <div class="row" style="padding-top: 10px">
     <table class="table table-striped">

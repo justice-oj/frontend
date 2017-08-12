@@ -53,6 +53,54 @@ class UserService {
     /**
      * @author  liuchao
      * @mail    i@liuchao.me
+     * @param string $username
+     * @param string $email
+     * @param string $password
+     * @return bool
+     * @desc
+     */
+    public function addUser(string $username, string $email, string $password) {
+        $user = new User();
+        $user->username = $username;
+        $user->email = $email;
+        $user->password = password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
+        return $user->save();
+    }
+
+
+    /**
+     * @author  liuchao
+     * @mail    i@liuchao.me
+     * @param   \common\models\User $user
+     * @param   string $username
+     * @param   string $email
+     * @param   string $password
+     * @return mixed
+     * @desc
+     */
+    public function updateUser($user, string $username, string $email, string $password) {
+        $user->username = $username;
+        $user->email = $email;
+        $user->password = password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
+        return $user->save();
+    }
+
+
+    /**
+     * @author  liuchao
+     * @mail    i@liuchao.me
+     * @param   int $user_id
+     * @return  false|int
+     * @desc
+     */
+    public function deleteUser(int $user_id) {
+        return User::findOne($user_id)->delete();
+    }
+
+
+    /**
+     * @author  liuchao
+     * @mail    i@liuchao.me
      * @desc    the big ranking
      * @param   int $offset
      * @param   int $limit

@@ -9,7 +9,7 @@ class UserPresenter {
      * @param   string $website
      * @return  string user's website link
      */
-    public function getWebsiteLink(string $website) {
+    public function getWebsiteLink(?string $website) {
         if (stripos($website, 'http://') === 0 || stripos($website, 'https://') === 0) {
             return $website;
         } elseif (!empty($website)) {
@@ -26,7 +26,7 @@ class UserPresenter {
      * @param   string $website
      * @return  string display user's website for short
      */
-    public function showWebsite(string $website) {
+    public function showWebsite(?string $website) {
         if (strlen($website) > 24) {
             return substr($website, 0, 24) . '...';
         } elseif (!empty($website)) {
