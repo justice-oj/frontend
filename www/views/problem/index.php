@@ -44,7 +44,7 @@ use www\widgets\common\GoogleAdSenseWidget;
     </div>
 </div>
 <h4 class="ui header">Paste your source code:</h4>
-<textarea id="editor" rows="50"></textarea>
+<textarea id="editor"></textarea>
 <div class="ui basic segment">
     <button class="ui primary basic button" id="submit">Submit</button>
 </div>
@@ -73,6 +73,7 @@ use www\widgets\common\GoogleAdSenseWidget;
 
         var editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
             lineNumbers: true,
+            lineWrapping: true,
             matchBrackets: true,
             indentUnit: 4,
             theme: 'monokai'

@@ -50,6 +50,7 @@ $presenter = new \www\presenters\SubmissionPresenter();
     $(document).ready(function () {
         var editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
             lineNumbers: true,
+            lineWrapping: true,
             matchBrackets: true,
             readOnly: true,
             indentUnit: 4,
