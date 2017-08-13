@@ -78,6 +78,7 @@ use www\widgets\common\GoogleAdSenseWidget;
             indentUnit: 4,
             theme: 'monokai'
         });
+        editor.setSize('auto', 500);
 
         var language = $('#language'), msg = $('#msg');
         language.dropdown({

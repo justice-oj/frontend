@@ -36,21 +36,21 @@ class SubmissionPresenter {
      */
     public function showStatus(int $status) {
         if ($status == Submission::STATUS_QUEUE) {
-            return 'In Queue';
+            return '<h4 class="ui grey header">In Queue</h4>';
         } elseif ($status == Submission::STATUS_AC) {
-            return 'Accepted';
+            return '<h4 class="ui green header">Accepted</h4>';
         } elseif ($status == Submission::STATUS_CE) {
-            return 'Compile Error';
+            return '<h4 class="ui orange header">Compile Error</h4>';
         } elseif ($status == Submission::STATUS_RE) {
-            return 'Runtime Error';
+            return '<h4 class="ui teal header">Runtime Error</h4>';
         } elseif ($status == Submission::STATUS_TLE) {
-            return 'Time Limit Exceeded';
+            return '<h4 class="ui yellow header">Time Limit Exceeded</h4>';
         } elseif ($status == Submission::STATUS_MLE) {
-            return 'Memory Limit Exceeded';
+            return '<h4 class="ui olive header">Memory Limit Exceeded</h4>';
         } elseif ($status == Submission::STATUS_WA) {
-            return 'Wrong Answer';
+            return '<h4 class="ui red header">Wrong Answer</h4>';
         } else {
-            return 'Unknown';
+            return '<h4 class="ui brown header">Unknown</h4>';
         }
     }
 
@@ -83,6 +83,43 @@ class SubmissionPresenter {
             return 'N/A';
         } else {
             return $status . ' MB';
+        }
+    }
+
+
+    /**
+     * @author  liuchao
+     * @mail    i@liuchao.me
+     * @param   Submission $submission
+     * @desc
+     * @return string
+     */
+    public function showWAMessage($submission) {
+        if ($submission->status == Submission::STATUS_WA) {
+            return <<< BLOCK
+            <div class="ui message"><div class="header">Input: </div>{$submission->input}</div>
+            <div class="ui red message"><div class="header">Output: </div>{$submission->output}</div>
+            <div class="ui green message"><div class="header">Expected: </div>{$submission->expected}</div>
+BLOCK;
+        }
+    }
+
+
+    /**
+     * @author  liuchao
+     * @mail    i@liuchao.me
+     * @param   Submission $submission
+     * @return  string
+     * @desc
+     */
+    public function showErrorMessage($submission) {
+        if ($submission->status != Submission::STATUS_QUEUE
+            && $submission->status != Submission::STATUS_AC
+            && $submission->status != Submission::STATUS_WA
+        ) {
+            return <<< BLOCK
+            <div class="ui red message"><div class="header">Error: </div><pre>{$submission->error}</pre></div>
+BLOCK;
         }
     }
 }

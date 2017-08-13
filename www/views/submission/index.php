@@ -4,7 +4,6 @@ use www\widgets\common\GoogleAdSenseWidget;
 
 $presenter = new \www\presenters\SubmissionPresenter();
 ?>
-
 <link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.28.0/codemirror.min.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.28.0/theme/monokai.min.css" rel="stylesheet">
 <h2 class="ui header">Submission #<?= $submission->id ?></h2>
@@ -38,6 +37,8 @@ $presenter = new \www\presenters\SubmissionPresenter();
     </tr>
     </tbody>
 </table>
+<?= $presenter->showWAMessage($submission) ?>
+<?= $presenter->showErrorMessage($submission) ?>
 <textarea id="editor"><?= $submission->code ?></textarea>
 <div class="ui basic segment">
     <?= GoogleAdSenseWidget::widget() ?>
@@ -46,6 +47,12 @@ $presenter = new \www\presenters\SubmissionPresenter();
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.28.0/addon/edit/matchbrackets.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.28.0/mode/clike/clike.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.28.0/mode/python/python.min.js"></script>
+<style>
+    .CodeMirror {
+        border: 1px solid #eee;
+        height: auto;
+    }
+</style>
 <script>
     $(document).ready(function () {
         var editor = CodeMirror.fromTextArea(document.getElementById("editor"), {

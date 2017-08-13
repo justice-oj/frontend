@@ -20,6 +20,10 @@ use yii\db\Expression;
  * @property int $memory [int(11)]  memory cost of this solution
  * @property string $created_at [datetime]
  * @property string $updated_at [datetime]
+ * @property string $error
+ * @property string $input
+ * @property string $output
+ * @property string $expected
  */
 class Submission extends ActiveRecord {
     const LANGUAGE_C = 0;
