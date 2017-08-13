@@ -14,6 +14,10 @@ class m170802_140638_t_submission extends Migration {
             'status' => $this->integer()->notNull()->defaultValue(Submission::STATUS_QUEUE),
             'runtime' => $this->integer()->notNull()->defaultValue(-1),
             'memory' => $this->integer()->notNull()->defaultValue(-1),
+            'error' => $this->text(),
+            'input' => $this->text(),
+            'output' => $this->text(),
+            'expected' => $this->text(),
             'created_at' => $this->dateTime()->notNull()->defaultExpression('NOW()'),
             'updated_at' => $this->dateTime()->notNull()->defaultExpression('NOW()')
         ]);
