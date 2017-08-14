@@ -49,7 +49,7 @@ class ProblemController extends BaseController {
 
     public function actionSubmissions(int $problem_id) {
         $problem = $this->problemService->getProblemByID($problem_id);
-        $query = $this->problemService->findSubmissionsByProblemID($problem_id);
+        $query = $this->problemService->getSubmissionsByProblemID($problem_id);
         $pagination = new Pagination(
             $query->count(),
             intval(Yii::$app->request->get('page', 1)),

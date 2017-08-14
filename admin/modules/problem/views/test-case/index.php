@@ -1,21 +1,22 @@
 <?php use admin\widgets\common\PaginationWidget; ?>
 
-<h2 class="text-center">Problems</h2>
+<h2 class="text-center">Test Cases of <code>#<?= $problem->id ?> <?= $problem->title ?></code></h2>
 <div>
     <form class="form-inline">
+        <input type="hidden" name="problem_id" value="<?= $problem->id ?>">
         <div class="form-group">
-            <label for="id">ID</label>
-            <input name="id" class="form-control" id="id" placeholder="ID" value="<?= $id ?>">
+            <label for="input">Input</label>
+            <input name="input" class="form-control" id="input" placeholder="Input" value="<?= $input ?>">
         </div>
         <div class="form-group">
-            <label for="title">Title</label>
-            <input name="title" class="form-control" id="title" placeholder="Title" value="<?= $title ?>">
+            <label for="output">Output</label>
+            <input name="output" class="form-control" id="output" placeholder="Output" value="<?= $output ?>">
         </div>
         <div class="form-group">
             <button class="btn btn-default">Search</button>
         </div>
         <div class="form-group pull-right">
-            <a href="/problem/manage/new" class="btn btn-success" target="_blank">add</a>
+            <a href="/problem/test-case/new?problem_id=<?= $problem->id ?>" class="btn btn-success" target="_blank">add</a>
         </div>
     </form>
 </div>
@@ -23,22 +24,23 @@
     <table class="table table-striped">
         <tr>
             <th class="col-md-1">#</th>
-            <th class="col-md-7">Title</th>
-            <th class="col-md-4">Operation</th>
+            <th class="col-md-4">Input</th>
+            <th class="col-md-4">Output</th>
+            <th class="col-md-3">Operation</th>
         </tr>
         <?php
         foreach ($records as $record) {
-            echo <<< USER
+            echo <<< TESTCASE
     <tr>
         <td>{$record->id}</td>
-        <td><a href="https://www.justice.plus/problem?problem_id={$record->id}" target="_blank">{$record->title}</a></td>
+        <td><pre>{$record->input}</pre></td>
+        <td><pre>{$record->output}</pre></td>
         <td>
-            <a href="/problem/manage/edit?problem_id={$record->id}" target="_blank"><button type="button" class="btn btn-primary btn-xs">Edit</button></a>
-            <a href="/problem/test-case?problem_id={$record->id}" target="_blank"><button type="button" class="btn btn-primary btn-xs">Test Cases</button></a>
-            <button type="button" class="btn btn-danger btn-xs remove" data-problem-id="{$record->id}" data-problem-title="{$record->title}">Delete</button>
+            <a href="/problem/test-case/edit?id={$record->id}" target="_blank"><button type="button" class="btn btn-primary btn-xs">Edit</button></a>
+            <button type="button" class="btn btn-danger btn-xs remove" data-id="{$record->id}" data-input="{$record->input}" data-output="{$record->output}">Delete</button>
         </td>
     </tr>
-USER;
+TESTCASE;
         }
         ?>
     </table>
@@ -57,12 +59,14 @@ USER;
                 <h2 class="modal-title" id="modal-title"></h2>
             </div>
             <div class="modal-body">
-                <h4>Items below will also be removed:</h4>
-                <ul>
-                    <li>Test cases of this problem</li>
-                    <li>Submissions of this problem</li>
-                    <li>Editorial of this problem</li>
-                </ul>
+                <div class="row">
+                    <div class="col-md-6">
+                        <pre id="i"></pre>
+                    </div>
+                    <div class="col-md-6">
+                        <pre id="o"></pre>
+                    </div>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" id="confirm_button">Yes</button>
@@ -73,17 +77,19 @@ USER;
 <script>
     $(document).ready(function () {
         $('.remove').on('click', function () {
-            $('#confirm').val($(this).data('problem-id'));
-            $('#modal-title').html('Remove problem <code>#' + $(this).data('problem-id') + ' ' + $(this).data('problem-title') + '</code>');
+            $('#confirm').val($(this).data('id'));
+            $('#modal-title').html('Remove test case <code>#' + $(this).data('id') + '</code>');
+            $('#i').html($(this).data('input'));
+            $('#o').html($(this).data('output'));
             $('#modal').modal();
         });
 
         $('#confirm_button').on('click', function () {
             $.ajax({
                 type: 'POST',
-                url: '/problem/manage/delete',
+                url: '/problem/test-case/delete',
                 data: {
-                    problem_id: $('#confirm').val()
+                    test_case_id: $('#confirm').val()
                 },
                 timeout: 3000,
                 success: function (res) {

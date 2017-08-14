@@ -4,6 +4,7 @@ namespace common\services;
 
 use common\models\Problem;
 use common\models\Submission;
+use common\models\TestCase;
 use Yii;
 
 class ProblemService {
@@ -43,7 +44,7 @@ class ProblemService {
      * @return  int problem id
      * @desc
      */
-    public function editProblem($problem, string $title, string $description, int $level, int $runtime, int $memory) {
+    public function updateProblem($problem, string $title, string $description, int $level, int $runtime, int $memory) {
         $problem->title = $title;
         $problem->description = $description;
         $problem->level = $level;
@@ -141,8 +142,26 @@ class ProblemService {
      * @desc
      * @return \yii\db\ActiveQuery
      */
-    public function findSubmissionsByProblemID(int $problem_id) {
+    public function getSubmissionsByProblemID(int $problem_id) {
         return Submission::find()->where(['problem_id' => $problem_id])->orderBy(['id' => SORT_DESC]);
+    }
+
+
+    /**
+     * @author  liuchao
+     * @mail    i@liuchao.me
+     * @param   int $problem_id
+     * @param   null|string $input
+     * @param   null|string $output
+     * @return \yii\db\ActiveQuery
+     * @desc
+     */
+    public function searchTestCasesByProblemID(int $problem_id, ?string $input, ?string $output) {
+        return TestCase::find()
+            ->where(['problem_id' => $problem_id])
+            ->andFilterWhere(['LIKE', 'input', $input])
+            ->andFilterWhere(['LIKE', 'output', $output])
+            ->orderBy(['id' => SORT_DESC]);
     }
 
 

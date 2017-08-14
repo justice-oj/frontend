@@ -60,11 +60,11 @@ class ManageController extends BaseController {
     public function actionAdd() {
         Yii::$app->response->format = Response::FORMAT_JSON;
 
-        $title = intval(Yii::$app->request->post('title'));
+        $title = Yii::$app->request->post('title');
         $description = Yii::$app->request->post('description');
-        $level = Yii::$app->request->post('level');
-        $runtime_limit = Yii::$app->request->post('runtime_limit');
-        $memory_limit = Yii::$app->request->post('memory_limit');
+        $level = intval(Yii::$app->request->post('level'));
+        $runtime_limit = intval(Yii::$app->request->post('runtime_limit'));
+        $memory_limit = intval(Yii::$app->request->post('memory_limit'));
 
         if (empty($title) || empty($description) || empty($level) || empty($runtime_limit) || empty($memory_limit)) {
             return [
@@ -78,10 +78,7 @@ class ManageController extends BaseController {
 
             return [
                 'code' => 0,
-                'message' => 'OK',
-                'data' => [
-                    'problem_id' => $pid
-                ]
+                'message' => 'OK'
             ];
         } catch (\Exception $e) {
             return [
@@ -134,7 +131,7 @@ class ManageController extends BaseController {
             ];
         }
 
-        $pid = $this->problemService->editProblem($problem, $title, $description, $level, $runtime_limit, $memory_limit);
+        $pid = $this->problemService->updateProblem($problem, $title, $description, $level, $runtime_limit, $memory_limit);
         return [
             'code' => 0,
             'message' => 'OK',

@@ -91,9 +91,9 @@
                 timeout: 3000,
                 success: function (res) {
                     if (res.code === 0) {
-                        location.href = "/problem/test-cases/add?id=" + res.data.problem_id;
+                        location.href = '/problem';
                     } else {
-                        error_message.text(data.message);
+                        error_message.text(res.message);
                         error.modal();
                     }
                 },
