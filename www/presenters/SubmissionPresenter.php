@@ -97,22 +97,23 @@ class SubmissionPresenter {
     public function showWAMessage($submission) {
         if ($submission->status == Submission::STATUS_WA) {
             return <<< BLOCK
-            <div class="ui equal width grid">
-                <div class="column">
+            <div class="ui horizontal segments">
+                <div class="ui segment">
                     <div class="ui header">Input: </div>
                     <pre>{$submission->input}</pre>
                 </div>
-                <div class="column">
+                <div class="ui segment">
                     <div class="ui red header">Output: </div>
                     <pre>{$submission->output}</pre>
                 </div>
-                <div class="column">
+                <div class="ui segment">
                     <div class="ui green header">Expected: </div>
                     <pre>{$submission->expected}</pre>
                 </div>
             </div>
 BLOCK;
         }
+        return '';
     }
 
 
@@ -132,5 +133,6 @@ BLOCK;
             <div class="ui red message"><div class="header">Error: </div><pre>{$submission->error}</pre></div>
 BLOCK;
         }
+        return '';
     }
 }
