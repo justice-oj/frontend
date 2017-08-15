@@ -95,6 +95,9 @@ TIP;
                 <a href="https://www.vultr.com/?ref=7059603">
                     <img src="https://www.vultr.com/media/banner_1.png" width="728" height="90">
                 </a>
+                <div class="ui center aligned inverted">
+                    <small>Handcrafted with <span style="font-size: 200%">&dzigrarr;</span> <span style="color:red; font-size: 200%">&hearts;</span></small>
+                </div>
             </div>
         </div>
         <div class="ui inverted section divider"></div>
