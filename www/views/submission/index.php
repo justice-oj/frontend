@@ -47,6 +47,7 @@ $presenter = new \www\presenters\SubmissionPresenter();
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.28.0/addon/edit/matchbrackets.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.28.0/mode/clike/clike.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.28.0/mode/python/python.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.28.0/mode/perl/perl.min.js"></script>
 <style>
     .CodeMirror {
         border: 1px solid #eee;

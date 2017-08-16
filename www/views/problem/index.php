@@ -37,7 +37,7 @@ use www\widgets\common\GoogleAdSenseWidget;
             <option value="">Select Language</option>
             <option value="0">C</option>
             <option value="1">C++</option>
-            <option value="2">Python 2</option>
+            <option value="2">Perl 6</option>
             <option value="3">Python 3</option>
             <option value="4">Java</option>
         </select>
@@ -67,6 +67,7 @@ use www\widgets\common\GoogleAdSenseWidget;
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.28.0/addon/edit/matchbrackets.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.28.0/mode/clike/clike.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.28.0/mode/python/python.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.28.0/mode/perl/perl.min.js"></script>
 <script>
     $(document).ready(function () {
         $('.menu .item').tab();
@@ -107,11 +108,11 @@ use www\widgets\common\GoogleAdSenseWidget;
                         );
                         editor.setOption('mode', 'text/x-c++src');
                         break;
-                    case "<?= \common\models\Submission::LANGUAGE_PYTHON2 ?>":
+                    case "<?= \common\models\Submission::LANGUAGE_PERL6 ?>":
                         editor.setValue(
                             "# Enter your code here. Read input from STDIN. Print output to STDOUT\n"
                         );
-                        editor.setOption('mode', 'text/x-python');
+                        editor.setOption('mode', 'text/x-perl');
                         break;
                     case "<?= \common\models\Submission::LANGUAGE_PYTHON3 ?>":
                         editor.setValue("# Enter your code here. Read input from STDIN. Print output to STDOUT\n");

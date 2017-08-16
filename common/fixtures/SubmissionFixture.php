@@ -25,7 +25,7 @@ class SubmissionFixture extends ActiveFixture {
                 'language' => $faker->randomElement([
                     Submission::LANGUAGE_C,
                     Submission::LANGUAGE_CPP,
-                    Submission::LANGUAGE_PYTHON2,
+                    Submission::LANGUAGE_PERL6,
                     Submission::LANGUAGE_PYTHON3,
                     Submission::LANGUAGE_JAVA,
                 ]),

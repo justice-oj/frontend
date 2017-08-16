@@ -28,7 +28,7 @@ use www\widgets\common\GoogleAdSenseWidget;
         <div class="ui bulleted list">
             <div class="item">GNU C/C++</div>
             <div class="item">Java 8</div>
-            <div class="item">Python 2</div>
+            <div class="item">Perl 6</div>
             <div class="item">Python 3</div>
         </div>
     </div>

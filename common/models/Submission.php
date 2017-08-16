@@ -28,7 +28,7 @@ use yii\db\Expression;
 class Submission extends ActiveRecord {
     const LANGUAGE_C = 0;
     const LANGUAGE_CPP = 1;
-    const LANGUAGE_PYTHON2 = 2;
+    const LANGUAGE_PERL6 = 2;
     const LANGUAGE_PYTHON3 = 3;
     const LANGUAGE_JAVA = 4;
 

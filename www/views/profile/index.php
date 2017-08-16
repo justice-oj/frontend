@@ -125,7 +125,7 @@ $problem_presenter = new \www\presenters\ProblemPresenter();
     var language = new Chart('language', {
         type: 'bar',
         data: {
-            labels: ["C", "C++", "Python 2", "Python 3", "Java"],
+            labels: ["C", "C++", "Perl 6", "Python 3", "Java"],
             datasets: [{
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
@@ -147,7 +147,7 @@ $problem_presenter = new \www\presenters\ProblemPresenter();
                 data: [
                     <?= $language[\common\models\Submission::LANGUAGE_C] ?? 0 ?>,
                     <?= $language[\common\models\Submission::LANGUAGE_CPP] ?? 0 ?>,
-                    <?= $language[\common\models\Submission::LANGUAGE_PYTHON2] ?? 0 ?>,
+                    <?= $language[\common\models\Submission::LANGUAGE_PERL6] ?? 0 ?>,
                     <?= $language[\common\models\Submission::LANGUAGE_PYTHON3] ?? 0 ?>,
                     <?= $language[\common\models\Submission::LANGUAGE_JAVA] ?? 0 ?>
                 ]

@@ -16,8 +16,8 @@ class SubmissionPresenter {
             return 'C';
         } elseif ($language === Submission::LANGUAGE_CPP) {
             return 'C++';
-        } elseif ($language === Submission::LANGUAGE_PYTHON2) {
-            return 'Python 2';
+        } elseif ($language === Submission::LANGUAGE_PERL6) {
+            return 'Perl 6';
         } elseif ($language === Submission::LANGUAGE_PYTHON3) {
             return 'Python 3';
         } elseif ($language === Submission::LANGUAGE_JAVA) {
