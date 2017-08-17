@@ -196,4 +196,15 @@ class ProblemService {
 
         return $submission->id;
     }
+
+
+    /**
+     * @author  liuchao
+     * @mail    i@liuchao.me
+     * @return int
+     * @desc
+     */
+    public function getTotalProblemsCount() {
+        return intval(Problem::find()->asArray()->count());
+    }
 }

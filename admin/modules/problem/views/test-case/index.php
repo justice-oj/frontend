@@ -36,8 +36,8 @@
         <td><pre>{$record->input}</pre></td>
         <td><pre>{$record->output}</pre></td>
         <td>
-            <a href="/problem/test-case/edit?id={$record->id}" target="_blank"><button type="button" class="btn btn-primary btn-xs">Edit</button></a>
-            <button type="button" class="btn btn-danger btn-xs remove" data-id="{$record->id}" data-input="{$record->input}" data-output="{$record->output}">Delete</button>
+            <a href="/problem/test-case/edit?id={$record->id}" target="_blank"><button type="button" class="btn btn-primary">Edit</button></a>
+            <button type="button" class="btn btn-danger remove" data-id="{$record->id}" data-input="{$record->input}" data-output="{$record->output}">Delete</button>
         </td>
     </tr>
 TESTCASE;

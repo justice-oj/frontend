@@ -206,4 +206,15 @@ class UserService {
             ->andFilterWhere(['LIKE', 'email', $email])
             ->orderBy(['id' => SORT_DESC]);
     }
+
+
+    /**
+     * @author  liuchao
+     * @mail    i@liuchao.me
+     * @return int
+     * @desc
+     */
+    public function getTotalUsersCount() {
+        return intval(User::find()->asArray()->count());
+    }
 }

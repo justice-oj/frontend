@@ -31,4 +31,15 @@ class SubmissionService {
     public function getSubmissionsByUserID(int $user_id) {
         return Submission::find()->where(['user_id' => $user_id]);
     }
+
+
+    /**
+     * @author  liuchao
+     * @mail    i@liuchao.me
+     * @return int
+     * @desc
+     */
+    public function getTotalSubmissionsCount() {
+        return intval(Submission::find()->asArray()->count());
+    }
 }
