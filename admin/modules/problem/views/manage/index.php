@@ -35,6 +35,7 @@
         <td>
             <a href="/problem/manage/edit?problem_id={$record->id}"><button type="button" class="btn btn-primary btn-xs">Edit</button></a>
             <a href="/problem/test-case?problem_id={$record->id}"><button type="button" class="btn btn-primary btn-xs">Test Cases</button></a>
+            <a href="/problem/editorial?problem_id={$record->id}"><button type="button" class="btn btn-primary btn-xs">Editorial</button></a>
             <button type="button" class="btn btn-danger btn-xs remove" data-problem-id="{$record->id}" data-problem-title="{$record->title}">Delete</button>
         </td>
     </tr>

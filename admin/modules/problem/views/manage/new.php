@@ -76,17 +76,15 @@
                 return;
             }
 
-            console.log(description);
-
             $.ajax({
                 type: 'POST',
                 url: '/problem/manage/add',
                 data: {
-                    'title': title,
-                    'description': description,
-                    'level': level,
-                    'runtime_limit': runtime_limit,
-                    'memory_limit': memory_limit
+                    title: title,
+                    description: description,
+                    level: level,
+                    runtime_limit: runtime_limit,
+                    memory_limit: memory_limit
                 },
                 timeout: 3000,
                 success: function (res) {
