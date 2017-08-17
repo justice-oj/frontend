@@ -16,7 +16,7 @@
             <button class="btn btn-default">Search</button>
         </div>
         <div class="form-group pull-right">
-            <a href="/problem/test-case/new?problem_id=<?= $problem->id ?>" class="btn btn-success" target="_blank">add</a>
+            <a href="/problem/test-case/new?problem_id=<?= $problem->id ?>" class="btn btn-success">add</a>
         </div>
     </form>
 </div>
@@ -36,7 +36,7 @@
         <td><pre>{$record->input}</pre></td>
         <td><pre>{$record->output}</pre></td>
         <td>
-            <a href="/problem/test-case/edit?id={$record->id}" target="_blank"><button type="button" class="btn btn-primary">Edit</button></a>
+            <a href="/problem/test-case/edit?id={$record->id}"><button type="button" class="btn btn-primary">Edit</button></a>
             <button type="button" class="btn btn-danger remove" data-id="{$record->id}" data-input="{$record->input}" data-output="{$record->output}">Delete</button>
         </td>
     </tr>

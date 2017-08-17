@@ -28,7 +28,7 @@ $problem_presenter = new www\presenters\ProblemPresenter();
     <tr>
         <td>
             <i class="{$record['country']} flag"></i>
-            <a href="/profile?name={$record['username']}" target="_blank">{$record['username']}</a>
+            <a href="/profile?name={$record['username']}">{$record['username']}</a>
         </td>
         <td>{$record['solved']}</td>
         <td>{$record['tried']}</td>

@@ -26,9 +26,9 @@ $presenter = new \www\presenters\SubmissionPresenter();
     <tr>
         <td>
             <i class="<?= $user->country ?> flag"></i>
-            <a href="/profile?name=<?= $user->username ?>" target="_blank"><?= $user->username ?></a>
+            <a href="/profile?name=<?= $user->username ?>"><?= $user->username ?></a>
         </td>
-        <td><a href="/problem?problem_id=<?= $problem->id ?>" target="_blank"><?= $problem->title ?></a></td>
+        <td><a href="/problem?problem_id=<?= $problem->id ?>"><?= $problem->title ?></a></td>
         <td><?= $presenter->showLanguage($submission->language) ?></td>
         <td><?= $presenter->showStatus($submission->status) ?></td>
         <td><?= $presenter->showRuntime($submission->runtime) ?></td>

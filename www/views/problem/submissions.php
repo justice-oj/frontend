@@ -34,10 +34,10 @@ $presenter = new \www\presenters\SubmissionPresenter();
     <tr>
         <td>
         <i class="{$record->user->country} flag"></i>
-        <a href="/profile?name={$record->user->username}" target="_blank">{$record->user->username}</a>
+        <a href="/profile?name={$record->user->username}">{$record->user->username}</a>
         </td>
         <td>{$presenter->showLanguage($record->language)}</td>
-        <td><a href="/submission?id={$record->id}" target="_blank">{$presenter->showStatus($record->status)}</a></td>
+        <td><a href="/submission?id={$record->id}">{$presenter->showStatus($record->status)}</a></td>
         <td>{$presenter->showRuntime($record->runtime)}</td>
         <td>{$presenter->showMemory($record->memory)}</td>
         <td>{$record->created_at}</td>

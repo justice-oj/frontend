@@ -103,7 +103,7 @@ TIP;
         <div class="ui inverted section divider"></div>
         <img src="/images/logo/justice-white.png" class="ui centered mini image">
         <div class="ui horizontal inverted small divided link list">
-            <a class="item" href="/about-us" target="_blank">About Us</a>
+            <a class="item" href="/about-us">About Us</a>
         </div>
     </div>
 </div>

@@ -19,7 +19,7 @@
             <button class="btn btn-default">Search</button>
         </div>
         <div class="form-group pull-right">
-            <a href="/user/manage/new" class="btn btn-success" target="_blank">add</a>
+            <a href="/user/manage/new" class="btn btn-success">add</a>
         </div>
     </form>
 </div>
@@ -39,7 +39,7 @@
         <td>{$record->username}</td>
         <td>{$record->email}</td>
         <td>
-            <a href="/user/manage/edit?user_id={$record->id}" target="_blank"><button type="button" class="btn btn-primary btn-xs">Edit</button></a>
+            <a href="/user/manage/edit?user_id={$record->id}"><button type="button" class="btn btn-primary btn-xs">Edit</button></a>
             <button type="button" class="btn btn-danger btn-xs remove" data-user-id="{$record->id}" data-user-name="{$record->username}">Delete</button>
         </td>
     </tr>

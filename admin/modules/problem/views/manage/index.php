@@ -15,7 +15,7 @@
             <button class="btn btn-default">Search</button>
         </div>
         <div class="form-group pull-right">
-            <a href="/problem/manage/new" class="btn btn-success" target="_blank">add</a>
+            <a href="/problem/manage/new" class="btn btn-success">add</a>
         </div>
     </form>
 </div>
@@ -31,10 +31,10 @@
             echo <<< USER
     <tr>
         <td>{$record->id}</td>
-        <td><a href="https://www.justice.plus/problem?problem_id={$record->id}" target="_blank">{$record->title}</a></td>
+        <td><a href="https://www.justice.plus/problem?problem_id={$record->id}">{$record->title}</a></td>
         <td>
-            <a href="/problem/manage/edit?problem_id={$record->id}" target="_blank"><button type="button" class="btn btn-primary btn-xs">Edit</button></a>
-            <a href="/problem/test-case?problem_id={$record->id}" target="_blank"><button type="button" class="btn btn-primary btn-xs">Test Cases</button></a>
+            <a href="/problem/manage/edit?problem_id={$record->id}"><button type="button" class="btn btn-primary btn-xs">Edit</button></a>
+            <a href="/problem/test-case?problem_id={$record->id}"><button type="button" class="btn btn-primary btn-xs">Test Cases</button></a>
             <button type="button" class="btn btn-danger btn-xs remove" data-problem-id="{$record->id}" data-problem-title="{$record->title}">Delete</button>
         </td>
     </tr>
