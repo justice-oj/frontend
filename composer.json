@@ -1,5 +1,6 @@
 {
   "name": "liumangchao/justice",
+  "license": "MIT",
   "description": "Just another OJ",
   "homepage": "https://www.justice.plus",
   "minimum-stability": "stable",
@@ -7,7 +8,7 @@
     "php": "~7.1",
     "yiisoft/yii2": "~2.0",
     "yiisoft/yii2-redis": "~2.0",
-    "yiisoft/yii2-bootstrap": "~2.0",
+    "sentry/sentry": "~1.7",
     "endroid/qrcode": "~2.2",
     "gregwar/captcha": "~1.1",
     "amstaffix/pagination": "~1.1",
