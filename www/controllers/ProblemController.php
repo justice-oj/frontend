@@ -2,6 +2,7 @@
 
 namespace www\controllers;
 
+use common\services\DiscussionService;
 use common\services\EditorialService;
 use common\services\ProblemService;
 use Kilte\Pagination\Pagination;
@@ -14,6 +15,7 @@ use yii\web\Response;
 class ProblemController extends BaseController {
     protected $problemService;
     protected $editorialService;
+    protected $discussionService;
 
 
     public function __construct(
@@ -21,10 +23,12 @@ class ProblemController extends BaseController {
         $module,
         ProblemService $problemService,
         EditorialService $editorialService,
+        DiscussionService $discussionService,
         $config = []
     ) {
         $this->problemService = $problemService;
         $this->editorialService = $editorialService;
+        $this->discussionService = $discussionService;
         parent::__construct($id, $module, $config);
     }
 
@@ -67,10 +71,13 @@ class ProblemController extends BaseController {
 
     public function actionDiscussions(int $problem_id) {
         $problem = $this->problemService->getProblemByID($problem_id);
+        $discussions = $this->discussionService->getDiscussionByProblemID($problem_id);
+
         $this->view->title = 'Justice PLUS - Discussions of ' . Html::encode($problem->title);
 
         return $this->render('discussions', [
             'problem' => $problem,
+            'discussions' => $discussions,
         ]);
     }
 

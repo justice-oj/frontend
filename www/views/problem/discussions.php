@@ -2,6 +2,8 @@
 
 use www\widgets\common\GoogleAdSenseWidget;
 
+$user_presenter = new \www\presenters\UserPresenter();
+
 ?>
 <style>
     .ui.comments {
@@ -23,73 +25,34 @@ use www\widgets\common\GoogleAdSenseWidget;
     <a class="item" href="/problem/editorial?problem_id=<?= $problem->id ?>">Editorial</a>
 </div>
 <div class="ui large comments">
+    <?php
+    foreach ($discussions as $discussion) {
+        echo <<< DISCUSSION
     <div class="comment">
         <a class="avatar">
-            <img src="https://semantic-ui.com/images/avatar/small/stevie.jpg">
+            <img src="{$user_presenter->showAvatar($discussion->user->email)}">
         </a>
         <div class="content">
-            <a class="author">Stevie Feliciano</a>
+            <a class="author">{$discussion->user->username}</a>
             <div class="metadata">
                 <div class="date">2 days ago</div>
                 <div class="rating">
                     <i class="star icon"></i>
-                    5 Likes
+                    {$discussion->up_vote} Likes
                 </div>
             </div>
-            <div class="text">
-                Hey guys, I hope this example comment is helping you read this documentation. Dude, this is awesome. Thanks so much. I'm very interested in this motherboard. Do you know if it'd work in a Intel LGA775 CPU socket?
-            </div>
+            <div class="text content">{$discussion->content}</div>
             <div class="actions">
                 <a class="reply">Reply</a>
             </div>
         </div>
     </div>
-    <div class="comment">
-        <a class="avatar">
-            <img src="https://semantic-ui.com/images/avatar/small/elliot.jpg">
-        </a>
-        <div class="content">
-            <a class="author">Stevie Feliciano</a>
-            <div class="metadata">
-                <div class="date">2 days ago</div>
-                <div class="rating">
-                    <i class="star icon"></i>
-                    5 Likes
-                </div>
-            </div>
-            <div class="text">
-                Hey guys, I hope this example comment is helping you read this documentation. Dude, this is awesome. Thanks so much. I'm very interested in this motherboard. Do you know if it'd work in a Intel LGA775 CPU socket?
-            </div>
-            <div class="actions">
-                <a class="reply">Reply</a>
-            </div>
-        </div>
-    </div>
-    <div class="comment">
-        <a class="avatar">
-            <img src="https://semantic-ui.com/images/avatar/small/joe.jpg">
-        </a>
-        <div class="content">
-            <a class="author">Stevie Feliciano</a>
-            <div class="metadata">
-                <div class="date">2 days ago</div>
-                <div class="rating">
-                    <i class="star icon"></i>
-                    5 Likes
-                </div>
-            </div>
-            <div class="text">
-                Hey guys, I hope this example comment is helping you read this documentation. Dude, this is awesome. Thanks so much. I'm very interested in this motherboard. Do you know if it'd work in a Intel LGA775 CPU socket?
-            </div>
-            <div class="actions">
-                <a class="reply">Reply</a>
-            </div>
-        </div>
-    </div>
+DISCUSSION;
+    }
+    ?>
     <form class="ui reply form">
         <div class="field">
-            <input name="reply" type="hidden">
-            <div id="reply" style="height: 400px"></div>
+            <div class="content" style="height: 400px"></div>
         </div>
         <div class="ui blue labeled submit icon button">
             <i class="icon edit"></i> Add Reply
@@ -103,7 +66,7 @@ use www\widgets\common\GoogleAdSenseWidget;
     $(document).ready(function () {
         $('.menu .item').tab();
 
-        var quill = new Quill('#reply', {
+        var quill = new Quill('.content', {
             modules: {
                 toolbar: [
                     ['bold', 'italic', 'underline', 'strike'],
@@ -117,7 +80,6 @@ use www\widgets\common\GoogleAdSenseWidget;
                     ['clean']
                 ]
             },
-            placeholder: 'Add your reply here',
             theme: 'snow'
         });
     });
