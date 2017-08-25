@@ -54,8 +54,8 @@
                     type: 'POST',
                     url: '/login/auth',
                     data: {
-                        'email': email.val(),
-                        'password': password.val()
+                        email: email.val(),
+                        password: password.val()
                     },
                     timeout: 3000,
                     success: function (data) {

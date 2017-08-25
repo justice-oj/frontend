@@ -35,8 +35,7 @@ class m170824_141846_t_discussion extends Migration {
         $this->createIndex(
             'idx_problem_id',
             't_discussion',
-            'problem_id',
-            true
+            'problem_id'
         );
     }
 

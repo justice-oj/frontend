@@ -1,7 +1,7 @@
-<link href="https://cdn.quilljs.com/1.3.1/quill.snow.css" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" rel="stylesheet">
-<script src="https://cdn.quilljs.com/1.3.1/quill.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js"></script>
+<link href="<?= Yii::$app->params['staticFile']['KaTex']['css'] ?>" rel="stylesheet">
+<script src="<?= Yii::$app->params['staticFile']['KaTex']['js'] ?>"></script>
+<link href="<?= Yii::$app->params['staticFile']['Quill']['css'] ?>" rel="stylesheet">
+<script src="<?= Yii::$app->params['staticFile']['Quill']['js'] ?>"></script>
 
 <h2 class="text-center">Update Problem</h2>
 <input type="hidden" id="problem_id" value="<?= $problem->id ?>">
@@ -68,7 +68,7 @@
                 error = $('#error');
 
             if (title.length === 0
-                || description.length === 0
+                || quill.getText().trim().length === 0
                 || level.length === 0
                 || runtime_limit.length === 0
                 || memory_limit.length === 0) {

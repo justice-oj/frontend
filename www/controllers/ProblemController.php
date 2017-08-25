@@ -51,6 +51,31 @@ class ProblemController extends BaseController {
     }
 
 
+    public function actionSubmit() {
+        Yii::$app->response->format = Response::FORMAT_JSON;
+
+        $problem_id = intval(Yii::$app->request->post('problem_id'));
+        $language = Yii::$app->request->post('language');
+        $code = Yii::$app->request->post('code');
+
+        if (empty($problem_id) || strlen($language) === 0) {
+            return [
+                'code' => 1,
+                'message' => 'Parameter missing.'
+            ];
+        }
+
+        $submission_id = $this->problemService->submit($problem_id, $language, $code);
+        return [
+            'code' => 0,
+            'message' => 'OK',
+            'data' => [
+                'submission_id' => $submission_id
+            ]
+        ];
+    }
+
+
     public function actionSubmissions(int $problem_id) {
         $problem = $this->problemService->getProblemByID($problem_id);
         $query = $this->problemService->getSubmissionsByProblemID($problem_id);
@@ -82,6 +107,34 @@ class ProblemController extends BaseController {
     }
 
 
+    public function actionAddDiscussion() {
+        Yii::$app->response->format = Response::FORMAT_JSON;
+
+        $problem_id = intval(Yii::$app->request->post('problem_id'));
+        $user_id = Yii::$app->session->get(Yii::$app->params['userIdKey']);
+        $content = Yii::$app->request->post('content');
+
+        if (empty($problem_id) || strlen($content) === 0) {
+            return [
+                'code' => 1,
+                'message' => 'Parameter missing.'
+            ];
+        }
+
+        if ($this->discussionService->addDiscussion($problem_id, $user_id, $content)) {
+            return [
+                'code' => 0,
+                'message' => 'OK'
+            ];
+        } else {
+            return [
+                'code' => 2,
+                'message' => 'add discussion failed'
+            ];
+        }
+    }
+
+
     public function actionEditorial(int $problem_id) {
         $problem = $this->problemService->getProblemByID($problem_id);
         $editorial = $this->editorialService->getEditorialByProblemID($problem_id);
@@ -91,30 +144,5 @@ class ProblemController extends BaseController {
             'problem' => $problem,
             'editorial' => $editorial,
         ]);
-    }
-
-
-    public function actionSubmit() {
-        Yii::$app->response->format = Response::FORMAT_JSON;
-
-        $problem_id = intval(Yii::$app->request->post('problem_id'));
-        $language = Yii::$app->request->post('language');
-        $code = Yii::$app->request->post('code');
-
-        if (empty($problem_id) || strlen($language) === 0) {
-            return [
-                'code' => 1,
-                'message' => 'Parameter missing.'
-            ];
-        }
-
-        $submission_id = $this->problemService->submit($problem_id, $language, $code);
-        return [
-            'code' => 0,
-            'message' => 'OK',
-            'data' => [
-                'submission_id' => $submission_id
-            ]
-        ];
     }
 }
