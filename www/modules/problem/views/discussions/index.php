@@ -28,7 +28,7 @@ $user_presenter = new \www\presenters\UserPresenter();
 <div class="ui large comments">
     <?php
     foreach ($discussions as $discussion) {
-        $t = Carbon::instance(new DateTime($discussion->created_at))->diffForHumans();
+        $t = Carbon::createFromFormat('Y-m-d H:i:s', $discussion->created_at, date_default_timezone_get())->diffForHumans();
         echo <<< DISCUSSION
     <div class="comment">
         <a class="avatar">
@@ -115,7 +115,7 @@ DISCUSSION;
 
             $.ajax({
                 type: 'POST',
-                url: '/problem/add-discussion',
+                url: '/problem/discussions/add',
                 data: {
                     problem_id: '<?= $problem->id ?>',
                     content: JSON.stringify(quill.getContents())

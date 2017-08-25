@@ -154,7 +154,7 @@ use www\widgets\common\GoogleAdSenseWidget;
 
             $.ajax({
                 type: 'POST',
-                url: '/problem/submit',
+                url: '/problem/index/submit',
                 data: {
                     problem_id: '<?= $problem->id ?>',
                     language: language.val(),

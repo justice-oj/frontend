@@ -39,5 +39,11 @@ return [
             'showScriptName' => false,
         ],
     ],
+    'modules' => [
+        'problem' => [
+            'class' => 'www\modules\problem\ProblemModule',
+            'defaultRoute' => 'index',
+        ],
+    ],
     'params' => $params,
 ];
