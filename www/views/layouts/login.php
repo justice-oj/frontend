@@ -58,7 +58,7 @@
                         password: password.val()
                     },
                     timeout: 3000,
-                    done: function (res) {
+                    success: function (res) {
                         if (res.code === 0) {
                             location.href = '/';
                         } else {
@@ -66,7 +66,7 @@
                             s_modal.modal('show');
                         }
                     },
-                    fail: function () {
+                    error: function () {
                         modal.text("An error occurred. Please login later.");
                         s_modal.modal('show');
                     }

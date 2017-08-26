@@ -32,14 +32,16 @@ $user_presenter = new \www\presenters\UserPresenter();
         $t = Carbon::createFromFormat('Y-m-d H:i:s', $discussion->created_at, date_default_timezone_get())->diffForHumans();
         // up-voted style
         $empty = Yii::$app->redis->getbit($key, $discussion->id) ? '' : 'empty';
+        // discussion belongs to
+        $user = $discussion->user;
 
         echo <<< DISCUSSION
     <div class="comment">
         <a class="avatar">
-            <img src="{$user_presenter->showAvatar($discussion->user->email)}">
+            <img src="{$user_presenter->showAvatar($user->email)}">
         </a>
         <div class="content">
-            <a class="author" href="/profile?name={$discussion->user->username}">{$discussion->user->username}</a>
+            <a class="author" href="/profile?name={$user->username}">{$user->username}</a>
             <div class="metadata">
                 <div class="rating" data-id="{$discussion->id}">
                     {$discussion->up_vote}<i class="{$empty} star icon"></i>
@@ -48,7 +50,7 @@ $user_presenter = new \www\presenters\UserPresenter();
             </div>
             <div class="text" id="quill_{$discussion->id}"></div>
             <div class="actions">
-                <a class="reply">Reply</a>
+                <a class="reply quick_reply">Reply</a>
             </div>
         </div>
     </div>
@@ -108,6 +110,12 @@ DISCUSSION;
             theme: 'snow'
         });
 
+        // quick reply
+        $('.quick_reply').on('click', function () {
+            quill.focus();
+        });
+
+        //add reply
         $('#add_reply').on('click', function () {
             if (quill.getText().trim().length === 0) {
                 $('#null').modal('show').delay(1500).queue(function() {
@@ -124,7 +132,7 @@ DISCUSSION;
                     content: JSON.stringify(quill.getContents())
                 },
                 timeout: 3000,
-                done: function (res) {
+                success: function (res) {
                     if (res.code === 0) {
                         location.reload();
                     } else {
@@ -133,7 +141,7 @@ DISCUSSION;
                         $('#tip').modal('show');
                     }
                 },
-                fail: function () {
+                error: function () {
                     $('#tip_header').text("Error");
                     $('#tip_desc').text("An error occurred, please try later.");
                     $('#tip').modal('show');
@@ -143,21 +151,20 @@ DISCUSSION;
 
         // up-vote
         $('.rating').on('click', function () {
+            var star = $(this);
             $.ajax({
                 type: 'POST',
                 url: '/problem/discussions/up-vote',
                 data: {
-                    discussion_id: $(this).data('id')
+                    discussion_id: star.data('id')
                 },
                 timeout: 3000,
-                done: function (res) {
+                success: function (res) {
                     if (res.code === 0) {
-                        console.log(res);
-                        console.log($(this));
                         if (res.data.current) {
-                            this.html(res.data.count + '<i class="star icon"></i>');
+                            $(star).html(res.data.count + '<i class="star icon"></i>');
                         } else {
-                            this.html(res.data.count + '<i class="empty star icon"></i>');
+                            $(star).html(res.data.count + '<i class="empty star icon"></i>');
                         }
                     } else {
                         $('#tip_header').text("Error");
@@ -165,7 +172,7 @@ DISCUSSION;
                         $('#tip').modal('show');
                     }
                 },
-                fail: function () {
+                error: function () {
                     $('#tip_header').text("Error");
                     $('#tip_desc').text("An error occurred, please try later.");
                     $('#tip').modal('show');

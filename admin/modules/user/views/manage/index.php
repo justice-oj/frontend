@@ -90,7 +90,7 @@ USER;
                     user_id: $('#confirm').val()
                 },
                 timeout: 3000,
-                done: function (res) {
+                success: function (res) {
                     if (res.code === 0) {
                         location.reload();
                     } else {
@@ -98,7 +98,7 @@ USER;
                         $('#modal').modal('hide');
                     }
                 },
-                fail: function () {
+                error: function () {
                     alert("An error occurred, please try later.");
                     $('#modal').modal('hide');
                 }

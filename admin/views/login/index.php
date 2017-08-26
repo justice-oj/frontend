@@ -76,7 +76,7 @@
                     password: password.val()
                 },
                 timeout: 3000,
-                done: function (res) {
+                success: function (res) {
                     if (res.code === 0) {
                         location.href = '/';
                     } else {
@@ -84,7 +84,7 @@
                         $('#error').modal();
                     }
                 },
-                fail: function () {
+                error: function () {
                     $('#error_message').text('an error occurred, lease login later');
                     $('#error').modal();
                 }

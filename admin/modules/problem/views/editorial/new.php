@@ -56,7 +56,7 @@
                     editorial: editorial
                 },
                 timeout: 3000,
-                done: function (res) {
+                success: function (res) {
                     if (res.code === 0) {
                         location.reload();
                     } else {
@@ -64,7 +64,7 @@
                         error.modal();
                     }
                 },
-                fail: function () {
+                error: function () {
                     error_message.text("An error occurred, please try later.");
                     error.modal();
                 }

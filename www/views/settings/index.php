@@ -334,7 +334,7 @@ $presenter = new \www\presenters\UserPresenter();
                     bio: $('#bio').val()
                 },
                 timeout: 3000,
-                done: function (res) {
+                success: function (res) {
                     if (res.code === 0) {
                         alert("OK");
                         location.reload();
@@ -342,7 +342,7 @@ $presenter = new \www\presenters\UserPresenter();
                         alert("Failed: " + res.message);
                     }
                 },
-                fail: function () {
+                error: function () {
                     alert("An error occurred, please try again later.");
                 }
             });
