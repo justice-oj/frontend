@@ -2,6 +2,7 @@
 
 use Carbon\Carbon;
 use www\widgets\common\GoogleAdSenseWidget;
+use www\widgets\common\PaginationWidget;
 
 $user_presenter = new \www\presenters\UserPresenter();
 
@@ -86,6 +87,7 @@ DISCUSSION;
         <div class="ui primary button ok">OK</div>
     </div>
 </div>
+<?= PaginationWidget::widget(['pagination' => $pagination]) ?>
 <div class="ui basic segment">
     <?= GoogleAdSenseWidget::widget() ?>
 </div>

@@ -29,7 +29,7 @@ class DiscussionService {
      * @desc
      */
     public function getDiscussionByProblemID(int $problem_id) {
-        return Discussion::find()->where(['problem_id' => $problem_id])->all();
+        return Discussion::find()->where(['problem_id' => $problem_id]);
     }
 
 

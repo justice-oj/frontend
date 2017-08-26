@@ -6,6 +6,7 @@ use admin\controllers\BaseController;
 use common\models\Discussion;
 use common\services\DiscussionService;
 use common\services\ProblemService;
+use Kilte\Pagination\Pagination;
 use www\filters\ProblemExistsFilter;
 use www\filters\UserLoggedinFilter;
 use Yii;
@@ -40,13 +41,19 @@ class DiscussionsController extends BaseController {
 
     public function actionIndex(int $problem_id) {
         $problem = $this->problemService->getProblemByID($problem_id);
-        $discussions = $this->discussionService->getDiscussionByProblemID($problem_id);
+        $query = $this->discussionService->getDiscussionByProblemID($problem_id);
+        $pagination = new Pagination(
+            $query->count(),
+            intval(Yii::$app->request->get('page', 1)),
+            Yii::$app->params['paginationPerPage']
+        );
 
         $this->view->title = 'Justice PLUS - Discussions of ' . Html::encode($problem->title);
 
         return $this->render('index', [
             'problem' => $problem,
-            'discussions' => $discussions,
+            'pagination' => $pagination->build(),
+            'discussions' => $query->offset($pagination->offset())->limit($pagination->limit())->all(),
             'key' => Yii::$app->params['userUpVoteKey'] . Yii::$app->session->get(Yii::$app->params['userIdKey']),
         ]);
     }
