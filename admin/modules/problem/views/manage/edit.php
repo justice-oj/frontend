@@ -91,7 +91,7 @@
                     memory_limit: memory_limit
                 },
                 timeout: 3000,
-                success: function (res) {
+                done: function (res) {
                     if (res.code === 0) {
                         location.href = "/problem/manage/edit?problem_id=" + res.data.problem_id;
                     } else {
@@ -99,7 +99,7 @@
                         error.modal();
                     }
                 },
-                error: function () {
+                fail: function () {
                     error_message.text("An error occurred, please try later.");
                     error.modal();
                 }

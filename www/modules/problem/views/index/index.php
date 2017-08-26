@@ -161,7 +161,7 @@ use www\widgets\common\GoogleAdSenseWidget;
                     code: editor.getValue()
                 },
                 timeout: 3000,
-                success: function (res) {
+                done: function (res) {
                     if (res.code === 0) {
                         location.href = "/submission?id=" + res.data.submission_id;
                     } else {
@@ -170,7 +170,7 @@ use www\widgets\common\GoogleAdSenseWidget;
                         $('#tip').modal('show');
                     }
                 },
-                error: function () {
+                fail: function () {
                     $('#tip_header').text("Error");
                     $('#tip_desc').text("An error occurred, please try later.");
                     $('#tip').modal('show');

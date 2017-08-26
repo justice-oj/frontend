@@ -76,15 +76,15 @@
                     password: password.val()
                 },
                 timeout: 3000,
-                success: function (data) {
-                    if (data.code === 0) {
+                done: function (res) {
+                    if (res.code === 0) {
                         location.href = '/';
                     } else {
-                        $('#error_message').text(data.message);
+                        $('#error_message').text(res.message);
                         $('#error').modal();
                     }
                 },
-                error: function () {
+                fail: function () {
                     $('#error_message').text('an error occurred, lease login later');
                     $('#error').modal();
                 }

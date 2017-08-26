@@ -115,8 +115,7 @@ class ProblemService {
             ]))) {
                 $status = Problem::STATUS_SOLVED;
             } elseif (
-                Yii::$app->redis->getbit(Yii::$app->params['userTriedCountKey'] . $uid,
-                    $record->id) == Problem::STATUS_TRIED
+                Yii::$app->redis->getbit(Yii::$app->params['userTriedCountKey'] . $uid, $record->id) == Problem::STATUS_TRIED
             ) {
                 $status = Problem::STATUS_TRIED;
             } else {

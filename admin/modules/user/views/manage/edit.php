@@ -50,7 +50,7 @@
                     password: password
                 },
                 timeout: 3000,
-                success: function (res) {
+                done: function (res) {
                     if (res.code === 0) {
                         location.reload();
                     } else {
@@ -58,7 +58,7 @@
                         error.modal();
                     }
                 },
-                error: function () {
+                fail: function () {
                     error_message.text("An error occurred, please try later.");
                     error.modal();
                 }

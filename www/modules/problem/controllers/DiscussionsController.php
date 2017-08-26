@@ -3,6 +3,7 @@
 namespace www\modules\problem\controllers;
 
 use admin\controllers\BaseController;
+use common\models\Discussion;
 use common\services\DiscussionService;
 use common\services\ProblemService;
 use www\filters\ProblemExistsFilter;
@@ -46,6 +47,7 @@ class DiscussionsController extends BaseController {
         return $this->render('index', [
             'problem' => $problem,
             'discussions' => $discussions,
+            'key' => Yii::$app->params['userUpVoteKey'] . Yii::$app->session->get(Yii::$app->params['userIdKey']),
         ]);
     }
 
@@ -73,6 +75,46 @@ class DiscussionsController extends BaseController {
             return [
                 'code' => 2,
                 'message' => 'add discussion failed'
+            ];
+        }
+    }
+
+
+    public function actionUpVote() {
+        Yii::$app->response->format = Response::FORMAT_JSON;
+
+        $discussion_id = intval(Yii::$app->request->post('discussion_id'));
+        $key = Yii::$app->params['userUpVoteKey'] . Yii::$app->session->get(Yii::$app->params['userIdKey']);
+        $discussion = $this->discussionService->getDiscussionByID($discussion_id);
+
+        if (is_null($discussion)) {
+            return [
+                'code' => 1,
+                'message' => 'discussion not exists'
+            ];
+        }
+
+        if (Yii::$app->redis->getbit($key, $discussion_id)) {
+            Yii::$app->redis->setbit($key, $discussion_id, Discussion::NOT_UP_VOTED);
+            $delta = -1;
+        } else {
+            Yii::$app->redis->setbit($key, $discussion_id, Discussion::ALREADY_UP_VOTED);
+            $delta = 1;
+        }
+
+        if ($this->discussionService->updateDiscussionUpVotes($discussion, $delta)) {
+            return [
+                'code' => 0,
+                'message' => 'OK',
+                'data' => [
+                    'current' => Yii::$app->redis->getbit($key, $discussion_id) == Discussion::ALREADY_UP_VOTED,
+                    'count' => $discussion->up_vote
+                ]
+            ];
+        } else {
+            return [
+                'code' => 2,
+                'message' => 'update failed'
             ];
         }
     }

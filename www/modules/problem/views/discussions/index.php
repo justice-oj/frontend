@@ -28,7 +28,11 @@ $user_presenter = new \www\presenters\UserPresenter();
 <div class="ui large comments">
     <?php
     foreach ($discussions as $discussion) {
+        // human readable time format
         $t = Carbon::createFromFormat('Y-m-d H:i:s', $discussion->created_at, date_default_timezone_get())->diffForHumans();
+        // up-voted style
+        $empty = Yii::$app->redis->getbit($key, $discussion->id) ? '' : 'empty';
+
         echo <<< DISCUSSION
     <div class="comment">
         <a class="avatar">
@@ -37,9 +41,8 @@ $user_presenter = new \www\presenters\UserPresenter();
         <div class="content">
             <a class="author" href="/profile?name={$discussion->user->username}">{$discussion->user->username}</a>
             <div class="metadata">
-                <div class="rating">
-                    {$discussion->up_vote}
-                    <i class="star icon"></i>
+                <div class="rating" data-id="{$discussion->id}">
+                    {$discussion->up_vote}<i class="{$empty} star icon"></i>
                 </div>
                 <div class="date">{$t}</div>
             </div>
@@ -121,7 +124,7 @@ DISCUSSION;
                     content: JSON.stringify(quill.getContents())
                 },
                 timeout: 3000,
-                success: function (res) {
+                done: function (res) {
                     if (res.code === 0) {
                         location.reload();
                     } else {
@@ -130,12 +133,44 @@ DISCUSSION;
                         $('#tip').modal('show');
                     }
                 },
-                error: function () {
+                fail: function () {
                     $('#tip_header').text("Error");
                     $('#tip_desc').text("An error occurred, please try later.");
                     $('#tip').modal('show');
                 }
             });
-        })
+        });
+
+        // up-vote
+        $('.rating').on('click', function () {
+            $.ajax({
+                type: 'POST',
+                url: '/problem/discussions/up-vote',
+                data: {
+                    discussion_id: $(this).data('id')
+                },
+                timeout: 3000,
+                done: function (res) {
+                    if (res.code === 0) {
+                        console.log(res);
+                        console.log($(this));
+                        if (res.data.current) {
+                            this.html(res.data.count + '<i class="star icon"></i>');
+                        } else {
+                            this.html(res.data.count + '<i class="empty star icon"></i>');
+                        }
+                    } else {
+                        $('#tip_header').text("Error");
+                        $('#tip_desc').text(res.message);
+                        $('#tip').modal('show');
+                    }
+                },
+                fail: function () {
+                    $('#tip_header').text("Error");
+                    $('#tip_desc').text("An error occurred, please try later.");
+                    $('#tip').modal('show');
+                }
+            });
+        });
     });
 </script>

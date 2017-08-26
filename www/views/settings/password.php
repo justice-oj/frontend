@@ -59,14 +59,14 @@ use www\widgets\common\GoogleAdSenseWidget;
                     new_password: b
                 },
                 timeout: 3000,
-                success: function (res) {
+                done: function (res) {
                     if (res.code === 0) {
                         alert("OK");
                     } else {
                         alert("Failed: " + res.message);
                     }
                 },
-                error: function () {
+                fail: function () {
                     alert("An error occurred, please try again later.");
                 }
             });

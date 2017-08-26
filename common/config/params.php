@@ -6,6 +6,7 @@ return [
     'userNameKey' => 'name',
     'paginationPerPage' => 20,
     'userTriedCountKey' => '_utck_',
+    'userUpVoteKey' => '_uuvk_',
     'staticFile' => [
         'Quill' => [
             'css' => 'https://cdnjs.cloudflare.com/ajax/libs/quill/1.3.1/quill.snow.min.css',

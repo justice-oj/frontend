@@ -58,15 +58,15 @@
                         password: password.val()
                     },
                     timeout: 3000,
-                    success: function (data) {
-                        if (data.code === 0) {
+                    done: function (res) {
+                        if (res.code === 0) {
                             location.href = '/';
                         } else {
-                            modal.text(data.message);
+                            modal.text(res.message);
                             s_modal.modal('show');
                         }
                     },
-                    error: function () {
+                    fail: function () {
                         modal.text("An error occurred. Please login later.");
                         s_modal.modal('show');
                     }

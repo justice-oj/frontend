@@ -12,6 +12,18 @@ class DiscussionService {
     /**
      * @author  liuchao
      * @mail    i@liuchao.me
+     * @param   int $id
+     * @return  Discussion|null
+     * @desc
+     */
+    public function getDiscussionByID(int $id) {
+        return Discussion::findOne($id);
+    }
+
+
+    /**
+     * @author  liuchao
+     * @mail    i@liuchao.me
      * @param   int $problem_id
      * @return  \yii\db\ActiveQuery
      * @desc
@@ -35,6 +47,20 @@ class DiscussionService {
         $discussion->problem_id = $problem_id;
         $discussion->user_id = $user_id;
         $discussion->content = $content;
+        return $discussion->save();
+    }
+
+
+    /**
+     * @author  liuchao
+     * @mail    i@liuchao.me
+     * @param   Discussion $discussion
+     * @param   int $delta
+     * @desc    update up-votes of discussion
+     * @return  bool
+     */
+    public function updateDiscussionUpVotes($discussion, int $delta) {
+        $discussion->up_vote = $discussion->up_vote + $delta;
         return $discussion->save();
     }
 }
