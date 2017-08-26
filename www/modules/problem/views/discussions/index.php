@@ -28,7 +28,7 @@ $user_presenter = new \www\presenters\UserPresenter();
 </div>
 <div class="ui large comments">
     <?php
-    foreach ($discussions as $discussion) {
+    foreach ($discussions as $k => $discussion) {
         // human readable time format
         $t = Carbon::createFromFormat('Y-m-d H:i:s', $discussion->created_at, date_default_timezone_get())->diffForHumans();
         // up-voted style
@@ -51,7 +51,7 @@ $user_presenter = new \www\presenters\UserPresenter();
             </div>
             <div class="text" id="quill_{$discussion->id}"></div>
             <div class="actions">
-                <a class="reply quick_reply">Reply</a>
+                <a class="reply quick_reply" data-user="{$user->username}">Reply</a>
             </div>
         </div>
     </div>
@@ -115,6 +115,12 @@ DISCUSSION;
         // quick reply
         $('.quick_reply').on('click', function () {
             quill.focus();
+
+            var text = '@' + $(this).data('user') + ' ',
+                cursor = quill.getSelection().index;
+            quill.insertText(cursor, text, {color: '#2185d0', bold: true});
+            quill.setSelection(cursor + text.length);
+            quill.removeFormat(cursor + text.length - 1, 1);
         });
 
         //add reply

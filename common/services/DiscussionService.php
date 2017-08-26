@@ -43,10 +43,17 @@ class DiscussionService {
      * @desc
      */
     public function addDiscussion(int $problem_id, int $user_id, string $content) {
+        $data = json_decode($content);
+        foreach ($data->ops as $block) {
+            if (preg_match('/^@(\w+)$/', $block->insert, $match)) {
+                $block->attributes->link = '/profile?name=' . substr($match[0], 1);
+            }
+        }
+
         $discussion = new Discussion();
         $discussion->problem_id = $problem_id;
         $discussion->user_id = $user_id;
-        $discussion->content = $content;
+        $discussion->content = json_encode($data);
         return $discussion->save();
     }
 
