@@ -45,7 +45,7 @@ class DiscussionService {
     public function addDiscussion(int $problem_id, int $user_id, string $content) {
         $data = json_decode($content);
         foreach ($data->ops as $block) {
-            if (preg_match('/^@(\w+)$/', $block->insert, $match)) {
+            if (preg_match('/^@\w+$/', $block->insert, $match)) {
                 $block->attributes->link = '/profile?name=' . substr($match[0], 1);
             }
         }
