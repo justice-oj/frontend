@@ -57,11 +57,20 @@
         <div class="ui right floated simple dropdown item">
             {$user_name} <i class="dropdown icon"></i>
             <div class="menu">
-                <a class="item" href="/settings">Settings</a>
+                <a class="item" href="/settings">
+                    <i class="settings icon"></i> Settings
+                </a>
+                <a class="item" href="/notifications">
+                    <i class="mail icon"></i> Notifications
+                    <div class="floating ui mini red circular label">22</div>
+                </a>
+                <a class="item" href="/profile?name={$user_name}">
+                    <i class="privacy icon"></i> My Profile
+                </a>
                 <div class="divider"></div>
-                <a class="item" href="/profile?name={$user_name}">My Profile</a>
-                <div class="divider"></div>
-                <a class="item" href="/logout">Logout</a>
+                <a class="item" href="/logout">
+                    <i class="sign out icon"></i> Logout
+                </a>
             </div>
         </div>
 TIP;

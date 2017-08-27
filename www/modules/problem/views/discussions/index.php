@@ -11,6 +11,11 @@ $user_presenter = new \www\presenters\UserPresenter();
     .ui.comments {
         max-width: none;
     }
+    .anchor {
+        position: relative;
+        top: -3em;
+        display: block;
+    }
 </style>
 <link href="<?= Yii::$app->params['staticFile']['KaTex']['css'] ?>" rel="stylesheet">
 <script src="<?= Yii::$app->params['staticFile']['KaTex']['js'] ?>"></script>
@@ -37,6 +42,7 @@ $user_presenter = new \www\presenters\UserPresenter();
         $user = $discussion->user;
 
         echo <<< DISCUSSION
+    <a name="L{$discussion->id}" class="anchor"></a>
     <div class="comment">
         <a class="avatar">
             <img src="{$user_presenter->showAvatar($user->email)}">
