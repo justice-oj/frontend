@@ -124,7 +124,7 @@ class UserService {
                 'country' => $user->country,
                 'username' => $user->username,
                 'solved' => $record['count'],
-                'tried' => Yii::$app->redis->bitcount(Yii::$app->params['userTriedCountKey'] . $record['user_id']),
+                'tried' => Yii::$app->get('redis')->bitcount(Yii::$app->params['userTriedCountKey'] . $record['user_id']),
                 'submissions' => $submissions,
                 'AC' => $submissions == 0 ? 0 : number_format($user->getAcceptedSubmissionCount() * 100 / $submissions, 2),
                 'since' => $user->created_at

@@ -115,7 +115,7 @@ class ProblemService {
             ]))) {
                 $status = Problem::STATUS_SOLVED;
             } elseif (
-                Yii::$app->redis->getbit(Yii::$app->params['userTriedCountKey'] . $uid, $record->id) == Problem::STATUS_TRIED
+                Yii::$app->get('redis')->getbit(Yii::$app->params['userTriedCountKey'] . $uid, $record->id) == Problem::STATUS_TRIED
             ) {
                 $status = Problem::STATUS_TRIED;
             } else {
@@ -184,14 +184,14 @@ class ProblemService {
         $submission->save();
 
         // add tried record for current user
-        Yii::$app->redis->setbit(
+        Yii::$app->get('redis')->setbit(
             Yii::$app->params['userTriedCountKey'] . $user_id,
             $problem_id,
             Problem::STATUS_TRIED
         );
 
         // push to rabbitMQ
-        Yii::$app->rabbitMQ->send(['id' => $submission->id]);
+        Yii::$app->get('rabbitMQ')->send(['id' => $submission->id]);
 
         return $submission->id;
     }

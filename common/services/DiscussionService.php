@@ -3,6 +3,9 @@
 namespace common\services;
 
 use common\models\Discussion;
+use common\models\Problem;
+use common\models\User;
+use www\Presenters\UserPresenter;
 
 /**
  * Class DiscussionService
@@ -61,12 +64,40 @@ class DiscussionService {
     /**
      * @author  liuchao
      * @mail    i@liuchao.me
-     * @param   Discussion $discussion
+     * @param   string $username
+     * @param   \common\models\Discussion $discussion
      * @param   int $delta
+     * @return bool
      * @desc    update up-votes of discussion
-     * @return  bool
      */
-    public function updateDiscussionUpVotes($discussion, int $delta) {
+    public function updateDiscussionVotes($username, $discussion, int $delta) {
+        $upvote_user = User::findOne(['username' => $username]);
+        $notice_user = User::findOne($discussion->user_id);
+
+        if ($notice_user->id == $upvote_user->id) {
+            return false;
+        }
+
+        // notice if this is an up-vote
+        if ($delta > 0) {
+            $problem = Problem::findOne($discussion->problem_id);
+            $user_presenter = new UserPresenter();
+            $content = <<< NOTICE
+    <div class="item">
+        <img class="ui avatar image" src="{$user_presenter->showAvatar($upvote_user->email, 28)}">
+        <div class="content">
+            <a class="header" href="/profile?name={$upvote_user->username}">{$upvote_user->username}</a>
+            <div class="description">Up-voted your discussion under problem 
+            <a href="/problem/discussions?problem_id={$problem->id}#L{$discussion->id}">
+                <b>{$problem->title}</b>
+            </a>
+            </div>
+        </div>
+    </div>
+NOTICE;
+            NotificationService::addNotice($notice_user->username, $content);
+        }
+
         $discussion->up_vote = $discussion->up_vote + $delta;
         return $discussion->save();
     }

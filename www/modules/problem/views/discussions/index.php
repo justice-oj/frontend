@@ -37,7 +37,7 @@ $user_presenter = new \www\presenters\UserPresenter();
         // human readable time format
         $t = Carbon::createFromFormat('Y-m-d H:i:s', $discussion->created_at, date_default_timezone_get())->diffForHumans();
         // up-voted style
-        $empty = Yii::$app->redis->getbit($key, $discussion->id) ? '' : 'empty';
+        $empty = Yii::$app->get('redis')->getbit($key, $discussion->id) ? '' : 'empty';
         // discussion belongs to
         $user = $discussion->user;
 

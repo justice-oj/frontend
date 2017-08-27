@@ -19,13 +19,16 @@ class Discussion extends ActiveRecord {
     const NOT_UP_VOTED = 0;
     const ALREADY_UP_VOTED = 1;
 
+
     public static function tableName() {
         return 't_discussion';
     }
 
+
     public function getProblem() {
         return $this->hasOne(Problem::className(), ['id' => 'problem_id'])->one();
     }
+
 
     public function getUser() {
         return $this->hasOne(User::className(), ['id' => 'user_id'])->one();

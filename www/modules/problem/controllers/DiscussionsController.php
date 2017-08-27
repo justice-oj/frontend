@@ -101,27 +101,28 @@ class DiscussionsController extends BaseController {
             ];
         }
 
-        if (Yii::$app->redis->getbit($key, $discussion_id)) {
-            Yii::$app->redis->setbit($key, $discussion_id, Discussion::NOT_UP_VOTED);
+        if (Yii::$app->get('redis')->getbit($key, $discussion_id)) {
+            Yii::$app->get('redis')->setbit($key, $discussion_id, Discussion::NOT_UP_VOTED);
             $delta = -1;
         } else {
-            Yii::$app->redis->setbit($key, $discussion_id, Discussion::ALREADY_UP_VOTED);
+            Yii::$app->get('redis')->setbit($key, $discussion_id, Discussion::ALREADY_UP_VOTED);
             $delta = 1;
         }
 
-        if ($this->discussionService->updateDiscussionUpVotes($discussion, $delta)) {
+        $username = Yii::$app->session->get(Yii::$app->params['userNameKey']);
+        if ($this->discussionService->updateDiscussionVotes($username, $discussion, $delta)) {
             return [
                 'code' => 0,
                 'message' => 'OK',
                 'data' => [
-                    'current' => Yii::$app->redis->getbit($key, $discussion_id) == Discussion::ALREADY_UP_VOTED,
+                    'current' => Yii::$app->get('redis')->getbit($key, $discussion_id) == Discussion::ALREADY_UP_VOTED,
                     'count' => $discussion->up_vote
                 ]
             ];
         } else {
             return [
                 'code' => 2,
-                'message' => 'update failed'
+                'message' => 'vote failed'
             ];
         }
     }

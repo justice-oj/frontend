@@ -1,4 +1,9 @@
-<?php use yii\helpers\Html; ?>
+<?php
+
+use common\services\NotificationService;
+use yii\helpers\Html;
+
+?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
 <html>
@@ -53,6 +58,10 @@
         <?php
         if (Yii::$app->session->get(Yii::$app->params['userLoggedInKey'])) {
             $user_name = Yii::$app->session->get(Yii::$app->params['userNameKey']);
+            $notice_html = ($notice_counter = NotificationService::getNewNoticeCounter($user_name)) === 0
+                ? ''
+                : '<div class="ui red circular label">' . $notice_counter . '</div>';
+
             echo <<< TIP
         <div class="ui right floated simple dropdown item">
             {$user_name} <i class="dropdown icon"></i>
@@ -62,7 +71,7 @@
                 </a>
                 <a class="item" href="/notifications">
                     <i class="mail icon"></i> Notifications
-                    <div class="floating ui mini red circular label">22</div>
+                    {$notice_html}
                 </a>
                 <a class="item" href="/profile?name={$user_name}">
                     <i class="privacy icon"></i> My Profile
