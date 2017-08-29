@@ -3,6 +3,7 @@
 namespace www\presenters;
 
 use common\models\Submission;
+use yii\helpers\Html;
 
 class SubmissionPresenter {
     /**
@@ -129,8 +130,9 @@ BLOCK;
             && $submission->status != Submission::STATUS_AC
             && $submission->status != Submission::STATUS_WA
         ) {
+            $error = Html::encode($submission->error);
             return <<< BLOCK
-            <div class="ui red message"><div class="header">Error: </div><pre>{$submission->error}</pre></div>
+            <div class="ui red message"><div class="header">Error: </div><pre>{$error}</pre></div>
 BLOCK;
         }
         return '';
