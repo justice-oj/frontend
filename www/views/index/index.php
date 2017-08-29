@@ -26,7 +26,8 @@ use www\widgets\common\GoogleAdSenseWidget;
     </div>
     <div class="ui secondary segment">
         <div class="ui bulleted list">
-            <div class="item">GNU C/C++</div>
+            <div class="item">GNU C(-std=c99)</div>
+            <div class="item">GNU C++(-std=gnu++11)</div>
             <div class="item">Java 8</div>
             <div class="item">Perl 6</div>
             <div class="item">Python 3</div>
