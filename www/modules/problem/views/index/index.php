@@ -37,8 +37,8 @@ use www\widgets\common\GoogleAdSenseWidget;
             <option value="">Select Language</option>
             <option value="0">C</option>
             <option value="1">C++</option>
-            <option value="2">Perl 6</option>
-            <option value="3">Python 3</option>
+<!--            <option value="2">Perl 6</option>
+            <option value="3">Python 3</option>-->
             <option value="4">Java</option>
         </select>
     </div>
