@@ -19,7 +19,7 @@ use www\widgets\common\GoogleAdSenseWidget;
         <h2>System specification</h2>
     </div>
     <div class="ui secondary segment">
-        <p>CentOS 7 (Linux 3.10.0-514.6.2.el7.x86_64)</p>
+        <p>Ubuntu 16.04.3 LTS (4.4.0-96-generic)</p>
     </div>
     <div class="ui segment">
         <h2>Supported languages</h2>
@@ -27,7 +27,7 @@ use www\widgets\common\GoogleAdSenseWidget;
     <div class="ui secondary segment">
         <div class="ui bulleted list">
             <div class="item">GNU C(-std=gnu11)</div>
-            <div class="item">GNU C++(-std=gnu++11)</div>
+            <div class="item">GNU C++(-std=gnu++14)</div>
             <div class="item">Java 8</div>
             <div class="item"><s>Perl 6</s> Under heavy development</div>
             <div class="item"><s>Python 3</s> Under heavy development</div>
