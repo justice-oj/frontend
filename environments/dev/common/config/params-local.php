@@ -1,4 +1,4 @@
 <?php
 return [
-    'sentryDSN' => 'http://f3ed86b6e6bd4c6a8c7f1ebf77d65dff:b616b38dc3cd438fbc4ffd789bed18d4@192.168.216.128:12000/2',
+    'sentryDSN' => 'http://11afcc669dac43be8903af4ebcb64529:50463b5a75e34a119be9c850138496f5@192.168.216.128:12000/2',
 ];
