@@ -5,7 +5,7 @@ return [
             'class' => 'yii\db\Connection',
             'dsn' => 'mysql:host=127.0.0.1;dbname=www_justice_plus',
             'username' => 'root',
-            'password' => '',
+            'password' => 'xaiTIVP7kB$oHuJecEooq#YsziVvVAzW',
             'charset' => 'utf8',
         ],
         'redis' => [
