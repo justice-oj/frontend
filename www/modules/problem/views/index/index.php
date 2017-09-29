@@ -20,11 +20,21 @@ use www\widgets\common\GoogleAdSenseWidget;
     <a class="item" href="/problem/discussions?problem_id=<?= $problem->id ?>">Discussions</a>
     <a class="item" href="/problem/editorial?problem_id=<?= $problem->id ?>">Editorial</a>
 </div>
-<div class="ui info small message">
-    <ul class="list">
-        <li>Memory Limit: <?= $problem->memory_limit ?> MB</li>
-        <li>Time Limit: <?= $problem->runtime_limit ?> ms</li>
-    </ul>
+<div class="ui segment">
+    <div class="ui list">
+        <div class="item">
+            <i class="microchip icon"></i>
+            <div class="content">
+                <b>Time Limit: <?= $problem->runtime_limit ?> ms</b>
+            </div>
+        </div>
+        <div class="item">
+            <i class="server icon"></i>
+            <div class="content">
+                <b>Memory Limit: <?= $problem->memory_limit ?> MB</b>
+            </div>
+        </div>
+    </div>
 </div>
 <input name="description" type="hidden">
 <div id="description"></div>
@@ -37,8 +47,8 @@ use www\widgets\common\GoogleAdSenseWidget;
             <option value="">Select Language</option>
             <option value="0">C</option>
             <option value="1">C++</option>
-<!--            <option value="2">Perl 6</option>
-            <option value="3">Python 3</option>-->
+            <!--            <option value="2">Perl 6</option>
+                        <option value="3">Python 3</option>-->
             <option value="4">Java</option>
         </select>
     </div>
@@ -81,9 +91,9 @@ use www\widgets\common\GoogleAdSenseWidget;
         });
         editor.setSize('auto', 500);
 
-        var language = $('#language'), msg = $('#msg');
+        var language = $('#language');
         language.dropdown({
-            onChange: function(val) {
+            onChange: function (val) {
                 switch (val) {
                     case "<?= \common\models\Submission::LANGUAGE_C ?>":
                         editor.setValue(
@@ -146,7 +156,7 @@ use www\widgets\common\GoogleAdSenseWidget;
 
         $('#submit').on('click', function () {
             if (language.val().length === 0) {
-                $('#null').modal('show').delay(1500).queue(function() {
+                $('#null').modal('show').delay(1500).queue(function () {
                     $(this).modal('hide').dequeue();
                 });
                 return;
@@ -174,6 +184,16 @@ use www\widgets\common\GoogleAdSenseWidget;
                     $('#tip_header').text("Error");
                     $('#tip_desc').text("An error occurred, please try later.");
                     $('#tip').modal('show');
+                }
+            });
+        });
+
+        $('.toggle_tags').on('click', function () {
+            $('.toggle_tags > a').each(function () {
+                if ($(this).hasClass('hidden')) {
+                    $(this).removeClass('hidden');
+                } else {
+                    $(this).addClass('hidden');
                 }
             });
         });
