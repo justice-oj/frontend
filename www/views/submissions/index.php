@@ -28,17 +28,17 @@ $presenter = new \www\presenters\SubmissionPresenter();
         echo <<< SUBMISSION
     <tr>
         <td>
-        <i class="{$record->user->country} flag"></i>
-        <a href="/profile?name={$record->user->username}">{$record->user->username}</a>
+        <i class="{$record['country']} flag"></i>
+        <a href="/profile?name={$record['username']}">{$record['username']}</a>
         </td>
         <td>
-        <a href="/problem/?problem_id={$record->problem->id}">{$record->problem->title}</a>
+        <a href="/problem/?problem_id={$record['problem_id']}">{$record['problem_title']}</a>
         </td>
-        <td>{$presenter->showLanguage($record->language)}</td>
-        <td><a href="/submission?id={$record->id}">{$presenter->showStatus($record->status)}</a></td>
-        <td>{$presenter->showRuntime($record->runtime)}</td>
-        <td>{$presenter->showMemory($record->memory)}</td>
-        <td>{$record->created_at}</td>
+        <td>{$presenter->showLanguage($record['language'])}</td>
+        <td><a href="/submission?id={$record['id']}">{$presenter->showStatus($record['status'])}</a></td>
+        <td>{$presenter->showRuntime($record['runtime'])}</td>
+        <td>{$presenter->showMemory($record['memory'])}</td>
+        <td>{$record['created_at']}</td>
     </tr>
 SUBMISSION;
     }
