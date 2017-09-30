@@ -5,7 +5,7 @@ namespace common\services;
 use common\models\Discussion;
 use common\models\Problem;
 use common\models\User;
-use www\Presenters\UserPresenter;
+use www\presenters\UserPresenter;
 use Yii;
 
 /**
@@ -50,7 +50,7 @@ class DiscussionService {
         $notice_user_list = [];
         $data = json_decode($content);
         foreach ($data->ops as $block) {
-            if (is_scalar($block->insert) && preg_match('/^@\w+$/', $block->insert, $match)) {
+            if (is_string($block->insert) && preg_match('/^@\w+$/', $block->insert, $match)) {
                 $username = substr($match[0], 1);
                 $block->attributes->link = '/profile?name=' . $username;
                 $notice_user_list[] = $username;

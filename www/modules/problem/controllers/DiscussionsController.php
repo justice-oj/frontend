@@ -71,22 +71,15 @@ class DiscussionsController extends BaseController {
             ];
         }
 
-        try {
-            if ($this->discussionService->addDiscussion($problem_id, $user_id, $content)) {
-                return [
-                    'code' => 0,
-                    'message' => 'OK'
-                ];
-            } else {
-                return [
-                    'code' => 2,
-                    'message' => 'add discussion failed'
-                ];
-            }
-        } catch (\Exception $e) {
+        if ($this->discussionService->addDiscussion($problem_id, $user_id, $content)) {
             return [
-                'code' => 3,
-                'message' => $e->getMessage()
+                'code' => 0,
+                'message' => 'OK'
+            ];
+        } else {
+            return [
+                'code' => 2,
+                'message' => 'add discussion failed'
             ];
         }
     }
