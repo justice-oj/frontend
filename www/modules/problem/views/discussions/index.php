@@ -35,39 +35,37 @@ $user_presenter = new \www\presenters\UserPresenter();
     <?php
     foreach ($discussions as $k => $discussion) {
         // human readable time format
-        $t = Carbon::createFromFormat('Y-m-d H:i:s', $discussion->created_at, date_default_timezone_get())->diffForHumans();
+        $t = Carbon::createFromFormat('Y-m-d H:i:s', $discussion['created_at'], date_default_timezone_get())->diffForHumans();
         // up-voted style
-        $empty = Yii::$app->get('redis')->getbit($key, $discussion->id) ? '' : 'empty';
-        // discussion belongs to
-        $user = $discussion->user;
+        $empty = Yii::$app->get('redis')->getbit($key, $discussion['id']) ? '' : 'empty';
 
         echo <<< DISCUSSION
-    <a name="L{$discussion->id}" class="anchor"></a>
+    <a name="L{$discussion['id']}" class="anchor"></a>
     <div class="comment">
         <a class="avatar">
-            <img src="{$user_presenter->showAvatar($user->email)}">
+            <img src="{$user_presenter->showAvatar($discussion['email'])}">
         </a>
         <div class="content">
-            <a class="author" href="/profile?name={$user->username}">{$user->username}</a>
+            <a class="author" href="/profile?name={$discussion['username']}">{$discussion['username']}</a>
             <div class="metadata">
-                <div class="rating" data-id="{$discussion->id}">
-                    {$discussion->up_vote}<i class="{$empty} star icon"></i>
+                <div class="rating" data-id="{$discussion['id']}">
+                    {$discussion['up_vote']}<i class="{$empty} star icon"></i>
                 </div>
                 <div class="date">{$t}</div>
             </div>
-            <div class="text" id="quill_{$discussion->id}"></div>
+            <div class="text" id="quill_{$discussion['id']}"></div>
             <div class="actions">
-                <a class="reply quick_reply" data-user="{$user->username}">Reply</a>
+                <a class="reply quick_reply" data-user="{$discussion['username']}">Reply</a>
             </div>
         </div>
     </div>
     <script>
-    var quill_{$discussion->id} = new Quill('#quill_{$discussion->id}', {
+    var quill_{$discussion['id']} = new Quill('#quill_{$discussion['id']}', {
         modules: {toolbar: null},
         readOnly: true,
         theme: 'snow'
     });
-    quill_{$discussion->id}.setContents({$discussion->content});
+    quill_{$discussion['id']}.setContents({$discussion['content']});
     </script>
 DISCUSSION;
     }

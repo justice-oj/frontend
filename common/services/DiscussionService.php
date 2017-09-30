@@ -28,11 +28,11 @@ class DiscussionService {
      * @author  liuchao
      * @mail    i@liuchao.me
      * @param   int $problem_id
-     * @return  \yii\db\ActiveQuery
+     * @return  int
      * @desc
      */
-    public function getDiscussionByProblemID(int $problem_id) {
-        return Discussion::find()->where(['problem_id' => $problem_id]);
+    public function getTotalDiscussionsCountByProblemID(int $problem_id) {
+        return intval(Discussion::find()->where(['problem_id' => $problem_id])->count());
     }
 
 
