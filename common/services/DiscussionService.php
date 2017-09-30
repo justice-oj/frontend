@@ -6,6 +6,7 @@ use common\models\Discussion;
 use common\models\Problem;
 use common\models\User;
 use www\Presenters\UserPresenter;
+use Yii;
 
 /**
  * Class DiscussionService
@@ -130,5 +131,36 @@ NOTICE;
         //update DB counter
         $discussion->up_vote = $discussion->up_vote + $delta;
         return $discussion->save();
+    }
+
+
+    /**
+     * @author  liuchao
+     * @mail    i@liuchao.me
+     * @param   int $problem_id
+     * @param   int $page
+     * @return  array
+     * @desc    get discussions list by $problem_id on page $page
+     */
+    public function getDiscussionsListByProblemID(int $problem_id, int $page) {
+        $limit = intval(Yii::$app->params['paginationPerPage']);
+        $offset = $limit * ($page - 1);
+
+        $sql = <<<SQL
+SELECT
+  d.id         AS id,
+  d.created_at AS created_at,
+  u.email      AS email,
+  u.username   AS username,
+  d.up_vote    AS up_vote,
+  d.content    AS content
+FROM t_discussion d
+  JOIN (SELECT id FROM t_discussion ORDER BY id DESC LIMIT $offset, $limit) t ON d.id = t.id
+  LEFT JOIN t_user u ON d.user_id = u.id
+WHERE d.problem_id = $problem_id
+ORDER BY d.id DESC;
+SQL;
+
+        return Yii::$app->db->createCommand($sql)->queryAll();
     }
 }

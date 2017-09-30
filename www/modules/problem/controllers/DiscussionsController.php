@@ -41,32 +41,17 @@ class DiscussionsController extends BaseController {
 
     public function actionIndex(int $problem_id) {
         $problem = $this->problemService->getProblemByID($problem_id);
-
         $page = intval(Yii::$app->request->get('page', 1));
-        $limit = intval(Yii::$app->params['paginationPerPage']);
-        $offset = $limit * ($page - 1);
-        $sql = <<<SQL
-SELECT
-  d.id         AS id,
-  d.created_at AS created_at,
-  u.email      AS email,
-  u.username   AS username,
-  d.up_vote    AS up_vote,
-  d.content    AS content
-FROM t_discussion d
-  JOIN (SELECT id FROM t_discussion ORDER BY id DESC LIMIT $offset, $limit) t ON d.id = t.id
-  LEFT JOIN t_user u ON d.user_id = u.id
-WHERE d.problem_id = $problem_id
-ORDER BY d.id DESC;
-SQL;
-
-        $pagination = new Pagination($this->discussionService->getTotalDiscussionsCountByProblemID($problem_id), $page, $limit);
         $this->view->title = 'Justice PLUS - Discussions of ' . Html::encode($problem->title);
 
         return $this->render('index', [
             'problem' => $problem,
-            'pagination' => $pagination->build(),
-            'discussions' => Yii::$app->db->createCommand($sql)->queryAll(),
+            'pagination' => (new Pagination(
+                $this->discussionService->getTotalDiscussionsCountByProblemID($problem_id),
+                $page,
+                intval(Yii::$app->params['paginationPerPage'])
+            ))->build(),
+            'discussions' => $this->discussionService->getDiscussionsListByProblemID($problem_id, $page),
             'key' => Yii::$app->params['userUpVoteKey'] . Yii::$app->session->get(Yii::$app->params['userIdKey']),
         ]);
     }
