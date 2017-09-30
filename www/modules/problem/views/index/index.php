@@ -35,6 +35,23 @@ use www\widgets\common\GoogleAdSenseWidget;
             </div>
         </div>
     </div>
+    <div class="ui accordion">
+        <div class="title">
+            <i class="dropdown icon"></i>
+            Click to show / hide problem tags:
+        </div>
+        <div class="content">
+            <div class="ui tag labels">
+                <?php
+                foreach ((array)$tags as $tag) {
+                    echo <<<TAG
+                    <a class="ui mini tag label">{$tag['name']}</a>
+TAG;
+                }
+                ?>
+            </div>
+        </div>
+    </div>
 </div>
 <input name="description" type="hidden">
 <div id="description"></div>
@@ -81,6 +98,7 @@ use www\widgets\common\GoogleAdSenseWidget;
 <script>
     $(document).ready(function () {
         $('.menu .item').tab();
+        $('.ui.accordion').accordion();
 
         var editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
             lineNumbers: true,

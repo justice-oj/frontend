@@ -4,6 +4,7 @@ namespace www\modules\problem\controllers;
 
 use admin\controllers\BaseController;
 use common\services\ProblemService;
+use common\services\TagService;
 use www\filters\ProblemExistsFilter;
 use www\filters\SubmitRateLimiterFilter;
 use www\filters\UserLoggedinFilter;
@@ -13,15 +14,18 @@ use yii\web\Response;
 
 class IndexController extends BaseController {
     protected $problemService;
+    protected $tagService;
 
 
     public function __construct(
         $id,
         $module,
         ProblemService $problemService,
+        TagService $tagService,
         $config = []
     ) {
         $this->problemService = $problemService;
+        $this->tagService = $tagService;
         parent::__construct($id, $module, $config);
     }
 
@@ -41,6 +45,7 @@ class IndexController extends BaseController {
 
         return $this->render('index', [
             'problem' => $problem,
+            'tags' => $this->tagService->getTagsByProblemID($problem_id),
         ]);
     }
 
