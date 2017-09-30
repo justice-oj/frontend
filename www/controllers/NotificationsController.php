@@ -36,6 +36,7 @@ class NotificationsController extends BaseController {
 
         NotificationService::setNewNoticeCounter($username, 0);
         $pagination = new Pagination(NotificationService::getNoticeListCounter($username), $page, $per_page);
+        $this->view->title = 'Justice PLUS - Notifications';
         return $this->render('index', [
             'pagination' => $pagination->build(),
             'notices' => NotificationService::getNotices($username, ($page - 1) * $per_page, $page * $per_page - 1),

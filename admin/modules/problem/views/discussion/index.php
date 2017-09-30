@@ -19,7 +19,7 @@
             echo <<< TESTCASE
     <tr>
         <td>{$record['id']}</td>
-        <td>{$record['username']}</td>
+        <td><a href="/user?username={$record['username']}">{$record['username']}</a></td>
         <td>
             <div id="quill_{$record['id']}"></div>
             <script>

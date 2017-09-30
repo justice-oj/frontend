@@ -19,7 +19,7 @@ use www\widgets\common\GoogleAdSenseWidget;
         <h2>System specification</h2>
     </div>
     <div class="ui secondary segment">
-        <p>Ubuntu 16.04.3 LTS (4.4.0-96-generic)</p>
+        <p>Ubuntu 16.04.3 LTS (GNU/Linux 4.4.0-96-generic x86_64)</p>
     </div>
     <div class="ui segment">
         <h2>Supported languages</h2>
