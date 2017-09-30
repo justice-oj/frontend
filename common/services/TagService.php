@@ -67,6 +67,17 @@ class TagService {
     /**
      * @author  liuchao
      * @mail    i@liuchao.me
+     * @return  array|\yii\db\ActiveRecord[]
+     * @desc    get all tags
+     */
+    public function getTags() {
+        return Tag::find()->asArray()->all();
+    }
+
+
+    /**
+     * @author  liuchao
+     * @mail    i@liuchao.me
      * @param   int $problem_id
      * @return  ProblemTag[]
      * @desc
@@ -94,4 +105,14 @@ class TagService {
             ->andFilterWhere(['LIKE', 'name', $name])
             ->orderBy(['id' => SORT_DESC]);
     }
+
+
+    /**
+     * @author  liuchao
+     * @mail    i@liuchao.me
+     * @param
+     * @desc
+     * @return
+     */
+
 }

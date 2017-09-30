@@ -33,7 +33,8 @@ class m170929_070008_t_problem_tag extends Migration {
         $this->createIndex(
             'idx_problem_id',
             't_problem_tag',
-            'problem_id'
+            ['problem_id', 'tag_id'],
+            true
         );
 
         $this->createIndex(

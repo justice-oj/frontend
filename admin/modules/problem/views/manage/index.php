@@ -23,8 +23,8 @@
     <table class="table table-striped">
         <tr>
             <th class="col-md-1">#</th>
-            <th class="col-md-7">Title</th>
-            <th class="col-md-4">Operation</th>
+            <th class="col-md-6">Title</th>
+            <th class="col-md-5">Operation</th>
         </tr>
         <?php
         foreach ($records as $record) {
@@ -35,6 +35,8 @@
         <td>
             <a href="/problem/manage/edit?problem_id={$record->id}"><button type="button" class="btn btn-primary btn-xs">Edit</button></a>
             <a href="/problem/test-case?problem_id={$record->id}"><button type="button" class="btn btn-primary btn-xs">Test Cases</button></a>
+            <a href="/problem/tag?problem_id={$record->id}"><button type="button" class="btn btn-primary btn-xs">Tags</button></a>
+            <a href="/problem/discussion?problem_id={$record->id}"><button type="button" class="btn btn-primary btn-xs">Discussions</button></a>
             <a href="/problem/editorial?problem_id={$record->id}"><button type="button" class="btn btn-primary btn-xs">Editorial</button></a>
             <button type="button" class="btn btn-danger btn-xs remove" data-problem-id="{$record->id}" data-problem-title="{$record->title}">Delete</button>
         </td>
