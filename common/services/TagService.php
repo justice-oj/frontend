@@ -78,4 +78,20 @@ class TagService {
             ->where(['`t_problem_tag`.`problem_id`' => $problem_id])
             ->asArray()->all();
     }
+
+
+    /**
+     * @author  liuchao
+     * @mail    i@liuchao.me
+     * @param   int $id|null
+     * @param   string $name|null
+     * @return  \Yii\db\ActiveQuery
+     * @desc    search tags by id and/or name
+     */
+    public function searchTags($id, $name) {
+        return Tag::find()
+            ->andFilterWhere(['id' => $id])
+            ->andFilterWhere(['LIKE', 'name', $name])
+            ->orderBy(['id' => SORT_DESC]);
+    }
 }

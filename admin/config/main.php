@@ -50,6 +50,10 @@ return [
             'class' => 'admin\modules\problem\ProblemModule',
             'defaultRoute' => 'manage',
         ],
+        'tag' => [
+            'class' => 'admin\modules\tag\TagModule',
+            'defaultRoute' => 'manage',
+        ],
     ],
     'params' => $params,
 ];

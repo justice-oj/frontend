@@ -1,11 +1,11 @@
 <h2 class="text-center">Add User</h2>
 <form>
     <div class="form-group">
-        <label for="id">Username</label>
+        <label for="username">Username</label>
         <input class="form-control" id="username" placeholder="Username">
     </div>
     <div class="form-group">
-        <label for="id">Email</label>
+        <label for="email">Email</label>
         <input class="form-control" id="email" placeholder="Email" type="email">
     </div>
     <div class="form-group">

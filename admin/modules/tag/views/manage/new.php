@@ -1,20 +1,11 @@
-<h2 class="text-center">Edit User</h2>
-<input type="hidden" id="user_id" value="<?= $user->id ?>">
+<h2 class="text-center">Add Tag</h2>
 <form>
     <div class="form-group">
-        <label for="username">Username</label>
-        <input class="form-control" id="username" placeholder="Username" value="<?= $user->username ?>">
+        <label for="name">Name</label>
+        <input class="form-control" id="name" placeholder="Tag Name">
     </div>
     <div class="form-group">
-        <label for="email">Email</label>
-        <input class="form-control" id="email" placeholder="Email" type="email" value="<?= $user->email ?>">
-    </div>
-    <div class="form-group">
-        <label for="password">Password</label>
-        <input class="form-control" id="password" placeholder="Password" type="password">
-    </div>
-    <div class="form-group">
-        <button class="btn btn-primary" id="submit">Update</button>
+        <button class="btn btn-primary" id="submit">Add</button>
     </div>
 </form>
 <div class="modal fade" id="error" tabindex="-1" role="dialog" style="padding-top: 15%">
@@ -27,14 +18,11 @@
         $('#submit').on('click', function (event) {
             event.preventDefault();
 
-            var user_id = $('#user_id').val(),
-                username = $('#username').val(),
-                email = $('#email').val(),
-                password = $('#password').val(),
+            var name = $('#name').val(),
                 error_message = $('#error_message'),
                 error = $('#error');
 
-            if (username.length === 0 || email.length === 0 || password.length === 0) {
+            if (name.length === 0) {
                 error_message.text("please fill all the blanks");
                 error.modal();
                 return;
@@ -42,17 +30,14 @@
 
             $.ajax({
                 type: 'POST',
-                url: '/user/manage/update',
+                url: '/tag/manage/add',
                 data: {
-                    user_id: user_id,
-                    username: username,
-                    email: email,
-                    password: password
+                    name: name
                 },
                 timeout: 3000,
                 success: function (res) {
                     if (res.code === 0) {
-                        location.reload();
+                        location.href = "/tag";
                     } else {
                         error_message.text(res.message);
                         error.modal();

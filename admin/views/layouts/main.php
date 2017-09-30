@@ -38,6 +38,7 @@
             <ul class="nav navbar-nav">
                 <li <?= Yii::$app->controller->module->id == 'user' ? 'class="active"' : '' ?>><a href="/user">User</a></li>
                 <li <?= Yii::$app->controller->module->id == 'problem' ? 'class="active"' : '' ?>><a href="/problem">Problem</a></li>
+                <li <?= Yii::$app->controller->module->id == 'tag' ? 'class="active"' : '' ?>><a href="/tag">Tag</a></li>
             </ul>
         </div>
     </div>

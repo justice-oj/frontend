@@ -1,17 +1,9 @@
-<h2 class="text-center">Edit User</h2>
-<input type="hidden" id="user_id" value="<?= $user->id ?>">
+<h2 class="text-center">Edit Tag</h2>
+<input type="hidden" id="tag_id" value="<?= $tag->id ?>">
 <form>
     <div class="form-group">
-        <label for="username">Username</label>
-        <input class="form-control" id="username" placeholder="Username" value="<?= $user->username ?>">
-    </div>
-    <div class="form-group">
-        <label for="email">Email</label>
-        <input class="form-control" id="email" placeholder="Email" type="email" value="<?= $user->email ?>">
-    </div>
-    <div class="form-group">
-        <label for="password">Password</label>
-        <input class="form-control" id="password" placeholder="Password" type="password">
+        <label for="name">Name</label>
+        <input class="form-control" id="name" placeholder="Tag Name" value="<?= $tag->name ?>">
     </div>
     <div class="form-group">
         <button class="btn btn-primary" id="submit">Update</button>
@@ -27,14 +19,12 @@
         $('#submit').on('click', function (event) {
             event.preventDefault();
 
-            var user_id = $('#user_id').val(),
-                username = $('#username').val(),
-                email = $('#email').val(),
-                password = $('#password').val(),
+            var tag_id = $('#tag_id').val(),
+                name = $('#name').val(),
                 error_message = $('#error_message'),
                 error = $('#error');
 
-            if (username.length === 0 || email.length === 0 || password.length === 0) {
+            if (name.length === 0) {
                 error_message.text("please fill all the blanks");
                 error.modal();
                 return;
@@ -42,12 +32,10 @@
 
             $.ajax({
                 type: 'POST',
-                url: '/user/manage/update',
+                url: '/tag/manage/update',
                 data: {
-                    user_id: user_id,
-                    username: username,
-                    email: email,
-                    password: password
+                    tag_id: tag_id,
+                    name: name
                 },
                 timeout: 3000,
                 success: function (res) {
