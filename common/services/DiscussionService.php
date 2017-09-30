@@ -50,7 +50,7 @@ class DiscussionService {
         $notice_user_list = [];
         $data = json_decode($content);
         foreach ($data->ops as $block) {
-            if (preg_match('/^@\w+$/', $block->insert, $match)) {
+            if (is_scalar($block->insert) && preg_match('/^@\w+$/', $block->insert, $match)) {
                 $username = substr($match[0], 1);
                 $block->attributes->link = '/profile?name=' . $username;
                 $notice_user_list[] = $username;
@@ -63,7 +63,7 @@ class DiscussionService {
         $discussion->content = json_encode($data);
 
         if ($discussion->save()) {
-            $problem = $discussion->problem;
+            $problem = $discussion->getProblem();
             $reply_user = User::findOne($user_id);
             $user_presenter = new UserPresenter();
 
@@ -87,6 +87,32 @@ NOTICE;
         } else {
             return false;
         }
+    }
+
+
+    /**
+     * @author  liuchao
+     * @mail    i@liuchao.me
+     * @param   \common\models\Discussion $discussion
+     * @param   string $content
+     * @return  bool
+     * @desc
+     */
+    public function updateDiscussion($discussion, $content) {
+        $discussion->content = $content;
+        return $discussion->save();
+    }
+
+
+    /**
+     * @author  liuchao
+     * @mail    i@liuchao.me
+     * @param int $discussion_id
+     * @return false|int
+     * @desc
+     */
+    public function deleteDiscussion(int $discussion_id) {
+        return Discussion::findOne($discussion_id)->delete();
     }
 
 

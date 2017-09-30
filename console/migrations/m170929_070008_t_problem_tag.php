@@ -10,7 +10,7 @@ class m170929_070008_t_problem_tag extends Migration {
             'tag_id' => $this->integer()->notNull(),
             'created_at' => $this->dateTime()->notNull()->defaultExpression('NOW()'),
             'updated_at' => $this->dateTime()->notNull()->defaultExpression('NOW()')
-        ]);
+        ], 'CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE=InnoDB');
 
         $this->addForeignKey(
             'fk_t_problem_tag_problem_id',

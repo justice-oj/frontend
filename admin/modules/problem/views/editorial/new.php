@@ -15,6 +15,11 @@
         <button class="btn btn-primary" id="submit">Add Editorial</button>
     </div>
 </form>
+<div class="modal fade" id="error" tabindex="-1" role="dialog" style="padding-top: 15%">
+    <div class="modal-dialog modal-sm" role="document">
+        <div id="error_message" class="alert alert-danger" role="alert"></div>
+    </div>
+</div>
 <script>
     $(document).ready(function () {
         var quill = new Quill('#editorial', {

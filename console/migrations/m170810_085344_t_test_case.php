@@ -11,7 +11,7 @@ class m170810_085344_t_test_case extends Migration {
             'output' => $this->text()->notNull(),
             'created_at' => $this->dateTime()->notNull()->defaultExpression('NOW()'),
             'updated_at' => $this->dateTime()->notNull()->defaultExpression('NOW()')
-        ]);
+        ], 'CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE=InnoDB');
 
         $this->addForeignKey(
             'fk_t_test_case_problem_id',

@@ -9,7 +9,7 @@ class m170929_062922_t_tag extends Migration {
             'name' => $this->string()->notNull(),
             'created_at' => $this->dateTime()->notNull()->defaultExpression('NOW()'),
             'updated_at' => $this->dateTime()->notNull()->defaultExpression('NOW()'),
-        ]);
+        ], 'CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE=InnoDB');
 
         $this->createIndex(
             'idx_tag_name',

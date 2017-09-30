@@ -15,7 +15,7 @@ class m170802_140548_t_user extends Migration {
             'country' => $this->string(),
             'created_at' => $this->dateTime()->notNull()->defaultExpression('NOW()'),
             'updated_at' => $this->dateTime()->notNull()->defaultExpression('NOW()'),
-        ]);
+        ], 'CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE=InnoDB');
 
         $this->createIndex(
             'idx_username_unique',

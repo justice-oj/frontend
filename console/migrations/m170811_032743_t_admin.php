@@ -10,7 +10,7 @@ class m170811_032743_t_admin extends Migration {
             'password' => $this->string()->notNull(),
             'created_at' => $this->dateTime()->notNull()->defaultExpression('NOW()'),
             'updated_at' => $this->dateTime()->notNull()->defaultExpression('NOW()'),
-        ]);
+        ], 'CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE=InnoDB');
 
         $this->createIndex(
             'idx_username_unique',

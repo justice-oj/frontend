@@ -20,7 +20,7 @@ class m170802_140638_t_submission extends Migration {
             'expected' => $this->text(),
             'created_at' => $this->dateTime()->notNull()->defaultExpression('NOW()'),
             'updated_at' => $this->dateTime()->notNull()->defaultExpression('NOW()')
-        ]);
+        ], 'CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE=InnoDB');
 
         $this->addForeignKey(
             'fk_t_submission_problem_id',

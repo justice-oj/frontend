@@ -3,16 +3,16 @@
 <link href="<?= Yii::$app->params['staticFile']['Quill']['css'] ?>" rel="stylesheet">
 <script src="<?= Yii::$app->params['staticFile']['Quill']['js'] ?>"></script>
 
-<h2 class="text-center">Update Editorial for <code>#<?= $problem->id ?> <?= $problem->title ?></code></h2>
-<input id="problem_id" type="hidden" value="<?= $problem->id ?>">
+<h2 class="text-center">Update Discussion <code>#<?= $discussion->id ?></code> of Problem <code><?= $problem->title ?></code></h2>
+<input id="discussion_id" type="hidden" value="<?= $discussion->id ?>">
 <form>
     <div class="row form-group">
-        <label for="editorial">Editorial</label>
-        <input name="editorial" type="hidden">
-        <div id="editorial" style="height: 400px"></div>
+        <label for="discussion">Discussion</label>
+        <input name="discussion" type="hidden">
+        <div id="discussion" style="height: 400px"></div>
     </div>
     <div class="row">
-        <button class="btn btn-primary" id="submit">Update Editorial</button>
+        <button class="btn btn-primary" id="submit">Update Discussion</button>
     </div>
 </form>
 <div class="modal fade" id="error" tabindex="-1" role="dialog" style="padding-top: 15%">
@@ -22,7 +22,7 @@
 </div>
 <script>
     $(document).ready(function () {
-        var quill = new Quill('#editorial', {
+        var quill = new Quill('#discussion', {
             modules: {
                 toolbar: [
                     ['bold', 'italic', 'underline', 'strike'],
@@ -36,19 +36,19 @@
                     ['clean']
                 ]
             },
-            placeholder: 'Update problem\'s editorial here...',
+            placeholder: 'Update problem\'s discussion here...',
             theme: 'snow'
         });
-        quill.setContents(<?= $editorial->content ?>);
+        quill.setContents(<?= $discussion->content ?>);
 
         $('#submit').on('click', function (event) {
             event.preventDefault();
 
-            var editorial = JSON.stringify(quill.getContents()),
+            var content = JSON.stringify(quill.getContents()),
                 error_message = $('#error_message'),
                 error = $('#error');
 
-            if (editorial.length === 0) {
+            if (content.length === 0) {
                 error_message.text("editorial can not be empty");
                 error.modal();
                 return;
@@ -56,10 +56,10 @@
 
             $.ajax({
                 type: 'POST',
-                url: '/problem/editorial/update',
+                url: '/problem/discussion/update',
                 data: {
-                    problem_id: $('#problem_id').val(),
-                    editorial: editorial
+                    discussion_id: $('#discussion_id').val(),
+                    content: content
                 },
                 timeout: 3000,
                 success: function (res) {
