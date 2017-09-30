@@ -40,6 +40,18 @@ class SubmissionService {
      * @desc
      */
     public function getTotalSubmissionsCount() {
-        return intval(Submission::find()->asArray()->count());
+        return intval(Submission::find()->count());
+    }
+
+
+    /**
+     * @author  liuchao
+     * @mail    i@liuchao.me
+     * @param   $problem_id
+     * @desc
+     * @return int
+     */
+    public function getTotalSubmissionsCountByProblemID($problem_id) {
+        return intval(Submission::find()->where(['problem_id' => $problem_id])->count());
     }
 }
