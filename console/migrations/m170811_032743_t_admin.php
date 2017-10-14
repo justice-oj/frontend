@@ -3,7 +3,7 @@
 use yii\db\Migration;
 
 class m170811_032743_t_admin extends Migration {
-    public function up() {
+    public function safeUp() {
         $this->createTable('t_admin', [
             'id' => $this->primaryKey(),
             'username' => $this->string()->notNull(),
@@ -20,7 +20,7 @@ class m170811_032743_t_admin extends Migration {
         );
     }
 
-    public function down() {
+    public function safeDown() {
         $this->dropIndex(
             'idx_username_unique',
             't_admin'

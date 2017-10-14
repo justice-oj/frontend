@@ -3,7 +3,7 @@
 use yii\db\Migration;
 
 class m170824_141846_t_discussion extends Migration {
-    public function up() {
+    public function safeUp() {
         $this->createTable('t_discussion', [
             'id' => $this->primaryKey(),
             'problem_id' => $this->integer()->notNull(),
@@ -39,7 +39,7 @@ class m170824_141846_t_discussion extends Migration {
         );
     }
 
-    public function down() {
+    public function safeDown() {
         $this->dropForeignKey(
             'fk_t_discussion_problem_id',
             't_discussion'

@@ -44,7 +44,7 @@ class m170929_070008_t_problem_tag extends Migration {
         );
     }
 
-    public function down() {
+    public function safeDown() {
         $this->dropForeignKey(
             'fk_t_problem_tag_problem_id',
             't_problem_tag'

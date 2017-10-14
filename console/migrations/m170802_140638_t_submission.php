@@ -4,7 +4,7 @@ use common\models\Submission;
 use yii\db\Migration;
 
 class m170802_140638_t_submission extends Migration {
-    public function up() {
+    public function safeUp() {
         $this->createTable('t_submission', [
             'id' => $this->primaryKey(),
             'user_id' => $this->integer()->notNull(),
@@ -53,7 +53,7 @@ class m170802_140638_t_submission extends Migration {
         );
     }
 
-    public function down() {
+    public function safeDown() {
         $this->dropForeignKey(
             'fk_t_submission_problem_id',
             't_submission'

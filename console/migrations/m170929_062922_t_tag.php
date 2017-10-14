@@ -20,7 +20,7 @@ class m170929_062922_t_tag extends Migration {
     }
 
 
-    public function down() {
+    public function safeDown() {
         $this->dropIndex(
             'idx_tag_name',
             't_tag'
