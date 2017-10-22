@@ -8,12 +8,6 @@ return [
             'password' => 'xaiTIVP7kB$oHuJecEooq#YsziVvVAzW',
             'charset' => 'utf8',
         ],
-        'redis' => [
-            'class' => 'yii\redis\Connection',
-            'hostname' => '192.168.216.128',
-            'port' => 6379,
-            'database' => 15,
-        ],
         'rabbitMQ' => [
             'class' => \common\components\queue\BasicRabbitMQProducer::class,
             'host' => '192.168.216.128',
@@ -23,6 +17,20 @@ return [
             'queueName' => 'justice',
             'exchangeName' => 'justice',
             'exchangeType' => 'topic',
+        ],
+        'redis' => [
+            'class' => 'yii\redis\Connection',
+            'hostname' => '192.168.216.128',
+            'port' => 6379,
+            'database' => 15,
+        ],
+        'session' => [
+            'class' => 'yii\redis\Session',
+            'redis' => [
+                'hostname' => '192.168.216.128',
+                'port' => 6379,
+                'database' => 14,
+            ]
         ],
     ],
 ];
