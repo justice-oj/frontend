@@ -4,8 +4,8 @@ use www\widgets\common\GoogleAdSenseWidget;
 
 $presenter = new \www\presenters\SubmissionPresenter();
 ?>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.30.0/codemirror.min.css" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.30.0/theme/monokai.min.css" rel="stylesheet">
+<link href="<?= Yii::$app->params['staticFile']['CodeMirror']['css'] ?>" rel="stylesheet">
+<link href="<?= Yii::$app->params['staticFile']['CodeMirror']['theme'] ?>" rel="stylesheet">
 <h2 class="ui header">Submission #<?= $submission->id ?></h2>
 <div class="ui basic segment">
     <?= GoogleAdSenseWidget::widget() ?>
@@ -43,11 +43,11 @@ $presenter = new \www\presenters\SubmissionPresenter();
 <div class="ui basic segment">
     <?= GoogleAdSenseWidget::widget() ?>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.30.0/codemirror.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.30.0/addon/edit/matchbrackets.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.30.0/mode/clike/clike.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.30.0/mode/python/python.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.30.0/mode/perl/perl.min.js"></script>
+<script src="<?= Yii::$app->params['staticFile']['CodeMirror']['js'] ?>"></script>
+<script src="<?= Yii::$app->params['staticFile']['CodeMirror']['matchbrackets'] ?>"></script>
+<script src="<?= Yii::$app->params['staticFile']['CodeMirror']['clike'] ?>"></script>
+<script src="<?= Yii::$app->params['staticFile']['CodeMirror']['python'] ?>"></script>
+<script src="<?= Yii::$app->params['staticFile']['CodeMirror']['perl'] ?>"></script>
 <style>
     .CodeMirror {
         border: 1px solid #eee;

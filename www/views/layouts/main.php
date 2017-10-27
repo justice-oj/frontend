@@ -15,9 +15,9 @@ use yii\helpers\Html;
     <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
     <link rel="manifest" href="/manifest.json">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.11/semantic.min.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.11/semantic.min.js"></script>
+    <link href="<?= Yii::$app->params['staticFile']['SemanticUI']['css'] ?>" rel="stylesheet">
+    <script src="<?= Yii::$app->params['staticFile']['jQuery'] ?>"></script>
+    <script src="<?= Yii::$app->params['staticFile']['SemanticUI']['js'] ?>"></script>
     <?= Html::csrfMetaTags() ?>
     <title><?= $this->title ?></title>
     <style type="text/css">
@@ -31,8 +31,8 @@ use yii\helpers\Html;
             margin-top: 7em;
         }
         .ui.footer.segment {
-            margin: 3em 0em 0em;
-            padding: 3em 0em;
+            margin: 3em 0 0;
+            padding: 3em 0;
         }
     </style>
     <script>

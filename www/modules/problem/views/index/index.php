@@ -4,8 +4,8 @@ use www\widgets\common\GoogleAdSenseWidget;
 
 ?>
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.30.0/codemirror.min.css" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.30.0/theme/monokai.min.css" rel="stylesheet">
+<link href="<?= Yii::$app->params['staticFile']['CodeMirror']['css'] ?>" rel="stylesheet">
+<link href="<?= Yii::$app->params['staticFile']['CodeMirror']['theme'] ?>" rel="stylesheet">
 <link href="<?= Yii::$app->params['staticFile']['KaTex']['css'] ?>" rel="stylesheet">
 <script src="<?= Yii::$app->params['staticFile']['KaTex']['js'] ?>"></script>
 <link href="<?= Yii::$app->params['staticFile']['Quill']['css'] ?>" rel="stylesheet">
@@ -90,11 +90,11 @@ TAG;
 <div class="ui basic segment">
     <?= GoogleAdSenseWidget::widget() ?>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.30.0/codemirror.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.30.0/addon/edit/matchbrackets.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.30.0/mode/clike/clike.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.30.0/mode/python/python.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.30.0/mode/perl/perl.min.js"></script>
+<script src="<?= Yii::$app->params['staticFile']['CodeMirror']['js'] ?>"></script>
+<script src="<?= Yii::$app->params['staticFile']['CodeMirror']['matchbrackets'] ?>"></script>
+<script src="<?= Yii::$app->params['staticFile']['CodeMirror']['clike'] ?>"></script>
+<script src="<?= Yii::$app->params['staticFile']['CodeMirror']['python'] ?>"></script>
+<script src="<?= Yii::$app->params['staticFile']['CodeMirror']['perl'] ?>"></script>
 <script>
     $(document).ready(function () {
         $('.menu .item').tab();
