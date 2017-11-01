@@ -85,7 +85,7 @@ $problem_presenter = new \www\presenters\ProblemPresenter();
         </div>
     </div>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+<script src="<?= Yii::$app->params['staticFile']['ChartJs'] ?>"></script>
 <script>
     var progress = new Chart('progress', {
         type: 'doughnut',
