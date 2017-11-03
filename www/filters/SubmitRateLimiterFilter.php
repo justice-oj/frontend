@@ -11,8 +11,12 @@ use yii\web\Response;
 
 class SubmitRateLimiterFilter extends ActionFilter {
     public function beforeAction($action) {
-        $bucket = new TokenBucket(5, new Rate(1, Rate::MINUTE), new SessionStorage("rate_limiter"));
-        $bucket->bootstrap(3);
+        $bucket = new TokenBucket(
+            Yii::$app->params['tokenBucketCapacity'],
+            new Rate(Yii::$app->params['tokenRatePerMinute'], Rate::MINUTE),
+            new SessionStorage("rate_limiter")
+        );
+        $bucket->bootstrap(Yii::$app->params['tokenBootstrap']);
 
         if (!$bucket->consume(1, $seconds)) {
             Yii::$app->response->format = Response::FORMAT_JSON;
