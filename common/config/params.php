@@ -27,8 +27,6 @@ return [
             'js' => 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.31.0/codemirror.min.js',
             'matchbrackets' => 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.31.0/addon/edit/matchbrackets.min.js',
             'clike' => 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.31.0/mode/clike/clike.min.js',
-            'python' => 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.31.0/mode/python/python.min.js',
-            'perl' => 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.31.0/mode/perl/perl.min.js'
         ],
         'Bootstrap' => [
             'css' => 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css',

@@ -46,8 +46,6 @@ $presenter = new \www\presenters\SubmissionPresenter();
 <script src="<?= Yii::$app->params['staticFile']['CodeMirror']['js'] ?>"></script>
 <script src="<?= Yii::$app->params['staticFile']['CodeMirror']['matchbrackets'] ?>"></script>
 <script src="<?= Yii::$app->params['staticFile']['CodeMirror']['clike'] ?>"></script>
-<script src="<?= Yii::$app->params['staticFile']['CodeMirror']['python'] ?>"></script>
-<script src="<?= Yii::$app->params['staticFile']['CodeMirror']['perl'] ?>"></script>
 <style>
     .CodeMirror {
         border: 1px solid #eee;
@@ -64,7 +62,7 @@ $presenter = new \www\presenters\SubmissionPresenter();
             indentUnit: 4,
             theme: 'monokai'
         });
-        var mode = ['text/x-csrc', 'text/x-c++src', 'text/x-python', 'text/x-python', 'text/x-java'];
+        var mode = ['text/x-csrc', 'text/x-c++src', 'text/x-java'];
         editor.setOption('mode', mode[<?= $submission->language ?>]);
     });
 </script>

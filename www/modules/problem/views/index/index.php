@@ -62,11 +62,9 @@ TAG;
     <div class="four wide field">
         <select class="ui dropdown" id="language">
             <option value="">Select Language</option>
-            <option value="0">C</option>
-            <option value="1">C++</option>
-            <!--            <option value="2">Perl 6</option>
-                        <option value="3">Python 3</option>-->
-            <option value="4">Java</option>
+            <option value="<?= \common\models\Submission::LANGUAGE_C ?>">C</option>
+            <option value="<?= \common\models\Submission::LANGUAGE_CPP ?>">C++</option>
+            <option value="<?= \common\models\Submission::LANGUAGE_JAVA ?>">Java</option>
         </select>
     </div>
 </div>
@@ -93,8 +91,6 @@ TAG;
 <script src="<?= Yii::$app->params['staticFile']['CodeMirror']['js'] ?>"></script>
 <script src="<?= Yii::$app->params['staticFile']['CodeMirror']['matchbrackets'] ?>"></script>
 <script src="<?= Yii::$app->params['staticFile']['CodeMirror']['clike'] ?>"></script>
-<script src="<?= Yii::$app->params['staticFile']['CodeMirror']['python'] ?>"></script>
-<script src="<?= Yii::$app->params['staticFile']['CodeMirror']['perl'] ?>"></script>
 <script>
     $(document).ready(function () {
         $('.menu .item').tab();
@@ -135,16 +131,6 @@ TAG;
                             "}"
                         );
                         editor.setOption('mode', 'text/x-c++src');
-                        break;
-                    case "<?= \common\models\Submission::LANGUAGE_PERL6 ?>":
-                        editor.setValue(
-                            "# Enter your code here. Read input from STDIN. Print output to STDOUT\n"
-                        );
-                        editor.setOption('mode', 'text/x-perl');
-                        break;
-                    case "<?= \common\models\Submission::LANGUAGE_PYTHON3 ?>":
-                        editor.setValue("# Enter your code here. Read input from STDIN. Print output to STDOUT\n");
-                        editor.setOption('mode', 'text/x-python');
                         break;
                     case "<?= \common\models\Submission::LANGUAGE_JAVA ?>":
                         editor.setValue(

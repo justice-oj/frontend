@@ -29,8 +29,6 @@ use www\widgets\common\GoogleAdSenseWidget;
             <div class="item">GNU C(-std=gnu11)</div>
             <div class="item">GNU C++(-std=gnu++14)</div>
             <div class="item">Java 8</div>
-            <div class="item"><s>Perl 6</s> Under heavy development</div>
-            <div class="item"><s>Python 3</s> Under heavy development</div>
         </div>
     </div>
     <div class="ui segment">

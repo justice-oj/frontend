@@ -28,10 +28,7 @@ use yii\db\Expression;
 class Submission extends ActiveRecord {
     const LANGUAGE_C = 0;
     const LANGUAGE_CPP = 1;
-    const LANGUAGE_PERL6 = 2;
-    const LANGUAGE_PYTHON3 = 3;
-    const LANGUAGE_JAVA = 4;
-
+    const LANGUAGE_JAVA = 2;
 
     const STATUS_QUEUE = -1;
     const STATUS_AC = 0;
@@ -40,7 +37,6 @@ class Submission extends ActiveRecord {
     const STATUS_TLE = 3;
     const STATUS_MLE = 4;
     const STATUS_WA = 5;
-
 
     public function behaviors() {
         return [
