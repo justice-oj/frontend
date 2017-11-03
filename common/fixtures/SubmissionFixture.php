@@ -2,8 +2,6 @@
 
 namespace common\fixtures;
 
-use common\models\Submission;
-use Faker\Factory;
 use yii\test\ActiveFixture;
 
 class SubmissionFixture extends ActiveFixture {
@@ -15,34 +13,6 @@ class SubmissionFixture extends ActiveFixture {
     ];
 
     protected function getData() {
-        $faker = Factory::create();
-
-        $data = [];
-        for ($i = 0; $i < 5; $i++) {
-            $data[] = [
-                'user_id' => $faker->randomElement([1, 2]),
-                'problem_id' => 1,
-                'language' => $faker->randomElement([
-                    Submission::LANGUAGE_C,
-                    Submission::LANGUAGE_CPP,
-                    Submission::LANGUAGE_PERL6,
-                    Submission::LANGUAGE_PYTHON3,
-                    Submission::LANGUAGE_JAVA,
-                ]),
-                'code' => $faker->text,
-                'status' => $faker->randomElement([
-                    Submission::STATUS_QUEUE,
-                    Submission::STATUS_AC,
-                    Submission::STATUS_CE,
-                    Submission::STATUS_RE,
-                    Submission::STATUS_TLE,
-                    Submission::STATUS_MLE,
-                    Submission::STATUS_WA
-                ]),
-                'runtime' => $faker->numberBetween(-1, 1000),
-                'memory' => $faker->numberBetween(-1, 1000),
-            ];
-        }
-        return $data;
+        return [];
     }
 }
