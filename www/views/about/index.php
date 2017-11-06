@@ -16,8 +16,15 @@ use www\widgets\common\GoogleAdSenseWidget;
         </div>
     </div>
     <h2 class="ui center aligned icon header">
+        <i class="circular sitemap icon"></i>
+        About Justice
+    </h2>
+    <p style="font-size: large">Justice is an open source <a href="https://en.wikipedia.org/wiki/Online_judge" target="_blank">online judge</a> platform which now supports three languages: C, CPP and Java.</p>
+    <p style="font-size: large">Like the other OJ platforms, we can have discussions, high quality articles and a ranking list of all users here. However, we won't provide algorithm problems as many as possible to practice your programming skills, instead we are now focusing on linux kernel-based sandbox and software similarity detecting. For more information, please see <a href="https://tech.liuchao.me/tag/justice-oj/" target="_blank">here</a>.</p>
+    <p style="font-size: large">Contact <code>aUBsaXVjaGFvLm1l</code> for any question you may have, feed backs are also warmly welcomed. &#128527;</p>
+    <h2 class="ui center aligned icon header">
         <i class="circular users icon"></i>
-        About Us(me for now)
+        About me
     </h2>
     <div class="ui three column grid">
         <div class="column">
