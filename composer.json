@@ -1,8 +1,29 @@
 {
-  "name": "liumangchao/justice",
+  "name": "liupangzi/justice-frontend",
   "license": "MIT",
-  "description": "Just another OJ",
+  "version": "1.0.0",
+  "type": "project",
+  "keywords": [
+    "justice",
+    "online judge"
+  ],
+  "description": "Yet another online judge",
   "homepage": "https://www.justice.plus",
+  "time": "2017-11-17 15:00:00",
+  "authors": [
+    {
+      "name": "Chao Liu",
+      "email": "i@liuchao.me",
+      "homepage": "https://www.liuchao.me",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "email": "i@liuchao.me",
+    "issues": "https://github.com/liupangzi/justice-frontend/issues",
+    "source": "https://github.com/liupangzi/justice-frontend",
+    "docs": "https://github.com/liupangzi/justice-doc"
+  },
   "minimum-stability": "stable",
   "require": {
     "php": "~7.1",
