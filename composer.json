@@ -26,26 +26,21 @@
   },
   "minimum-stability": "stable",
   "require": {
-    "php": "~7.1",
-    "yiisoft/yii2": "~2.0",
-    "yiisoft/yii2-redis": "~2.0",
-    "sentry/sentry": "~1.7",
-    "endroid/qrcode": "~2.2",
-    "gregwar/captcha": "~1.1",
-    "amstaffix/pagination": "~1.1",
-    "hashids/hashids": "~2.0",
-    "ramsey/uuid": "~3.6",
-    "guzzlehttp/guzzle": "~6.2",
-    "php-amqplib/php-amqplib": "~2.6",
-    "nesbot/carbon": "~1.22",
-    "bandwidth-throttle/token-bucket": "~1.1",
-    "fxp/composer-asset-plugin": "^1.4.2"
+    "php": "~7.1.0",
+    "yiisoft/yii2": "~2.0.0",
+    "yiisoft/yii2-redis": "~2.0.0",
+    "sentry/sentry": "~1.8.0",
+    "amstaffix/pagination": "~1.1.0",
+    "php-amqplib/php-amqplib": "~2.7.0",
+    "nesbot/carbon": "~1.22.0",
+    "bandwidth-throttle/token-bucket": "~1.1.0",
+    "fxp/composer-asset-plugin": "~1.4.0"
   },
   "require-dev": {
-    "yiisoft/yii2-debug": "~2.0",
-    "yiisoft/yii2-faker": "~2.0",
+    "yiisoft/yii2-debug": "~2.0.0",
+    "yiisoft/yii2-faker": "~2.0.0",
     "codeception/base": "^2.2.3",
-    "codeception/verify": "~0.3.1"
+    "codeception/verify": "~0.3.0"
   },
   "config": {
     "preferred-install": "dist",
