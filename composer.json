@@ -1,5 +1,5 @@
 {
-  "name": "liupangzi/justice-frontend",
+  "name": "justice-oj/frontend",
   "license": "MIT",
   "version": "1.0.0",
   "type": "project",
@@ -20,9 +20,9 @@
   ],
   "support": {
     "email": "i@liuchao.me",
-    "issues": "https://github.com/liupangzi/justice-frontend/issues",
-    "source": "https://github.com/liupangzi/justice-frontend",
-    "docs": "https://github.com/liupangzi/justice-doc"
+    "source": "https://github.com/justice-oj/frontend",
+    "issues": "https://github.com/justice-oj/frontend/issues",
+    "docs": "https://github.com/justice-oj/documents"
   },
   "minimum-stability": "stable",
   "require": {
