@@ -5,15 +5,15 @@
     <form class="form-inline">
         <div class="form-group">
             <label for="id">ID</label>
-            <input name="id" class="form-control" id="id" placeholder="ID" value="<?= $id ?>">
+            <input name="id" class="form-control" id="id" placeholder="ID" value="<?= /** @var $id integer */ $id ?>">
         </div>
         <div class="form-group">
             <label for="email">Email</label>
-            <input name="email" class="form-control" id="email" placeholder="Email" value="<?= $email ?>">
+            <input name="email" class="form-control" id="email" placeholder="Email" value="<?= /** @var $email string */ $email ?>">
         </div>
         <div class="form-group">
             <label for="username">Username</label>
-            <input name="username" class="form-control" id="username" placeholder="Username" value="<?= $username ?>">
+            <input name="username" class="form-control" id="username" placeholder="Username" value="<?= /** @var $username string */ $username ?>">
         </div>
         <div class="form-group">
             <button class="btn btn-default">Search</button>
@@ -32,6 +32,7 @@
             <th class="col-md-5">Operation</th>
         </tr>
         <?php
+        /** @var \common\models\User[] $records */
         foreach ($records as $record) {
             echo <<< USER
     <tr>
@@ -49,7 +50,11 @@ USER;
     </table>
 </div>
 <div class="row text-center">
-    <?= PaginationWidget::widget(['pagination' => $pagination]) ?>
+    <?php /** @var $pagination array */
+    try {
+        echo PaginationWidget::widget(['pagination' => $pagination]);
+    } catch (Exception $e) {
+    } ?>
 </div>
 <div class="modal fade" tabindex="-1" role="dialog" id="modal" style="padding-top: 10%">
     <input type="hidden" id="confirm">

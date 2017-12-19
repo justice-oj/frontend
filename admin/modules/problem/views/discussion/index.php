@@ -5,7 +5,7 @@
 <link href="<?= Yii::$app->params['staticFile']['Quill']['css'] ?>" rel="stylesheet">
 <script src="<?= Yii::$app->params['staticFile']['Quill']['js'] ?>"></script>
 
-<h2 class="text-center">Discussions of <code>#<?= $problem->id ?> <?= $problem->title ?></code></h2>
+<h2 class="text-center">Discussions of <code>#<?= /** @var $problem \common\models\Problem */$problem->id ?> <?= $problem->title ?></code></h2>
 <div class="row" style="padding-top: 10px">
     <table class="table table-striped">
         <tr>
@@ -15,7 +15,9 @@
             <th class="col-md-2">Operation</th>
         </tr>
         <?php
+        /** @var array $records */
         foreach ($records as $record) {
+            /** @lang html */
             echo <<< TESTCASE
     <tr>
         <td>{$record['id']}</td>
@@ -42,7 +44,11 @@ TESTCASE;
     </table>
 </div>
 <div class="row text-center">
-    <?= PaginationWidget::widget(['pagination' => $pagination]) ?>
+    <?php /** @var $pagination array */
+    try {
+        echo PaginationWidget::widget(['pagination' => $pagination]);
+    } catch (Exception $e) {
+    } ?>
 </div>
 <div class="modal fade" tabindex="-1" role="dialog" id="modal" style="padding-top: 10%">
     <input type="hidden" id="confirm">

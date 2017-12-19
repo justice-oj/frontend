@@ -3,7 +3,7 @@
 namespace admin\modules\tag\controllers;
 
 use admin\controllers\BaseController;
-use admin\filters\AdminLoggedinFilter;
+use admin\filters\AdminLoggedInFilter;
 use common\services\TagService;
 use Kilte\Pagination\Pagination;
 use Yii;
@@ -27,7 +27,7 @@ class ManageController extends BaseController {
 
     public function behaviors() {
         return [
-            ['class' => AdminLoggedinFilter::className()],
+            ['class' => AdminLoggedInFilter::className()],
         ];
     }
 

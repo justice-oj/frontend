@@ -3,7 +3,7 @@
 namespace admin\modules\problem\controllers;
 
 use admin\controllers\BaseController;
-use admin\filters\AdminLoggedinFilter;
+use admin\filters\AdminLoggedInFilter;
 use common\services\DiscussionService;
 use common\services\ProblemService;
 use Kilte\Pagination\Pagination;
@@ -30,7 +30,7 @@ class DiscussionController extends BaseController {
 
     public function behaviors() {
         return [
-            ['class' => AdminLoggedinFilter::className()],
+            ['class' => AdminLoggedInFilter::className()],
         ];
     }
 

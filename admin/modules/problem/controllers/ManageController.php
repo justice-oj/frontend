@@ -3,7 +3,7 @@
 namespace admin\modules\problem\controllers;
 
 use admin\controllers\BaseController;
-use admin\filters\AdminLoggedinFilter;
+use admin\filters\AdminLoggedInFilter;
 use common\services\ProblemService;
 use Kilte\Pagination\Pagination;
 use Yii;
@@ -27,7 +27,7 @@ class ManageController extends BaseController {
 
     public function behaviors() {
         return [
-            ['class' => AdminLoggedinFilter::className()],
+            ['class' => AdminLoggedInFilter::className()],
         ];
     }
 
@@ -74,8 +74,7 @@ class ManageController extends BaseController {
         }
 
         try {
-            $pid = $this->problemService->addProblem($title, $description, $level, $runtime_limit, $memory_limit);
-
+            $this->problemService->addProblem($title, $description, $level, $runtime_limit, $memory_limit);
             return [
                 'code' => 0,
                 'message' => 'OK'

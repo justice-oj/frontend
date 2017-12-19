@@ -3,7 +3,7 @@
 namespace admin\modules\problem\controllers;
 
 use admin\controllers\BaseController;
-use admin\filters\AdminLoggedinFilter;
+use admin\filters\AdminLoggedInFilter;
 use common\services\EditorialService;
 use common\services\ProblemService;
 use common\services\UserService;
@@ -33,7 +33,7 @@ class EditorialController extends BaseController {
 
     public function behaviors() {
         return [
-            ['class' => AdminLoggedinFilter::className()],
+            ['class' => AdminLoggedInFilter::className()],
         ];
     }
 

@@ -4,7 +4,7 @@
 <script src="<?= Yii::$app->params['staticFile']['Quill']['js'] ?>"></script>
 
 <h2 class="text-center">Update Problem</h2>
-<input type="hidden" id="problem_id" value="<?= $problem->id ?>">
+<input type="hidden" id="problem_id" value="<?= /** @var $problem \common\models\Problem */ $problem->id ?>">
 <form>
     <div class="row form-group">
         <label for="Title">Title</label>
@@ -36,6 +36,7 @@
         <div id="error_message" class="alert alert-danger" role="alert"></div>
     </div>
 </div>
+<!--suppress JSUnresolvedFunction -->
 <script>
     $(document).ready(function () {
         var quill = new Quill('#editor', {

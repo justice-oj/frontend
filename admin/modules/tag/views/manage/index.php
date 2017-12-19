@@ -5,11 +5,11 @@
     <form class="form-inline">
         <div class="form-group">
             <label for="id">ID</label>
-            <input name="id" class="form-control" id="id" placeholder="ID" value="<?= $id ?>">
+            <input name="id" class="form-control" id="id" placeholder="ID" value="<?= /* @var $id integer */ $id ?>">
         </div>
         <div class="form-group">
             <label for="name">Name</label>
-            <input name="name" class="form-control" id="name" placeholder="Name" value="<?= $name ?>">
+            <input name="name" class="form-control" id="name" placeholder="Name" value="<?= /* @var $name string */  $name ?>">
         </div>
         <div class="form-group">
             <button class="btn btn-default">Search</button>
@@ -27,6 +27,7 @@
             <th class="col-md-3">Operation</th>
         </tr>
         <?php
+        /** @var \common\models\Tag[] $records */
         foreach ($records as $record) {
             echo <<< TAG
     <tr>
@@ -43,7 +44,11 @@ TAG;
     </table>
 </div>
 <div class="row text-center">
-    <?= PaginationWidget::widget(['pagination' => $pagination]) ?>
+    <?php /** @var $pagination array */
+    try {
+        echo PaginationWidget::widget(['pagination' => $pagination]);
+    } catch (Exception $e) {
+    } ?>
 </div>
 <div class="modal fade" tabindex="-1" role="dialog" id="modal" style="padding-top: 10%">
     <input type="hidden" id="confirm">

@@ -1,5 +1,5 @@
 <h2 class="text-center">Edit User</h2>
-<input type="hidden" id="user_id" value="<?= $user->id ?>">
+<input type="hidden" id="user_id" value="<?= /** @var $user \common\models\User */$user->id ?>">
 <form>
     <div class="form-group">
         <label for="username">Username</label>

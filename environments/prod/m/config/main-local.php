@@ -1,4 +1,6 @@
 <?php
+
+/** @noinspection SpellCheckingInspection */
 return [
     'components' => [
         'request' => [

@@ -1,4 +1,4 @@
-<h2 class="text-center">Update Test Case <code># <?= $test_case->id ?></code></h2>
+<h2 class="text-center">Update Test Case <code># <?= /** @var $test_case \common\models\TestCase */ $test_case->id ?></code></h2>
 <input type="hidden" id="test_case_id" value="<?= $test_case->id ?>">
 <div class="row">
     <div class="col-md-6">

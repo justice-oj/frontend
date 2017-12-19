@@ -44,7 +44,7 @@
     </div>
 </nav>
 <div class="container" id="main">
-    <?= $content ?>
+    <?= /** @var $content string */ $content ?>
 </div>
 <?php $this->endBody() ?>
 </body>

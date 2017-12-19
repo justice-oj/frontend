@@ -35,6 +35,7 @@
         <div id="error_message" class="alert alert-danger" role="alert"></div>
     </div>
 </div>
+<!--suppress JSUnresolvedFunction -->
 <script>
     $(document).ready(function () {
         var quill = new Quill('#editor', {

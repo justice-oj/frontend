@@ -1,5 +1,5 @@
 <h2 class="text-center">Edit Tag</h2>
-<input type="hidden" id="tag_id" value="<?= $tag->id ?>">
+<input type="hidden" id="tag_id" value="<?= /** @var $tag \common\models\Tag */ $tag->id ?>">
 <form>
     <div class="form-group">
         <label for="name">Name</label>

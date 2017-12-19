@@ -3,7 +3,7 @@
 namespace admin\modules\problem\controllers;
 
 use admin\controllers\BaseController;
-use admin\filters\AdminLoggedinFilter;
+use admin\filters\AdminLoggedInFilter;
 use common\services\ProblemService;
 use common\services\TestCaseService;
 use Kilte\Pagination\Pagination;
@@ -31,7 +31,7 @@ class TestCaseController extends BaseController {
 
     public function behaviors() {
         return [
-            ['class' => AdminLoggedinFilter::className()],
+            ['class' => AdminLoggedInFilter::className()],
         ];
     }
 

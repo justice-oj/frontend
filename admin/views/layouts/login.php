@@ -32,7 +32,7 @@
 <body>
 <?php $this->beginBody() ?>
 <div class="container">
-    <?= $content ?>
+    <?= /** @var $content string */ $content ?>
 </div>
 <?php $this->endBody() ?>
 </body>

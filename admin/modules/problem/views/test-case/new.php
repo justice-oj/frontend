@@ -1,5 +1,5 @@
 <h2 class="text-center">Add Test Case</h2>
-<input type="hidden" id="problem_id" value="<?= $problem_id ?>">
+<input type="hidden" id="problem_id" value="<?= /** @var integer $problem_id */ $problem_id ?>">
 <div class="row">
     <div class="col-md-6">
         <div class="row">

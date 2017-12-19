@@ -3,7 +3,7 @@
 <link href="<?= Yii::$app->params['staticFile']['Quill']['css'] ?>" rel="stylesheet">
 <script src="<?= Yii::$app->params['staticFile']['Quill']['js'] ?>"></script>
 
-<h2 class="text-center">Update Editorial for <code>#<?= $problem->id ?> <?= $problem->title ?></code></h2>
+<h2 class="text-center">Update Editorial for <code>#<?= /** @var $problem \common\models\Problem */ $problem->id ?> <?= $problem->title ?></code></h2>
 <input id="problem_id" type="hidden" value="<?= $problem->id ?>">
 <form>
     <div class="row form-group">
@@ -20,6 +20,7 @@
         <div id="error_message" class="alert alert-danger" role="alert"></div>
     </div>
 </div>
+<!--suppress JSUnresolvedFunction -->
 <script>
     $(document).ready(function () {
         var quill = new Quill('#editorial', {
@@ -39,7 +40,7 @@
             placeholder: 'Update problem\'s editorial here...',
             theme: 'snow'
         });
-        quill.setContents(<?= $editorial->content ?>);
+        quill.setContents(<?= /** @var $editorial \common\models\Editorial */ $editorial->content ?>);
 
         $('#submit').on('click', function (event) {
             event.preventDefault();

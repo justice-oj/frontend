@@ -1,16 +1,20 @@
 <?php use admin\widgets\common\PaginationWidget; ?>
 
-<h2 class="text-center">Test Cases of <code>#<?= $problem->id ?> <?= $problem->title ?></code></h2>
+<h2 class="text-center">Test Cases of <code>#<?= /** @var $problem \common\models\Problem */
+        $problem->id ?> <?= $problem->title ?></code></h2>
 <div>
     <form class="form-inline">
         <input type="hidden" name="problem_id" value="<?= $problem->id ?>">
         <div class="form-group">
             <label for="input">Input</label>
-            <input name="input" class="form-control" id="input" placeholder="Input" value="<?= $input ?>">
+            <input name="input" class="form-control" id="input" placeholder="Input" value="<?= /** @var $input string */
+            $input ?>">
         </div>
         <div class="form-group">
             <label for="output">Output</label>
-            <input name="output" class="form-control" id="output" placeholder="Output" value="<?= $output ?>">
+            <input name="output" class="form-control" id="output" placeholder="Output"
+                   value="<?= /** @var $output string */
+                   $output ?>">
         </div>
         <div class="form-group">
             <button class="btn btn-default">Search</button>
@@ -29,6 +33,7 @@
             <th class="col-md-3">Operation</th>
         </tr>
         <?php
+        /** @var \common\models\TestCase[] $records */
         foreach ($records as $record) {
             echo <<< TESTCASE
     <tr>
@@ -46,7 +51,11 @@ TESTCASE;
     </table>
 </div>
 <div class="row text-center">
-    <?= PaginationWidget::widget(['pagination' => $pagination]) ?>
+    <?php /** @var $pagination array */
+    try {
+        echo PaginationWidget::widget(['pagination' => $pagination]);
+    } catch (Exception $e) {
+    } ?>
 </div>
 <div class="modal fade" tabindex="-1" role="dialog" id="modal" style="padding-top: 10%">
     <input type="hidden" id="confirm">

@@ -1,4 +1,4 @@
-<h2 class="text-center">Tags of <code>#<?= $problem->id ?> <?= $problem->title ?></code></h2>
+<h2 class="text-center">Tags of <code>#<?= /** @var $problem \common\models\Problem */ $problem->id ?> <?= $problem->title ?></code></h2>
 <input id="problem_id" type="hidden" value="<?= $problem->id ?>">
 <div class="panel panel-default">
     <div class="panel-heading">
@@ -7,8 +7,9 @@
     <div class="panel-body">
         <div class="col-md-6">
             <div class="row">
-                <select id="tag" class="form-control">
+                <select id="tag" class="form-control" title="tag">
                     <?php
+                    /** @var array $tags */
                     foreach ((array)$tags as $tag) {
                         echo <<<TAG
                     <option value="{$tag['id']}">{$tag['name']}</option>
@@ -31,6 +32,7 @@ TAG;
             <th class="col-md-5">Operation</th>
         </tr>
         <?php
+        /** @var array $records */
         foreach ($records as $record) {
             echo <<< TAG
     <tr>

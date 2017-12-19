@@ -2,7 +2,7 @@
 
 namespace admin\controllers;
 
-use admin\filters\AdminLoggedinFilter;
+use admin\filters\AdminLoggedInFilter;
 use common\services\ProblemService;
 use common\services\SubmissionService;
 use common\services\UserService;
@@ -30,7 +30,7 @@ class IndexController extends BaseController {
 
     public function behaviors() {
         return [
-            ['class' => AdminLoggedinFilter::className()],
+            ['class' => AdminLoggedInFilter::className()],
         ];
     }
 

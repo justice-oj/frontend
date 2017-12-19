@@ -1,6 +1,11 @@
 <nav>
     <ul class="pagination">
         <?php
+        /**
+         * @var array $pagination
+         * @var string $uri
+         * @var array $query
+         */
         foreach ((array) $pagination as $page => $cell) {
             if ($cell == 'current') {
                 printf('<li class="active"><span>%d</span></li>', $page);

@@ -3,7 +3,7 @@
 <link href="<?= Yii::$app->params['staticFile']['Quill']['css'] ?>" rel="stylesheet">
 <script src="<?= Yii::$app->params['staticFile']['Quill']['js'] ?>"></script>
 
-<h2 class="text-center">Update Discussion <code>#<?= $discussion->id ?></code> of Problem <code><?= $problem->title ?></code></h2>
+<h2 class="text-center">Update Discussion <code>#<?= /** @var $discussion \common\models\Discussion */ $discussion->id ?></code> of Problem <code><?= /** @var $problem \common\models\Problem */ $problem->title ?></code></h2>
 <input id="discussion_id" type="hidden" value="<?= $discussion->id ?>">
 <form>
     <div class="row form-group">
@@ -20,6 +20,7 @@
         <div id="error_message" class="alert alert-danger" role="alert"></div>
     </div>
 </div>
+<!--suppress JSUnresolvedFunction -->
 <script>
     $(document).ready(function () {
         var quill = new Quill('#discussion', {
