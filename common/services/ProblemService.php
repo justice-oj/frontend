@@ -56,7 +56,6 @@ class ProblemService {
     }
 
 
-    /** @noinspection PhpUndefinedClassInspection */
     /**
      * @author  liuchao
      * @mail    i@liuchao.me

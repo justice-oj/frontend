@@ -141,6 +141,14 @@ class ManageController extends BaseController {
     }
 
 
+    /**
+     * @author  liuchao
+     * @mail    i@liuchao.me
+     * @return array
+     * @throws \Exception
+     * @throws \Throwable
+     * @throws \yii\db\StaleObjectException
+     */
     public function actionDelete() {
         Yii::$app->response->format = Response::FORMAT_JSON;
 

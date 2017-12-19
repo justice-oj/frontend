@@ -39,7 +39,6 @@ class ProblemTagService {
     }
 
 
-    /** @noinspection PhpUndefinedClassInspection */
     /**
      * @author  liuchao
      * @mail    i@liuchao.me

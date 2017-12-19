@@ -35,6 +35,14 @@ class DiscussionController extends BaseController {
     }
 
 
+    /**
+     * @author  liuchao
+     * @mail    i@liuchao.me
+     * @param   int $problem_id
+     * @return  string
+     * @throws \yii\db\Exception
+     * @desc
+     */
     public function actionIndex(int $problem_id) {
         $page = intval(Yii::$app->request->get('page', 1));
         $this->view->title = 'Justice PLUS Admin - Discussions';
@@ -97,6 +105,15 @@ class DiscussionController extends BaseController {
     }
 
 
+    /**
+     * @author  liuchao
+     * @mail    i@liuchao.me
+     * @return array
+     * @throws \Exception
+     * @throws \Throwable
+     * @throws \yii\db\StaleObjectException
+     * @desc
+     */
     public function actionDelete() {
         Yii::$app->response->format = Response::FORMAT_JSON;
 

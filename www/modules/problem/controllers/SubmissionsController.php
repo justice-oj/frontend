@@ -37,6 +37,13 @@ class SubmissionsController extends BaseController {
     }
 
 
+    /**
+     * @author  liuchao
+     * @mail    i@liuchao.me
+     * @param   int $problem_id
+     * @return  string
+     * @throws  \yii\db\Exception
+     */
     public function actionIndex(int $problem_id) {
         $problem = $this->problemService->getProblemByID($problem_id);
         $page = intval(Yii::$app->request->get('page', 1));

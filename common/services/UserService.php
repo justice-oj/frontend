@@ -86,7 +86,6 @@ class UserService {
     }
 
 
-    /** @noinspection PhpUndefinedClassInspection */
     /**
      * @author  liuchao
      * @mail    i@liuchao.me

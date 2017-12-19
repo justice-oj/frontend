@@ -55,7 +55,6 @@ class EditorialService {
     }
 
 
-    /** @noinspection PhpUndefinedClassInspection */
     /**
      * @author  liuchao
      * @mail    i@liuchao.me

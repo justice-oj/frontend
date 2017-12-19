@@ -34,6 +34,11 @@ class SubmissionsController extends BaseController {
     }
 
 
+    /**
+     * @author  liuchao
+     * @mail    i@liuchao.me
+     * @throws \yii\db\Exception
+     */
     public function actionIndex() {
         $page = intval(Yii::$app->request->get('page', 1));
         $limit = intval(Yii::$app->params['paginationPerPage']);

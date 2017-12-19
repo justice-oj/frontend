@@ -52,7 +52,6 @@ class TagService {
     }
 
 
-    /** @noinspection PhpUndefinedClassInspection */
     /**
      * @author  liuchao
      * @mail    i@liuchao.me
