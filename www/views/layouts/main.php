@@ -122,7 +122,7 @@ TIP;
         <img src="/images/logo/justice-white.png" class="ui centered mini image">
         <div class="ui horizontal inverted small divided link list">
             <a class="item" href="/about">About</a> |
-            <a class="item" href="https://github.com/justice-oj/documents" target="_blank">Github</a> |
+            <a class="item" href="https://github.com/justice-oj" target="_blank">Github</a> |
             <a href="//www.iubenda.com/privacy-policy/8235776" class="iubenda-black iubenda-embed" title="Privacy Policy">Privacy Policy</a><!--suppress JSUnresolvedVariable, JSUnresolvedFunction --><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src = "//cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
         </div>
     </div>
