@@ -4,7 +4,7 @@ namespace www\controllers;
 
 use common\models\Problem;
 use common\services\UserService;
-use www\filters\UserLoggedinFilter;
+use www\filters\UserLoggedInFilter;
 use Yii;
 
 class ProfileController extends BaseController {
@@ -24,7 +24,7 @@ class ProfileController extends BaseController {
 
     public function behaviors() {
         return [
-            ['class' => UserLoggedinFilter::className()],
+            ['class' => UserLoggedInFilter::className()],
         ];
     }
 

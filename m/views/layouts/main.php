@@ -45,7 +45,7 @@ $this->beginPage() ?>
     <div class="ui main text container">
         <?php $this->beginBody() ?>
         <h1 class="ui header">Semantic UI Fixed Template</h1>
-        <?= $content ?>
+        <?= /** @var string $content */ $content ?>
         <?php $this->endBody() ?>
     </div>
 

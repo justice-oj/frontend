@@ -2,12 +2,12 @@
 
 namespace www\controllers;
 
-use www\filters\UserLoggedinFilter;
+use www\filters\UserLoggedInFilter;
 
 class IndexController extends BaseController {
     public function behaviors() {
         return [
-            ['class' => UserLoggedinFilter::className(), 'except' => ['index']],
+            ['class' => UserLoggedInFilter::className(), 'except' => ['index']],
         ];
     }
 

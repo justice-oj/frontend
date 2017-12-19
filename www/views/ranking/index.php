@@ -7,7 +7,7 @@ $problem_presenter = new www\presenters\ProblemPresenter();
 ?>
 
 <div class="ui basic segment">
-    <?= GoogleAdSenseWidget::widget() ?>
+    <?= /** @noinspection PhpUnhandledExceptionInspection */ GoogleAdSenseWidget::widget() ?>
 </div>
 <h2 class="ui header">Ranking</h2>
 <table class="ui selectable celled table">
@@ -23,6 +23,7 @@ $problem_presenter = new www\presenters\ProblemPresenter();
     </thead>
     <tbody>
     <?php
+    /** @var array $records */
     foreach ((array) $records as $record) {
         echo <<< USER
     <tr>
@@ -41,7 +42,9 @@ USER;
     ?>
     </tbody>
 </table>
-<?= PaginationWidget::widget(['pagination' => $pagination]) ?>
+<?= /** @noinspection PhpUnhandledExceptionInspection */
+/** @var array $pagination */
+PaginationWidget::widget(['pagination' => $pagination]) ?>
 <div class="ui basic segment">
-    <?= GoogleAdSenseWidget::widget() ?>
+    <?= /** @noinspection PhpUnhandledExceptionInspection */ GoogleAdSenseWidget::widget() ?>
 </div>

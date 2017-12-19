@@ -5,7 +5,7 @@ namespace www\controllers;
 use common\models\Submission;
 use common\services\UserService;
 use Kilte\Pagination\Pagination;
-use www\filters\UserLoggedinFilter;
+use www\filters\UserLoggedInFilter;
 use Yii;
 
 class RankingController extends BaseController {
@@ -25,7 +25,7 @@ class RankingController extends BaseController {
 
     public function behaviors() {
         return [
-            ['class' => UserLoggedinFilter::className()],
+            ['class' => UserLoggedInFilter::className()],
         ];
     }
 

@@ -7,7 +7,7 @@ use common\services\ProblemService;
 use common\services\TagService;
 use www\filters\ProblemExistsFilter;
 use www\filters\SubmitRateLimiterFilter;
-use www\filters\UserLoggedinFilter;
+use www\filters\UserLoggedInFilter;
 use Yii;
 use yii\helpers\Html;
 use yii\web\Response;
@@ -32,7 +32,7 @@ class IndexController extends BaseController {
 
     public function behaviors() {
         return [
-            ['class' => UserLoggedinFilter::className()],
+            ['class' => UserLoggedInFilter::className()],
             ['class' => ProblemExistsFilter::className(), 'only' => ['index']],
             ['class' => SubmitRateLimiterFilter::className(), 'only' => ['submit']],
         ];

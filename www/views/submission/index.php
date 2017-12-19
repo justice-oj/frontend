@@ -6,9 +6,9 @@ $presenter = new \www\presenters\SubmissionPresenter();
 ?>
 <link href="<?= Yii::$app->params['staticFile']['CodeMirror']['css'] ?>" rel="stylesheet">
 <link href="<?= Yii::$app->params['staticFile']['CodeMirror']['theme'] ?>" rel="stylesheet">
-<h2 class="ui header">Submission #<?= $submission->id ?></h2>
+<h2 class="ui header">Submission #<?= /** @var $submission \common\models\Submission */ $submission->id ?></h2>
 <div class="ui basic segment">
-    <?= GoogleAdSenseWidget::widget() ?>
+    <?= /** @noinspection PhpUnhandledExceptionInspection */ GoogleAdSenseWidget::widget() ?>
 </div>
 <table class="ui single line table">
     <thead>
@@ -25,10 +25,10 @@ $presenter = new \www\presenters\SubmissionPresenter();
     <tbody>
     <tr>
         <td>
-            <i class="<?= $user->country ?> flag"></i>
+            <i class="<?= /** @var $user \common\models\User */ $user->country ?> flag"></i>
             <a href="/profile?name=<?= $user->username ?>"><?= $user->username ?></a>
         </td>
-        <td><a href="/problem?problem_id=<?= $problem->id ?>"><?= $problem->title ?></a></td>
+        <td><a href="/problem?problem_id=<?= /** @var $problem \common\models\Problem */ $problem->id ?>"><?= $problem->title ?></a></td>
         <td><?= $presenter->showLanguage($submission->language) ?></td>
         <td><?= $presenter->showStatus($submission->status) ?></td>
         <td><?= $presenter->showRuntime($submission->runtime) ?></td>
@@ -39,19 +39,21 @@ $presenter = new \www\presenters\SubmissionPresenter();
 </table>
 <?= $presenter->showWAMessage($submission) ?>
 <?= $presenter->showErrorMessage($submission) ?>
-<textarea id="editor"><?= $submission->code ?></textarea>
+<textarea id="editor" title="editor"><?= $submission->code ?></textarea>
 <div class="ui basic segment">
-    <?= GoogleAdSenseWidget::widget() ?>
+    <?= /** @noinspection PhpUnhandledExceptionInspection */ GoogleAdSenseWidget::widget() ?>
 </div>
 <script src="<?= Yii::$app->params['staticFile']['CodeMirror']['js'] ?>"></script>
 <script src="<?= Yii::$app->params['staticFile']['CodeMirror']['matchbrackets'] ?>"></script>
 <script src="<?= Yii::$app->params['staticFile']['CodeMirror']['clike'] ?>"></script>
+<!--suppress CssUnusedSymbol -->
 <style>
     .CodeMirror {
         border: 1px solid #eee;
         height: auto;
     }
 </style>
+<!--suppress JSUnresolvedVariable, JSUnresolvedFunction -->
 <script>
     $(document).ready(function () {
         var editor = CodeMirror.fromTextArea(document.getElementById("editor"), {

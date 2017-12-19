@@ -4,7 +4,7 @@ namespace www\controllers;
 
 use common\services\ProblemService;
 use Kilte\Pagination\Pagination;
-use www\filters\UserLoggedinFilter;
+use www\filters\UserLoggedInFilter;
 use Yii;
 use yii\helpers\Html;
 
@@ -25,7 +25,7 @@ class ProblemsController extends BaseController {
 
     public function behaviors() {
         return [
-            ['class' => UserLoggedinFilter::className()],
+            ['class' => UserLoggedInFilter::className()],
         ];
     }
 

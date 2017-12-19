@@ -15,6 +15,7 @@
     <script src="<?= Yii::$app->params['staticFile']['SemanticUI']['js'] ?>"></script>
     <?= Html::csrfMetaTags() ?>
     <title>Justice PLUS - Login</title>
+    <!--suppress CssUnusedSymbol -->
     <style type="text/css">
         body {  background-color: #DADADA;  }
         body > .grid {  height: 100%;  }
@@ -25,7 +26,7 @@
 </head>
 <body>
     <?php $this->beginBody() ?>
-    <?= $content ?>
+    <?= /** @var string $content */ $content ?>
     <script type="text/javascript">
         $.ajaxSetup({
             headers: {

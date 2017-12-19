@@ -7,7 +7,7 @@ $problem_presenter = new \www\presenters\ProblemPresenter();
     <div class="four wide column">
         <div class="ui card">
             <div class="image">
-                <img src="<?= $user_presenter->showAvatar($user->email) ?>">
+                <img src="<?= $user_presenter->showAvatar(/** @var \common\models\User $user */ $user->email) ?>">
             </div>
             <div class="content">
                 <a class="header"><?= $user->nickname ?></a>
@@ -55,7 +55,7 @@ $problem_presenter = new \www\presenters\ProblemPresenter();
             <div class="ui center aligned segment">
                 <div class="ui statistic">
                     <div class="value">
-                        <?= $ac_problems ?> / <?= $all_problems ?>
+                        <?= /** @var integer $ac_problems */ $ac_problems ?> / <?= /** @var integer $all_problems */ $all_problems ?>
                     </div>
                     <div class="label">
                         PROBLEM SOLVED
@@ -65,7 +65,7 @@ $problem_presenter = new \www\presenters\ProblemPresenter();
             <div class="ui center aligned segment">
                 <div class="ui statistic">
                     <div class="value">
-                        <?= $all_submissions ?>
+                        <?= /** @var integer $all_submissions*/ $all_submissions ?>
                     </div>
                     <div class="label">
                         SUBMISSIONS
@@ -75,7 +75,7 @@ $problem_presenter = new \www\presenters\ProblemPresenter();
             <div class="ui center aligned segment">
                 <div class="ui statistic">
                     <div class="value">
-                        <?= $all_submissions == 0 ? '0.00' : number_format($ac_submissions * 100 / $all_submissions, 2) ?> %
+                        <?= /** @var integer $ac_submissions*/ $all_submissions == 0 ? '0.00' : number_format($ac_submissions * 100 / $all_submissions, 2) ?> %
                     </div>
                     <div class="label">
                         AC
@@ -86,6 +86,7 @@ $problem_presenter = new \www\presenters\ProblemPresenter();
     </div>
 </div>
 <script src="<?= Yii::$app->params['staticFile']['ChartJs'] ?>"></script>
+<!--suppress JSUnresolvedFunction -->
 <script>
     var progress = new Chart('progress', {
         type: 'doughnut',

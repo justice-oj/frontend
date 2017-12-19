@@ -3,7 +3,7 @@
 namespace www\controllers;
 
 use common\services\SubmissionService;
-use www\filters\UserLoggedinFilter;
+use www\filters\UserLoggedInFilter;
 use Yii;
 use yii\helpers\Html;
 
@@ -24,7 +24,7 @@ class SubmissionController extends BaseController {
 
     public function behaviors() {
         return [
-            ['class' => UserLoggedinFilter::className()],
+            ['class' => UserLoggedInFilter::className()],
         ];
     }
 

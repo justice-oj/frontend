@@ -48,11 +48,9 @@ USER;
     </table>
 </div>
 <div class="row text-center">
-    <?php /** @var $pagination array */
-    try {
-        echo PaginationWidget::widget(['pagination' => $pagination]);
-    } catch (Exception $e) {
-    } ?>
+    <?= /** @var $pagination array */
+    /** @noinspection PhpUnhandledExceptionInspection */
+    PaginationWidget::widget(['pagination' => $pagination]) ?>
 </div>
 <div class="modal fade" tabindex="-1" role="dialog" id="modal" style="padding-top: 10%">
     <input type="hidden" id="confirm">

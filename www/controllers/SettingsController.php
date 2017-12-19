@@ -3,7 +3,7 @@
 namespace www\controllers;
 
 use common\services\UserService;
-use www\filters\UserLoggedinFilter;
+use www\filters\UserLoggedInFilter;
 use Yii;
 use yii\web\Response;
 
@@ -24,7 +24,7 @@ class SettingsController extends BaseController {
 
     public function behaviors() {
         return [
-            ['class' => UserLoggedinFilter::className()],
+            ['class' => UserLoggedInFilter::className()],
         ];
     }
 

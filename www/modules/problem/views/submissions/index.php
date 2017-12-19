@@ -7,9 +7,9 @@ $presenter = new \www\presenters\SubmissionPresenter();
 ?>
 
 <div class="ui basic segment">
-    <?= GoogleAdSenseWidget::widget() ?>
+    <?= /** @noinspection PhpUnhandledExceptionInspection */ GoogleAdSenseWidget::widget() ?>
 </div>
-<h2 class="ui header"><?= $problem->title ?></h2>
+<h2 class="ui header"><?= /** @var \common\models\Problem $problem */ $problem->title ?></h2>
 <div class="ui top fluid four item menu">
     <a class="item" href="/problem?problem_id=<?= $problem->id ?>">Problem</a>
     <a class="item active">Submissions</a>
@@ -29,6 +29,7 @@ $presenter = new \www\presenters\SubmissionPresenter();
     </thead>
     <tbody>
     <?php
+    /** @var array $records */
     foreach ((array) $records as $record) {
         echo <<< SUBMISSION
     <tr>
@@ -47,9 +48,11 @@ SUBMISSION;
     ?>
     </tbody>
 </table>
-<?= PaginationWidget::widget(['pagination' => $pagination]) ?>
+<?= /** @noinspection PhpUnhandledExceptionInspection */
+/** @var array $pagination */
+PaginationWidget::widget(['pagination' => $pagination]) ?>
 <div class="ui basic segment">
-    <?= GoogleAdSenseWidget::widget(); ?>
+    <?= /** @noinspection PhpUnhandledExceptionInspection */ GoogleAdSenseWidget::widget() ?>
 </div>
 <script>
     $(document).ready(function () {

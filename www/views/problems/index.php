@@ -7,16 +7,16 @@ $presenter = new www\presenters\ProblemPresenter();
 ?>
 
 <div class="ui basic segment">
-    <?= GoogleAdSenseWidget::widget() ?>
+    <?= /** @noinspection PhpUnhandledExceptionInspection */ GoogleAdSenseWidget::widget() ?>
 </div>
 <h2 class="ui header">Problems</h2>
 <form class="ui form" action="/problems">
     <div class="fields">
         <div class="four wide field">
-            <input name="id" placeholder="Problem ID" value="<?= $id ?>">
+            <input name="id" placeholder="Problem ID" value="<?= /** @var integer $id */ $id ?>">
         </div>
         <div class="ten wide field">
-            <input name="title" placeholder="Problem Title" value="<?= $title ?>">
+            <input name="title" placeholder="Problem Title" value="<?= /** @var string $title */ $title ?>">
         </div>
         <div class="two wide field">
             <input type="submit" value="Search" class="ui blue submit button"/>
@@ -35,6 +35,7 @@ $presenter = new www\presenters\ProblemPresenter();
     </thead>
     <tbody>
     <?php
+    /** @var array $records */
     foreach ((array) $records as $record) {
         echo <<< PROBLEM
     <tr class="{$presenter->showTRClass($record['status'])}">
@@ -55,7 +56,9 @@ PROBLEM;
     ?>
     </tbody>
 </table>
-<?= PaginationWidget::widget(['pagination' => $pagination]) ?>
+<?= /** @noinspection PhpUnhandledExceptionInspection */
+/** @var array $pagination */
+PaginationWidget::widget(['pagination' => $pagination]) ?>
 <div class="ui basic segment">
-    <?= GoogleAdSenseWidget::widget() ?>
+    <?= /** @noinspection PhpUnhandledExceptionInspection */ GoogleAdSenseWidget::widget() ?>
 </div>

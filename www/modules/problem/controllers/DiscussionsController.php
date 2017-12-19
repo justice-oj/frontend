@@ -8,7 +8,7 @@ use common\services\DiscussionService;
 use common\services\ProblemService;
 use Kilte\Pagination\Pagination;
 use www\filters\ProblemExistsFilter;
-use www\filters\UserLoggedinFilter;
+use www\filters\UserLoggedInFilter;
 use Yii;
 use yii\helpers\Html;
 use yii\web\Response;
@@ -33,7 +33,7 @@ class DiscussionsController extends BaseController {
 
     public function behaviors() {
         return [
-            ['class' => UserLoggedinFilter::className()],
+            ['class' => UserLoggedInFilter::className()],
             ['class' => ProblemExistsFilter::className(), 'only' => ['index']]
         ];
     }

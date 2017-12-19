@@ -6,7 +6,7 @@ use common\models\Submission;
 use common\services\SubmissionService;
 use common\services\UserService;
 use Kilte\Pagination\Pagination;
-use www\filters\UserLoggedinFilter;
+use www\filters\UserLoggedInFilter;
 use Yii;
 
 class SubmissionsController extends BaseController {
@@ -29,7 +29,7 @@ class SubmissionsController extends BaseController {
 
     public function behaviors() {
         return [
-            ['class' => UserLoggedinFilter::className()],
+            ['class' => UserLoggedInFilter::className()],
         ];
     }
 

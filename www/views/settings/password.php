@@ -5,7 +5,7 @@ use www\widgets\common\GoogleAdSenseWidget;
 ?>
 
 <div class="ui basic segment">
-    <?= GoogleAdSenseWidget::widget() ?>
+    <?= /** @noinspection PhpUnhandledExceptionInspection */ GoogleAdSenseWidget::widget() ?>
 </div>
 <h2 class="ui header">Settings - Password</h2>
 <div class="ui top fluid two item menu">
@@ -16,21 +16,21 @@ use www\widgets\common\GoogleAdSenseWidget;
     <div class="ui big form">
         <div class="field">
             <label>Old Password</label>
-            <input id="a" type="password">
+            <input id="a" type="password" title="a">
         </div>
         <div class="field">
             <label>New Password</label>
-            <input id="b" type="password">
+            <input id="b" type="password" title="b">
         </div>
         <div class="field">
             <label>Retype New Password</label>
-            <input id="c" type="password">
+            <input id="c" type="password" title="c">
         </div>
         <div class="ui submit primary big button" id="update">Update</div>
     </div>
 </div>
 <div class="ui basic segment">
-    <?= GoogleAdSenseWidget::widget() ?>
+    <?= /** @noinspection PhpUnhandledExceptionInspection */ GoogleAdSenseWidget::widget() ?>
 </div>
 <script>
     $(document).ready(function () {

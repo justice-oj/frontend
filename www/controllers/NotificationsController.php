@@ -4,7 +4,7 @@ namespace www\controllers;
 
 use common\services\NotificationService;
 use Kilte\Pagination\Pagination;
-use www\filters\UserLoggedinFilter;
+use www\filters\UserLoggedInFilter;
 use Yii;
 
 class NotificationsController extends BaseController {
@@ -24,7 +24,7 @@ class NotificationsController extends BaseController {
 
     public function behaviors() {
         return [
-            ['class' => UserLoggedinFilter::className()],
+            ['class' => UserLoggedInFilter::className()],
         ];
     }
 

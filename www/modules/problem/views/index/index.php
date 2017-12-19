@@ -11,9 +11,9 @@ use www\widgets\common\GoogleAdSenseWidget;
 <link href="<?= Yii::$app->params['staticFile']['Quill']['css'] ?>" rel="stylesheet">
 <script src="<?= Yii::$app->params['staticFile']['Quill']['js'] ?>"></script>
 <div class="ui basic segment">
-    <?= GoogleAdSenseWidget::widget() ?>
+    <?= /** @noinspection PhpUnhandledExceptionInspection */ GoogleAdSenseWidget::widget() ?>
 </div>
-<h2 class="ui header"><?= $problem->title ?></h2>
+<h2 class="ui header"><?= /** @var \common\models\Problem $problem */ $problem->title ?></h2>
 <div class="ui top fluid four item menu">
     <a class="item active">Problem</a>
     <a class="item" href="/problem/submissions?problem_id=<?= $problem->id ?>">Submissions</a>
@@ -43,6 +43,7 @@ use www\widgets\common\GoogleAdSenseWidget;
         <div class="content">
             <div class="ui tag labels">
                 <?php
+                /** @var array $tags */
                 foreach ((array)$tags as $tag) {
                     echo <<<TAG
                     <a class="ui mini tag label">{$tag['name']}</a>
@@ -60,7 +61,7 @@ TAG;
 </h4>
 <div class="fields">
     <div class="four wide field">
-        <select class="ui dropdown" id="language">
+        <select class="ui dropdown" id="language" title="language">
             <option value="">Select Language</option>
             <option value="<?= \common\models\Submission::LANGUAGE_C ?>">C</option>
             <option value="<?= \common\models\Submission::LANGUAGE_CPP ?>">C++</option>
@@ -69,7 +70,7 @@ TAG;
     </div>
 </div>
 <h4 class="ui header">Paste your source code:</h4>
-<textarea id="editor"></textarea>
+<textarea id="editor" title="editor"></textarea>
 <div class="ui basic segment">
     <button class="ui primary basic button" id="submit">Submit</button>
 </div>
@@ -86,11 +87,12 @@ TAG;
     </div>
 </div>
 <div class="ui basic segment">
-    <?= GoogleAdSenseWidget::widget() ?>
+    <?= /** @noinspection PhpUnhandledExceptionInspection */ GoogleAdSenseWidget::widget() ?>
 </div>
 <script src="<?= Yii::$app->params['staticFile']['CodeMirror']['js'] ?>"></script>
 <script src="<?= Yii::$app->params['staticFile']['CodeMirror']['matchbrackets'] ?>"></script>
 <script src="<?= Yii::$app->params['staticFile']['CodeMirror']['clike'] ?>"></script>
+<!--suppress JSUnresolvedFunction, JSUnresolvedVariable, JSUnusedGlobalSymbols, JSCheckFunctionSignatures -->
 <script>
     $(document).ready(function () {
         $('.menu .item').tab();

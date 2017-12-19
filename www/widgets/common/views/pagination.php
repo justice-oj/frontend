@@ -1,6 +1,10 @@
 <div class="ui center aligned container">
     <div class="ui pagination menu">
         <?php
+        /**
+         * @var array $pagination
+         * @var string $uri
+         */
         foreach ((array) $pagination as $page => $cell) {
             if ($cell == 'current') {
                 printf('<a class="active item">%d</a>', $page);

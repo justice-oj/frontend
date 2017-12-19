@@ -7,7 +7,7 @@ $presenter = new \www\presenters\UserPresenter();
 ?>
 
 <div class="ui basic segment">
-    <?= GoogleAdSenseWidget::widget() ?>
+    <?= /** @noinspection PhpUnhandledExceptionInspection */ GoogleAdSenseWidget::widget() ?>
 </div>
 <h2 class="ui header">Settings - Profile</h2>
 <div class="ui top fluid two item menu">
@@ -26,7 +26,7 @@ $presenter = new \www\presenters\UserPresenter();
                     </div>
                 </div>
             </div>
-            <img src="<?= $presenter->showAvatar($user->email) ?>">
+            <img src="<?= $presenter->showAvatar(/** @var \common\models\User $user */ $user->email) ?>">
         </div>
     </div>
 </div>
@@ -35,26 +35,26 @@ $presenter = new \www\presenters\UserPresenter();
         <div class="two fields">
             <div class="field">
                 <label>Username</label>
-                <input value="<?= \yii\helpers\Html::encode($user->username) ?>" disabled>
+                <input value="<?= \yii\helpers\Html::encode($user->username) ?>" disabled title="username">
             </div>
             <div class="field">
                 <label>E-mail</label>
-                <input value="<?= \yii\helpers\Html::encode($user->email) ?>" disabled>
+                <input value="<?= \yii\helpers\Html::encode($user->email) ?>" disabled title="email">
             </div>
         </div>
         <div class="two fields">
             <div class="field">
                 <label>Nickname</label>
-                <input id="nickname" value="<?= \yii\helpers\Html::encode($user->nickname) ?>">
+                <input id="nickname" value="<?= \yii\helpers\Html::encode($user->nickname) ?>" title="nickname">
             </div>
             <div class="field">
                 <label>Website</label>
-                <input id="website" value="<?= \yii\helpers\Html::encode($user->website) ?>">
+                <input id="website" value="<?= \yii\helpers\Html::encode($user->website) ?>" title="website">
             </div>
         </div>
         <div class="field">
             <label>Country</label>
-            <select class="ui search dropdown" id="country">
+            <select class="ui search dropdown" id="country" title="country">
                 <option value="<?= strtoupper($user->country) ?>">Select Country</option>
                 <option value="AF">Afghanistan</option>
                 <option value="AX">Åland Islands</option>
@@ -309,14 +309,15 @@ $presenter = new \www\presenters\UserPresenter();
         </div>
         <div class="field">
             <label>Bio</label>
-            <textarea rows="4" id="bio"><?= \yii\helpers\Html::encode($user->bio) ?></textarea>
+            <textarea rows="4" id="bio" title="bio"><?= \yii\helpers\Html::encode(/** @var \common\models\User $user */ $user->bio) ?></textarea>
         </div>
         <div class="ui submit primary big button" id="update">Update</div>
     </div>
 </div>
 <div class="ui basic segment">
-    <?= GoogleAdSenseWidget::widget() ?>
+    <?= /** @noinspection PhpUnhandledExceptionInspection */ GoogleAdSenseWidget::widget() ?>
 </div>
+<!--suppress JSUnresolvedFunction -->
 <script>
     $(document).ready(function () {
         $('.menu .item').tab();

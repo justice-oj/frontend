@@ -6,7 +6,7 @@ use admin\controllers\BaseController;
 use common\services\EditorialService;
 use common\services\ProblemService;
 use www\filters\ProblemExistsFilter;
-use www\filters\UserLoggedinFilter;
+use www\filters\UserLoggedInFilter;
 use yii\helpers\Html;
 
 class EditorialController extends BaseController {
@@ -29,7 +29,7 @@ class EditorialController extends BaseController {
 
     public function behaviors() {
         return [
-            ['class' => UserLoggedinFilter::className()],
+            ['class' => UserLoggedInFilter::className()],
             ['class' => ProblemExistsFilter::className()]
         ];
     }

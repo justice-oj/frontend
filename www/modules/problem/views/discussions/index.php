@@ -7,6 +7,7 @@ use www\widgets\common\PaginationWidget;
 $user_presenter = new \www\presenters\UserPresenter();
 
 ?>
+<!--suppress CssUnusedSymbol -->
 <style>
     .ui.comments {
         max-width: none;
@@ -22,9 +23,9 @@ $user_presenter = new \www\presenters\UserPresenter();
 <link href="<?= Yii::$app->params['staticFile']['Quill']['css'] ?>" rel="stylesheet">
 <script src="<?= Yii::$app->params['staticFile']['Quill']['js'] ?>"></script>
 <div class="ui basic segment">
-    <?= GoogleAdSenseWidget::widget() ?>
+    <?= /** @noinspection PhpUnhandledExceptionInspection */ GoogleAdSenseWidget::widget() ?>
 </div>
-<h2 class="ui header"><?= $problem->title ?></h2>
+<h2 class="ui header"><?= /** @var $problem \common\models\Problem */ $problem->title ?></h2>
 <div class="ui top fluid four item menu">
     <a class="item" href="/problem?problem_id=<?= $problem->id ?>">Problem</a>
     <a class="item" href="/problem/submissions?problem_id=<?= $problem->id ?>">Submissions</a>
@@ -33,12 +34,14 @@ $user_presenter = new \www\presenters\UserPresenter();
 </div>
 <div class="ui large comments">
     <?php
+    /** @var array $discussions */
     foreach ($discussions as $k => $discussion) {
         // human readable time format
         $t = Carbon::createFromFormat('Y-m-d H:i:s', $discussion['created_at'], date_default_timezone_get())->diffForHumans();
         // up-voted style
-        $empty = Yii::$app->get('redis')->getbit($key, $discussion['id']) ? '' : 'empty';
+        $empty = Yii::$app->get('redis')->getbit(/** @var string $key */ $key, $discussion['id']) ? '' : 'empty';
 
+        /** @lang html */
         echo <<< DISCUSSION
     <a name="L{$discussion['id']}" class="anchor"></a>
     <div class="comment">
@@ -91,10 +94,13 @@ DISCUSSION;
         <div class="ui primary button ok">OK</div>
     </div>
 </div>
-<?= PaginationWidget::widget(['pagination' => $pagination]) ?>
+<?= /** @noinspection PhpUnhandledExceptionInspection */
+/** @var array $pagination */
+PaginationWidget::widget(['pagination' => $pagination]) ?>
 <div class="ui basic segment">
-    <?= GoogleAdSenseWidget::widget() ?>
+    <?= /** @noinspection PhpUnhandledExceptionInspection */ GoogleAdSenseWidget::widget() ?>
 </div>
+<!--suppress JSUnresolvedFunction, JSUnresolvedVariable -->
 <script>
     $(document).ready(function () {
         $('.menu .item').tab();

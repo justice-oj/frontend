@@ -10,6 +10,6 @@
             Error
         </div>
         <br>
-        <?= $message ?>
+        <?= /** @var string $message */ $message ?>
     </div>
 </div>
