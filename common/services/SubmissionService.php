@@ -63,6 +63,7 @@ class SubmissionService {
      * @param   int $page
      * @return  array
      * @desc    get submissions on page $page
+     * @throws \yii\db\Exception
      */
     public function getSubmissionsList(int $page) {
         $limit = intval(Yii::$app->params['paginationPerPage']);
@@ -98,6 +99,7 @@ SQL;
      * @param   int $page
      * @return  array
      * @desc    get submissions of $problem_id on page $page
+     * @throws \yii\db\Exception
      */
     public function getSubmissionsListByProblemID(int $problem_id, int $page) {
         $limit = intval(Yii::$app->params['paginationPerPage']);

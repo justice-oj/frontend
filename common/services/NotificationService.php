@@ -31,7 +31,7 @@ class NotificationService {
      * @mail    i@liuchao.me
      * @param   string $username
      * @param   int $counter
-     * @return
+     * @return  string | boolean
      * @desc
      */
     public static function setNewNoticeCounter(string $username, int $counter) {
@@ -81,7 +81,7 @@ class NotificationService {
      * @param   string $username
      * @param   int $start
      * @param   int $end
-     * @return
+     * @return  array
      * @desc
      */
     public static function getNotices(string $username, int $start, int $end) {

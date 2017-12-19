@@ -1,4 +1,5 @@
 <?php
+/** @noinspection SpellCheckingInspection */
 return [
 /*    'bootstrap' => ['gii'],
     'modules' => [

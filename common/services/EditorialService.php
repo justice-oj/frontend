@@ -55,11 +55,15 @@ class EditorialService {
     }
 
 
+    /** @noinspection PhpUndefinedClassInspection */
     /**
      * @author  liuchao
      * @mail    i@liuchao.me
      * @param   int $problem_id
      * @return  false|int
+     * @throws \Exception
+     * @throws \Throwable
+     * @throws \yii\db\StaleObjectException
      * @desc
      */
     public function removeEditorial(int $problem_id) {

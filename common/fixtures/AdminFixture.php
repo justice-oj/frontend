@@ -8,6 +8,7 @@ class AdminFixture extends ActiveFixture {
     public $modelClass = 'common\models\Admin';
 
     protected function getData() {
+        /** @noinspection SpellCheckingInspection */
         return [
             [
                 'username' => 'admin',

@@ -1,4 +1,5 @@
 <?php
+/** @noinspection SpellCheckingInspection */
 return [
     'components' => [
         'db' => [

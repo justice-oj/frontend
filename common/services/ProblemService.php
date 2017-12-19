@@ -56,11 +56,15 @@ class ProblemService {
     }
 
 
+    /** @noinspection PhpUndefinedClassInspection */
     /**
      * @author  liuchao
      * @mail    i@liuchao.me
      * @param int $problem_id
      * @return false|int
+     * @throws \Exception
+     * @throws \Throwable
+     * @throws \yii\db\StaleObjectException
      * @desc
      */
     public function deleteProblem(int $problem_id) {
@@ -122,6 +126,7 @@ class ProblemService {
                 $status = Problem::STATUS_UNSOLVED;
             }
 
+            /** @noinspection PhpUndefinedMethodInspection */
             return [
                 'id' => $record->id,
                 'title' => $record->title,

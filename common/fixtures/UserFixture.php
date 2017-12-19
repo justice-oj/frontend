@@ -8,6 +8,7 @@ class UserFixture extends ActiveFixture {
     public $modelClass = 'common\models\User';
 
     protected function getData() {
+        /** @noinspection SpellCheckingInspection */
         return [
             [
                 'username' => 'liupangzi',

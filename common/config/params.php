@@ -1,4 +1,5 @@
 <?php
+/** @noinspection SpellCheckingInspection */
 return [
     'adminEmail' => 'i@liuchao.me',
     'userLoggedInKey' => 'logged_in',

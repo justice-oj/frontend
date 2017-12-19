@@ -57,11 +57,15 @@ class TestCaseService {
     }
 
 
+    /** @noinspection PhpUndefinedClassInspection */
     /**
      * @author  liuchao
      * @mail    i@liuchao.me
      * @param   int $test_case_id
      * @return  false|int
+     * @throws \Exception
+     * @throws \Throwable
+     * @throws \yii\db\StaleObjectException
      * @desc
      */
     public function deleteTestCase(int $test_case_id) {

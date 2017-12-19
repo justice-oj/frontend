@@ -104,11 +104,15 @@ NOTICE;
     }
 
 
+    /** @noinspection PhpUndefinedClassInspection */
     /**
      * @author  liuchao
      * @mail    i@liuchao.me
-     * @param int $discussion_id
-     * @return false|int
+     * @param   int $discussion_id
+     * @return  false|int
+     * @throws \Exception
+     * @throws \Throwable
+     * @throws \yii\db\StaleObjectException
      * @desc
      */
     public function deleteDiscussion(int $discussion_id) {
@@ -167,12 +171,13 @@ NOTICE;
      * @param   int $page
      * @return  array
      * @desc    get discussions list by $problem_id on page $page
+     * @throws \yii\db\Exception
      */
     public function getDiscussionsListByProblemID(int $problem_id, int $page) {
         $limit = intval(Yii::$app->params['paginationPerPage']);
         $offset = $limit * ($page - 1);
 
-        $sql = <<<SQL
+        $sql = <<< SQL
 SELECT
   d.id         AS id,
   d.created_at AS created_at,

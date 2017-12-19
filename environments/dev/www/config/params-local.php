@@ -1,4 +1,5 @@
 <?php
+/** @noinspection SpellCheckingInspection */
 return [
     'tokenBucketCapacity' => 1000,
     'tokenRatePerMinute' => 60,

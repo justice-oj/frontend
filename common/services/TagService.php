@@ -52,11 +52,15 @@ class TagService {
     }
 
 
+    /** @noinspection PhpUndefinedClassInspection */
     /**
      * @author  liuchao
      * @mail    i@liuchao.me
      * @param   int $tag_id
      * @return  false|int
+     * @throws \Exception
+     * @throws \Throwable
+     * @throws \yii\db\StaleObjectException
      * @desc
      */
     public function deleteTag(int $tag_id) {

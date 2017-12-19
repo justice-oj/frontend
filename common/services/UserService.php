@@ -86,11 +86,15 @@ class UserService {
     }
 
 
+    /** @noinspection PhpUndefinedClassInspection */
     /**
      * @author  liuchao
      * @mail    i@liuchao.me
      * @param   int $user_id
      * @return  false|int
+     * @throws \Exception
+     * @throws \Throwable
+     * @throws \yii\db\StaleObjectException
      * @desc
      */
     public function deleteUser(int $user_id) {
