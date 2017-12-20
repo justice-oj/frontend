@@ -6,8 +6,26 @@ return yii\helpers\ArrayHelper::merge(
     [
         'components' => [
             'db' => [
-                'dsn' => 'mysql:host=localhost;dbname=yii2advanced_test',
-            ]
+                'class' => 'yii\db\Connection',
+                'dsn' => 'mysql:host=192.168.216.128;dbname=www_justice_plus_test',
+                'username' => 'root',
+                'password' => 'xaiTIVP7kB$oHuJecEooq#YsziVvVAzW',
+                'charset' => 'utf8',
+            ],
+            'redis' => [
+                'class' => 'yii\redis\Connection',
+                'hostname' => '192.168.216.128',
+                'port' => 6379,
+                'database' => 5,
+            ],
+            'session' => [
+                'class' => 'yii\redis\Session',
+                'redis' => [
+                    'hostname' => '192.168.216.128',
+                    'port' => 6379,
+                    'database' => 4,
+                ]
+            ],
         ],
     ]
 );
