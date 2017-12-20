@@ -72,7 +72,7 @@ class LoginCest {
 
         $I->click('//*[@id="auth"]');
         $I->wait(3);
-        $I->canSee('Verdicts', 'body > div.ui.main.container > div > div:nth-child(7) > h2');
-        $I->canSee('demo', 'body > div.ui.fixed.inverted.menu > div > div');
+        $I->canSee('Verdicts', 'h2');
+        $I->canSee('demo', '.ui.right.floated.simple.dropdown.item');
     }
 }

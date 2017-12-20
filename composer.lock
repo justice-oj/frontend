@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "fef6172d2658ce84ad958ddd4ddf3c98",
+    "content-hash": "e628ddbed7d020f96d02b588f81ebfd2",
     "packages": [
         {
             "name": "amstaffix/pagination",
@@ -243,8 +243,7 @@
                     "node_modules",
                     "package.json"
                 ]
-            },
-            "time": "2014-10-22T12:02:42+00:00"
+            }
         },
         {
             "name": "bower-asset/yii2-pjax",
@@ -1257,8 +1256,7 @@
                 "mobile-first",
                 "responsive",
                 "web"
-            ],
-            "time": "2016-07-25T15:51:55+00:00"
+            ]
         },
         {
             "name": "codeception/codeception",

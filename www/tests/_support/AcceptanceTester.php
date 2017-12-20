@@ -21,9 +21,9 @@ class AcceptanceTester extends \Codeception\Actor {
     use _generated\AcceptanceTesterActions;
 
 
-    public function login() {
+    public function userDemoLogin() {
         $I = $this;
-        if ($I->loadSessionSnapshot('login')) {
+        if ($I->loadSessionSnapshot('demo')) {
             return;
         }
 
@@ -36,6 +36,25 @@ class AcceptanceTester extends \Codeception\Actor {
         $I->wait(3);
         $I->canSee('demo');
 
-        $I->saveSessionSnapshot('login');
+        $I->saveSessionSnapshot('demo');
+    }
+
+
+    public function userLiupangziLogin() {
+        $I = $this;
+        if ($I->loadSessionSnapshot('liupangzi')) {
+            return;
+        }
+
+        $I->amOnPage('/login');
+
+        $I->fillField('#email', 'thesedays@126.com');
+        $I->fillField('#password', '123456');
+
+        $I->click('//*[@id="auth"]');
+        $I->wait(3);
+        $I->canSee('liupangzi');
+
+        $I->saveSessionSnapshot('liupangzi');
     }
 }
