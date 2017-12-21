@@ -49,6 +49,19 @@ return [
             'm/config/main-local.php',
         ],
     ],
+    'Test' => [
+        'path' => 'test',
+        'setWritable' => [
+            'www/runtime',
+            'www/web/assets',
+        ],
+        'setExecutable' => [
+            'yii_test',
+        ],
+        'setCookieValidationKey' => [
+            'www/config/main-local.php',
+        ],
+    ],
     'Production' => [
         'path' => 'prod',
         'setWritable' => [
