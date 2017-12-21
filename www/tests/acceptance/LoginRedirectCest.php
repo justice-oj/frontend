@@ -4,8 +4,8 @@ namespace www\tests\acceptance;
 
 use www\tests\AcceptanceTester;
 
-class UnauthCest {
-    public function checkDeniedPages(AcceptanceTester $I) {
+class LoginRedirectCest {
+    public function checkRedirectPages(AcceptanceTester $I) {
         $I->amOnPage('/problems');
         $I->wait(3);
         $I->canSeeInTitle('Justice PLUS - Login');

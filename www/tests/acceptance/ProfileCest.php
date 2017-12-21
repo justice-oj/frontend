@@ -2,6 +2,7 @@
 
 namespace www\tests\acceptance;
 
+use Facebook\WebDriver\WebDriverKeys;
 use Faker\Factory;
 use www\tests\AcceptanceTester;
 
@@ -9,9 +10,10 @@ class ProfileCest {
     public function checkCheckDefaultProfile(AcceptanceTester $I) {
         $I->userDemoLogin();
         $I->amOnPage('/profile?name=demo');
-        $I->canSee('demo', '#nickname');
-        $I->canSee('https://www.liuchao.me', '#website');
-        $I->canSee('I am a robot.', '#bio');
+
+        $I->canSee('demo');
+        $I->canSee('https://www.liuchao.me');
+        $I->canSee('I am a robot.');
         $I->canSee('i@liuchao.me');
     }
 
@@ -33,30 +35,53 @@ class ProfileCest {
         $I->userDemoLogin();
         $I->amOnPage('/settings');
 
+        // original state
+        $I->seeInField('//*[@id="nickname"]', 'demo');
+        $I->seeInField('//*[@id="website"]', 'https://www.liuchao.me');
+        $I->canSee('United States');
+        $I->cantSee('Vanuatu');
+        $I->seeInField('//*[@id="bio"]', 'I am a robot.');
+
         $I->fillField('#nickname', $nickname);
         $I->fillField('#website', $website);
+        $I->clickWithLeftButton('.ui.search.dropdown.selection');
+        $I->pressKey('input.search', 'Vanuatu');
+        $I->wait(1);
+        $I->pressKey('input.search', WebDriverKeys::ENTER);
+        $I->wait(1);
         $I->fillField('#bio', $bio);
         $I->clickWithLeftButton('#update');
-        $I->canSeeInPopup('OK');
-        $I->wait(3);
+        $I->wait(1);
+        $I->seeInPopup('OK');
+        $I->acceptPopup();
+        $I->wait(1);
 
-        $I->canSee($nickname, '#nickname');
-        $I->canSee($website, '#website');
-        $I->canSee($bio, '#bio');
-        $I->canSee('i@liuchao.me');
+        $I->seeInField('//*[@id="nickname"]', $nickname);
+        $I->seeInField('//*[@id="website"]', $website);
+        $I->canSee('Vanuatu');
+        $I->cantSee('United States');
+        $I->seeInField('//*[@id="bio"]', $bio);
 
         $I->fillField('#nickname', 'demo');
         $I->fillField('#website', 'https://www.liuchao.me');
+        $I->clickWithLeftButton('.ui.search.dropdown.selection');
+        $I->pressKey('input.search', 'United States');
+        $I->wait(1);
+        $I->pressKey('input.search', WebDriverKeys::ENTER);
+        $I->wait(1);
         $I->fillField('#bio', 'I am a robot.');
         $I->clickWithLeftButton('#update');
-        $I->canSeeInPopup('OK');
-        $I->pressKey('body', ['enter']);
-        $I->wait(3);
+        $I->wait(1);
+        $I->seeInPopup('OK');
+        $I->acceptPopup();
+        $I->wait(1);
 
-        $I->canSee('demo', '#nickname');
-        $I->canSee('https://www.liuchao.me', '#website');
-        $I->canSee('I am a robot.', '#bio');
-        $I->canSee('i@liuchao.me');
+        // original state
+        $I->seeInField('//*[@id="nickname"]', 'demo');
+        $I->seeInField('//*[@id="website"]', 'https://www.liuchao.me');
+        $I->canSee('United States');
+        $I->cantSee('Vanuatu');
+        $I->seeInField('//*[@id="bio"]', 'I am a robot.');
     }
 
 
@@ -72,33 +97,33 @@ class ProfileCest {
         $I->userDemoLogin();
         $I->amOnPage('/settings/password');
 
-        $faker = Factory::create();
-        $password = $faker->password;
-
         $I->fillField('#a', 'demo');
-        $I->fillField('#b', $password);
-        $I->fillField('#c', $password);
+        $I->fillField('#b', 'wakaka');
+        $I->fillField('#c', 'wakaka');
         $I->clickWithLeftButton('#update');
+        $I->wait(1);
         $I->canSeeInPopup('OK');
-        $I->pressKey('body', ['enter']);
+        $I->acceptPopup();
 
         $I->amOnPage('/logout');
+        $I->wait(1);
         $I->canSeeLink('Login', '/login');
 
         $I->amOnPage('/login');
         $I->fillField('#email', 'i@liuchao.me');
-        $I->fillField('#password', $password);
+        $I->fillField('#password', 'wakaka');
 
         $I->click('//*[@id="auth"]');
         $I->wait(3);
         $I->canSee('demo');
 
         $I->amOnPage('/settings/password');
-        $I->fillField('#a', $password);
+        $I->fillField('#a', 'wakaka');
         $I->fillField('#b', 'demo');
         $I->fillField('#c', 'demo');
         $I->clickWithLeftButton('#update');
+        $I->wait(1);
         $I->canSeeInPopup('OK');
-        $I->pressKey('body', ['enter']);
+        $I->acceptPopup();
     }
 }

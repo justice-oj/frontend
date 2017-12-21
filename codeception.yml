@@ -1,7 +1,4 @@
-# global codeception file to run tests from all apps
 include:
-#    - common
-#    - admin
     - www
 paths:
     log: console/runtime/logs

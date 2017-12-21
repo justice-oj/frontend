@@ -20,6 +20,7 @@ class LoginCest {
         $I->click('//*[@id="auth"]');
         $I->waitForElementVisible('.small.modal', 3);
         $I->canSee('Please input your email address.', '#modal_content');
+
         $I->click('.ui.red.cancel.button');
         $I->waitForElementNotVisible('.small.modal', 3);
     }
@@ -37,6 +38,7 @@ class LoginCest {
         $I->click('//*[@id="auth"]');
         $I->waitForElementVisible('.small.modal', 3);
         $I->canSee('Please input your password.', '#modal_content');
+
         $I->click('.ui.red.cancel.button');
         $I->waitForElementNotVisible('.small.modal', 3);
     }
@@ -55,6 +57,7 @@ class LoginCest {
         $I->click('//*[@id="auth"]');
         $I->waitForElementVisible('.small.modal', 3);
         $I->canSee('user doesn\'t exist', '#modal_content');
+
         $I->click('.ui.red.cancel.button');
         $I->waitForElementNotVisible('.small.modal', 3);
     }

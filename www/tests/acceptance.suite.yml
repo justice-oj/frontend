@@ -8,7 +8,7 @@ modules:
             window_size: false
             capabilities:
                 chromeOptions:
-                    args: ["--headless", "--disable-gpu", "window-size=1920x1080"]
+                    args: ["--start-fullscreen"]
                     binary: "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe"
         - Yii2:
             part: init

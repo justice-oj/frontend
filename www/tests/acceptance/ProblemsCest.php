@@ -8,6 +8,7 @@ class ProblemsCest {
     public function checkPageProblems(AcceptanceTester $I) {
         $I->userDemoLogin();
         $I->amOnPage('/problems');
+
         $I->canSeeLink('Time Conversion', '/problem?problem_id=1');
     }
 
@@ -15,6 +16,7 @@ class ProblemsCest {
     public function checkSearchProblemByExistedId(AcceptanceTester $I) {
         $I->userDemoLogin();
         $I->amOnPage('/problems');
+
         $I->fillField('id', '1');
         $I->click('Search');
         $I->wait(3);
@@ -25,6 +27,7 @@ class ProblemsCest {
     public function checkSearchProblemByNoneExistedId(AcceptanceTester $I) {
         $I->userDemoLogin();
         $I->amOnPage('/problems');
+
         $I->fillField('id', 'a');
         $I->click('Search');
         $I->wait(3);
@@ -35,6 +38,7 @@ class ProblemsCest {
     public function checkSearchProblemByExistedTitle(AcceptanceTester $I) {
         $I->userDemoLogin();
         $I->amOnPage('/problems');
+
         $I->fillField("title", 'Conversion');
         $I->click('Search');
         $I->wait(3);
@@ -45,6 +49,7 @@ class ProblemsCest {
     public function checkSearchProblemByNoneExistedTitle(AcceptanceTester $I) {
         $I->userDemoLogin();
         $I->amOnPage('/problems');
+
         $I->fillField("title", 'Guilden Morden boar');
         $I->click('Search');
         $I->wait(3);
