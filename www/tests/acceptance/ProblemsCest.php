@@ -6,7 +6,7 @@ use www\tests\AcceptanceTester;
 
 class ProblemsCest {
     public function checkPageProblems(AcceptanceTester $I) {
-        $I->userDemoLogin();
+        $I->loginAsDemo();
         $I->amOnPage('/problems');
 
         $I->canSeeLink('Time Conversion', '/problem?problem_id=1');
@@ -14,7 +14,7 @@ class ProblemsCest {
 
 
     public function checkSearchProblemByExistedId(AcceptanceTester $I) {
-        $I->userDemoLogin();
+        $I->loginAsDemo();
         $I->amOnPage('/problems');
 
         $I->fillField('id', '1');
@@ -25,7 +25,7 @@ class ProblemsCest {
 
 
     public function checkSearchProblemByNoneExistedId(AcceptanceTester $I) {
-        $I->userDemoLogin();
+        $I->loginAsDemo();
         $I->amOnPage('/problems');
 
         $I->fillField('id', 'a');
@@ -36,7 +36,7 @@ class ProblemsCest {
 
 
     public function checkSearchProblemByExistedTitle(AcceptanceTester $I) {
-        $I->userDemoLogin();
+        $I->loginAsDemo();
         $I->amOnPage('/problems');
 
         $I->fillField("title", 'Conversion');
@@ -47,7 +47,7 @@ class ProblemsCest {
 
 
     public function checkSearchProblemByNoneExistedTitle(AcceptanceTester $I) {
-        $I->userDemoLogin();
+        $I->loginAsDemo();
         $I->amOnPage('/problems');
 
         $I->fillField("title", 'Guilden Morden boar');

@@ -21,7 +21,7 @@ class AcceptanceTester extends \Codeception\Actor {
     use _generated\AcceptanceTesterActions;
 
 
-    public function userDemoLogin() {
+    public function loginAsDemo() {
         $I = $this;
         if ($I->loadSessionSnapshot('demo')) {
             return;
@@ -40,7 +40,7 @@ class AcceptanceTester extends \Codeception\Actor {
     }
 
 
-    public function userLiupangziLogin() {
+    public function loginAsLiupangzi() {
         $I = $this;
         if ($I->loadSessionSnapshot('liupangzi')) {
             return;

@@ -8,7 +8,7 @@ use www\tests\AcceptanceTester;
 
 class ProfileCest {
     public function checkCheckDefaultProfile(AcceptanceTester $I) {
-        $I->userDemoLogin();
+        $I->loginAsDemo();
         $I->amOnPage('/profile?name=demo');
 
         $I->canSee('demo');
@@ -32,7 +32,7 @@ class ProfileCest {
         $website = $faker->url;
         $bio = $faker->sentence;
 
-        $I->userDemoLogin();
+        $I->loginAsDemo();
         $I->amOnPage('/settings');
 
         // original state
@@ -94,7 +94,7 @@ class ProfileCest {
      * @desc
      */
     public function checkUpdatePassword(AcceptanceTester $I) {
-        $I->userDemoLogin();
+        $I->loginAsDemo();
         $I->amOnPage('/settings/password');
 
         $I->fillField('#a', 'demo');
@@ -114,7 +114,7 @@ class ProfileCest {
         $I->fillField('#password', 'wakaka');
 
         $I->click('//*[@id="auth"]');
-        $I->wait(3);
+        $I->wait(2);
         $I->canSee('demo');
 
         $I->amOnPage('/settings/password');
@@ -122,7 +122,7 @@ class ProfileCest {
         $I->fillField('#b', 'demo');
         $I->fillField('#c', 'demo');
         $I->clickWithLeftButton('#update');
-        $I->wait(1);
+        $I->wait(2);
         $I->canSeeInPopup('OK');
         $I->acceptPopup();
     }
