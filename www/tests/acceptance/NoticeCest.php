@@ -36,7 +36,6 @@ class NoticeCest {
         $I->wait(2);
         $I->canSee($m1, 'body');
         $I->canSeeLink('@demo', '/profile?name=demo');
-        $I->canSee('seconds ago', 'body');
         $I->moveMouseOver('.ui.right.floated.simple.dropdown.item');
         $I->cantSee('1', '.ui.red.circular.label');
     }
