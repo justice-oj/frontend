@@ -23,11 +23,11 @@ return [
             'js' => 'https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js'
         ],
         'CodeMirror' => [
-            'css' => 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.36.0/codemirror.min.css',
-            'theme' => 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.36.0/theme/monokai.min.css',
-            'js' => 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.36.0/codemirror.min.js',
-            'matchbrackets' => 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.36.0/addon/edit/matchbrackets.min.js',
-            'clike' => 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.36.0/mode/clike/clike.min.js',
+            'css' => 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.38.0/codemirror.min.css',
+            'theme' => 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.38.0/theme/monokai.min.css',
+            'js' => 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.38.0/codemirror.min.js',
+            'matchbrackets' => 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.38.0/addon/edit/matchbrackets.min.js',
+            'clike' => 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.38.0/mode/clike/clike.min.js',
         ],
         'Bootstrap' => [
             'css' => 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css',
