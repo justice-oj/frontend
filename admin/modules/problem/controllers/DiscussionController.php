@@ -10,7 +10,8 @@ use Kilte\Pagination\Pagination;
 use Yii;
 use yii\web\Response;
 
-class DiscussionController extends BaseController {
+class DiscussionController extends BaseController
+{
     protected $problemService;
     protected $discussionService;
 
@@ -21,16 +22,18 @@ class DiscussionController extends BaseController {
         ProblemService $problemService,
         DiscussionService $discussionService,
         $config = []
-    ) {
+    )
+    {
         $this->problemService = $problemService;
         $this->discussionService = $discussionService;
         parent::__construct($id, $module, $config);
     }
 
 
-    public function behaviors() {
+    public function behaviors()
+    {
         return [
-            ['class' => AdminLoggedInFilter::className()],
+            ['class' => AdminLoggedInFilter::class],
         ];
     }
 
@@ -43,7 +46,8 @@ class DiscussionController extends BaseController {
      * @throws \yii\db\Exception
      * @desc
      */
-    public function actionIndex(int $problem_id) {
+    public function actionIndex(int $problem_id)
+    {
         $page = intval(Yii::$app->request->get('page', 1));
         $this->view->title = 'Justice PLUS Admin - Discussions';
 
@@ -59,7 +63,8 @@ class DiscussionController extends BaseController {
     }
 
 
-    public function actionEdit(int $discussion_id) {
+    public function actionEdit(int $discussion_id)
+    {
         $this->view->title = 'Justice PLUS Admin - Edit Discussion';
 
         $discussion = $this->discussionService->getDiscussionByID($discussion_id);
@@ -70,7 +75,8 @@ class DiscussionController extends BaseController {
     }
 
 
-    public function actionUpdate() {
+    public function actionUpdate()
+    {
         Yii::$app->response->format = Response::FORMAT_JSON;
 
         $discussion_id = intval(Yii::$app->request->post('discussion_id'));
@@ -114,7 +120,8 @@ class DiscussionController extends BaseController {
      * @throws \yii\db\StaleObjectException
      * @desc
      */
-    public function actionDelete() {
+    public function actionDelete()
+    {
         Yii::$app->response->format = Response::FORMAT_JSON;
 
         $discussion_id = intval(Yii::$app->request->post('discussion_id'));

@@ -13,8 +13,8 @@ class UserLoginFilter extends ActionFilter {
 
         if (empty($email) || empty($password)) {
             Yii::$app->response->format = Response::FORMAT_JSON;
-            echo json_encode([
-                'message' => 'email or password error.',
+            Yii::$app->response->content = json_encode([
+                'message' => 'Email or password error.',
                 'code' => 255
             ]);
             return false;

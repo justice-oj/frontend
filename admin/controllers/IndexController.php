@@ -7,7 +7,8 @@ use common\services\ProblemService;
 use common\services\SubmissionService;
 use common\services\UserService;
 
-class IndexController extends BaseController {
+class IndexController extends BaseController
+{
     protected $userService;
     protected $problemService;
     protected $submissionService;
@@ -20,7 +21,8 @@ class IndexController extends BaseController {
         UserService $userService,
         SubmissionService $submissionService,
         $config = []
-    ) {
+    )
+    {
         $this->problemService = $problemService;
         $this->userService = $userService;
         $this->submissionService = $submissionService;
@@ -28,14 +30,16 @@ class IndexController extends BaseController {
     }
 
 
-    public function behaviors() {
+    public function behaviors()
+    {
         return [
-            ['class' => AdminLoggedInFilter::className()],
+            ['class' => AdminLoggedInFilter::class],
         ];
     }
 
 
-    public function actionIndex() {
+    public function actionIndex()
+    {
         $this->view->title = 'Justice PLUS Admin';
         return $this->render('index', [
             'problems_count' => $this->problemService->getTotalProblemsCount(),

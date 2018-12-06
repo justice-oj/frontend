@@ -27,7 +27,7 @@ class ManageController extends BaseController {
 
     public function behaviors() {
         return [
-            ['class' => AdminLoggedInFilter::className()],
+            ['class' => AdminLoggedInFilter::class],
         ];
     }
 

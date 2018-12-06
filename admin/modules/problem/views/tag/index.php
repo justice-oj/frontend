@@ -1,76 +1,118 @@
-<h2 class="text-center">Tags of <code>#<?= /** @var $problem \common\models\Problem */ $problem->id ?> <?= $problem->title ?></code></h2>
-<input id="problem_id" type="hidden" value="<?= $problem->id ?>">
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <h3 class="panel-title">Add tag for problem</h3>
-    </div>
-    <div class="panel-body">
-        <div class="col-md-6">
-            <div class="row">
-                <select id="tag" class="form-control" title="tag">
-                    <?php
-                    /** @var array $tags */
-                    foreach ((array)$tags as $tag) {
-                        echo <<<TAG
-                    <option value="{$tag['id']}">{$tag['name']}</option>
-TAG;
-                    }
-                    ?>
-                </select>
+<input id="problem_id" type="hidden" value="<?= /** @var $problem \common\models\Problem */ $problem->id ?>">
+<div class="d-flex align-items-stretch">
+    <nav id="sidebar">
+        <span class="heading">Main</span>
+        <ul class="list-unstyled">
+            <li>
+                <a href="/"> <i class="fa fa-tachometer"></i>Dashboard</a>
+            </li>
+        </ul>
+        <span class="heading">Management</span>
+        <ul class="list-unstyled">
+            <li>
+                <a href="/user"> <i class="fa fa-user-circle"></i>User</a>
+            </li>
+            <li class="active">
+                <a href="/problem"> <i class="fa fa-question-circle"></i>Problem</a>
+            </li>
+            <li>
+                <a href="/tag"> <i class="fa fa-tags"></i>Tag</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="page-content">
+        <div class="page-header">
+            <div class="container-fluid">
+                <h2 class="h5 no-margin-bottom">Add tags for problem <code>#<?= $problem->id ?> <?= $problem->title ?></code></h2>
             </div>
         </div>
-        <div class="col-md-6">
-            <a class="btn btn-success" id="add">add</a>
-        </div>
-    </div>
-</div>
-<div class="row" style="padding-top: 10px">
-    <table class="table table-striped">
-        <tr>
-            <th class="col-md-1">#</th>
-            <th class="col-md-6">Tag Name</th>
-            <th class="col-md-5">Operation</th>
-        </tr>
-        <?php
-        /** @var array $records */
-        foreach ($records as $record) {
-            echo <<< TAG
-    <tr>
-        <td>{$record['id']}</td>
-        <td><span class="label label-default">{$record['name']}</span></td>
-        <td>
-            <button type="button" class="btn btn-danger btn-xs remove" data-id="{$record['id']}" data-name="{$record['name']}">
+        <section class="no-padding-top no-padding-bottom">
+            <div class="col-lg-12">
+                <div class="block">
+                    <div class="block-body">
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <label for="tag" class="sr-only">Tag</label>
+                                <select id="tag" name="tag" title="tag" class="form-control">
+                                    <?php
+                                    /** @var array $tags */
+                                    foreach ((array)$tags as $tag) {
+                                        echo <<<TAG
+                    <option value="{$tag['id']}">{$tag['name']}</option>
+TAG;
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                            <div class="col text-right">
+                                <input type="submit" value="Add Tag" id="add" class="btn btn-primary">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="no-padding-top no-padding-bottom">
+            <div class="col-lg-12">
+                <div class="block">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover">
+                            <tr class="d-flex">
+                                <th class="col-1">#</th>
+                                <th class="col-6">Tag Name</th>
+                                <th class="col-5">Operation</th>
+                            </tr>
+                            <?php
+                            /** @var array $records */
+                            foreach ($records as $record) {
+                                echo <<< TAG
+    <tr class="d-flex">
+        <td class="col-1">{$record['id']}</td>
+        <td class="col-6"><span class="label label-default">{$record['name']}</span></td>
+        <td class="col-5">
+            <button type="button" class="btn btn-danger btn-sm remove" data-id="{$record['id']}" data-name="{$record['name']}">
             Delete
             </button>
         </td>
     </tr>
 TAG;
-        }
-        ?>
-    </table>
-</div>
-<div class="modal fade" tabindex="-1" role="dialog" id="modal" style="padding-top: 10%">
-    <input type="hidden" id="confirm">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span>&times;</span>
-                </button>
-                <h2 class="modal-title" id="modal-title"></h2>
+                            }
+                            ?>
+                        </table>
+                    </div>
+                </div>
             </div>
-            <div class="modal-body">
-                <span class="label label-default" id="l"></span>
+            <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+                <input type="hidden" id="confirm">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modal-title"></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span>&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" id="confirm_button">Yes</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" id="confirm_button">Yes</button>
+        </section>
+        <footer class="footer">
+            <div class="footer__block block no-margin-bottom">
+                <div class="container-fluid text-center">
+                    <p class="no-margin-bottom"><script>document.write((new Date()).getFullYear() + "");</script> &copy; Justice PLUS. Design by <a href="https://bootstrapious.com">Bootstrapious</a>.
+                    </p>
+                </div>
             </div>
-        </div>
+        </footer>
     </div>
 </div>
 <script>
     $(document).ready(function () {
-        $('#add').on('click', function () {
+        $('#add').on('click', function (e) {
+            e.preventDefault();
             var tag_id = $('#tag').val();
 
             $.ajax({
@@ -96,8 +138,7 @@ TAG;
 
         $('.remove').on('click', function () {
             $('#confirm').val($(this).data('id'));
-            $('#modal-title').html('Remove tag <code>#' + $(this).data('id') + '</code> from problem');
-            $('#l').html($(this).data('name'));
+            $('#modal-title').html('Remove tag <code>#' + $(this).data('id') + ' ' + $(this).data('name') + '</code> ?');
             $('#modal').modal();
         });
 

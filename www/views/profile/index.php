@@ -7,7 +7,8 @@ $problem_presenter = new \www\presenters\ProblemPresenter();
     <div class="four wide column">
         <div class="ui card">
             <div class="image">
-                <img src="<?= $user_presenter->showAvatar(/** @var \common\models\User $user */ $user->email) ?>">
+                <img alt="avatar" src="<?= $user_presenter->showAvatar(/** @var \common\models\User $user */
+                    $user->email) ?>">
             </div>
             <div class="content">
                 <a class="header"><?= $user->nickname ?></a>

@@ -10,7 +10,8 @@ use common\services\UserService;
 use Yii;
 use yii\web\Response;
 
-class EditorialController extends BaseController {
+class EditorialController extends BaseController
+{
     protected $problemService;
     protected $editorialService;
     protected $userService;
@@ -23,7 +24,8 @@ class EditorialController extends BaseController {
         EditorialService $editorialService,
         UserService $userService,
         $config = []
-    ) {
+    )
+    {
         $this->problemService = $problemService;
         $this->editorialService = $editorialService;
         $this->userService = $userService;
@@ -31,14 +33,16 @@ class EditorialController extends BaseController {
     }
 
 
-    public function behaviors() {
+    public function behaviors()
+    {
         return [
-            ['class' => AdminLoggedInFilter::className()],
+            ['class' => AdminLoggedInFilter::class],
         ];
     }
 
 
-    public function actionIndex(int $problem_id) {
+    public function actionIndex(int $problem_id)
+    {
         $this->view->title = 'Justice PLUS Admin - Editorial';
 
         $problem = $this->problemService->getProblemByID($problem_id);
@@ -57,7 +61,8 @@ class EditorialController extends BaseController {
     }
 
 
-    public function actionAdd() {
+    public function actionAdd()
+    {
         Yii::$app->response->format = Response::FORMAT_JSON;
 
         $problem_id = intval(Yii::$app->request->post('problem_id'));
@@ -84,7 +89,8 @@ class EditorialController extends BaseController {
     }
 
 
-    public function actionUpdate() {
+    public function actionUpdate()
+    {
         Yii::$app->response->format = Response::FORMAT_JSON;
 
         $problem_id = intval(Yii::$app->request->post('problem_id'));
@@ -120,7 +126,8 @@ class EditorialController extends BaseController {
      * @throws \yii\db\StaleObjectException
      * @desc
      */
-    public function actionDelete() {
+    public function actionDelete()
+    {
         Yii::$app->response->format = Response::FORMAT_JSON;
 
         $problem_id = intval(Yii::$app->request->post('problem_id'));

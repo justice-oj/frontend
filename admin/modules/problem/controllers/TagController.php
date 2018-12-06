@@ -10,7 +10,8 @@ use common\services\TagService;
 use Yii;
 use yii\web\Response;
 
-class TagController extends BaseController {
+class TagController extends BaseController
+{
     protected $problemService;
     protected $problemTagService;
     protected $tagService;
@@ -23,7 +24,8 @@ class TagController extends BaseController {
         ProblemTagService $problemTagService,
         TagService $tagService,
         $config = []
-    ) {
+    )
+    {
         $this->problemService = $problemService;
         $this->problemTagService = $problemTagService;
         $this->tagService = $tagService;
@@ -31,14 +33,16 @@ class TagController extends BaseController {
     }
 
 
-    public function behaviors() {
+    public function behaviors()
+    {
         return [
-            ['class' => AdminLoggedInFilter::className()],
+            ['class' => AdminLoggedInFilter::class],
         ];
     }
 
 
-    public function actionIndex(int $problem_id) {
+    public function actionIndex(int $problem_id)
+    {
         $this->view->title = 'Justice PLUS Admin - Problem Tags';
 
         return $this->render('index', [
@@ -49,7 +53,8 @@ class TagController extends BaseController {
     }
 
 
-    public function actionAdd() {
+    public function actionAdd()
+    {
         Yii::$app->response->format = Response::FORMAT_JSON;
 
         $problem_id = intval(Yii::$app->request->post('problem_id'));
@@ -86,7 +91,8 @@ class TagController extends BaseController {
      * @throws \yii\db\StaleObjectException
      * @desc
      */
-    public function actionDelete() {
+    public function actionDelete()
+    {
         Yii::$app->response->format = Response::FORMAT_JSON;
 
         $problem_tag_id = intval(Yii::$app->request->post('problem_tag_id'));

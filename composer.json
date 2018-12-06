@@ -29,19 +29,20 @@
     "php": "~7.2.0",
     "yiisoft/yii2": "~2.0.0",
     "yiisoft/yii2-redis": "~2.0.0",
-    "sentry/sentry": "~1.8.0",
+    "sentry/sentry": "~1.10.0",
     "amstaffix/pagination": "~1.1.0",
-    "php-amqplib/php-amqplib": "~2.7.0",
-    "nesbot/carbon": "~1.22.0",
-    "bandwidth-throttle/token-bucket": "~1.1.0",
-    "fxp/composer-asset-plugin": "~1.4.0"
+    "php-amqplib/php-amqplib": "~2.8.0",
+    "nesbot/carbon": "~2.6.0",
+    "bandwidth-throttle/token-bucket": "~2.0.0",
+    "fxp/composer-asset-plugin": "~1.4.0",
+    "ext-json": "*"
   },
   "require-dev": {
     "yiisoft/yii2-debug": "~2.0.0",
     "yiisoft/yii2-faker": "~2.0.0",
-    "codeception/codeception": "~2.3.0",
+    "codeception/codeception": "~2.5.0",
     "codeception/verify": "~1.0.0",
-    "fzaninotto/faker": "~1.7.0"
+    "fzaninotto/faker": "~1.8.0"
   },
   "config": {
     "preferred-install": "dist",

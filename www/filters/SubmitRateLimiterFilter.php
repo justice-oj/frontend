@@ -27,8 +27,8 @@ class SubmitRateLimiterFilter extends ActionFilter {
         try {
             if (!$bucket->consume(1, $seconds)) {
                 Yii::$app->response->format = Response::FORMAT_JSON;
-                echo json_encode([
-                    'message' => 'too many requests',
+                Yii::$app->response->content = json_encode([
+                    'message' => 'Too many requests',
                     'code' => 255
                 ]);
                 return false;

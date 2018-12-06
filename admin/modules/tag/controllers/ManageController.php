@@ -10,7 +10,8 @@ use Yii;
 use yii\helpers\Html;
 use yii\web\Response;
 
-class ManageController extends BaseController {
+class ManageController extends BaseController
+{
     protected $tagService;
 
 
@@ -19,20 +20,25 @@ class ManageController extends BaseController {
         $module,
         TagService $tagService,
         $config = []
-    ) {
+    )
+    {
         $this->tagService = $tagService;
         parent::__construct($id, $module, $config);
     }
 
 
-    public function behaviors() {
+    public function behaviors()
+    {
         return [
-            ['class' => AdminLoggedInFilter::className()],
+            ['class' => AdminLoggedInFilter::class],
         ];
     }
 
+    public $layout = '@admin/views/layouts/main';
 
-    public function actionIndex(string $id = null, string $name = null) {
+
+    public function actionIndex(string $id = null, string $name = null)
+    {
         $this->view->title = 'Justice PLUS Admin - Tags';
 
         $query = $this->tagService->searchTags($id, $name);
@@ -51,18 +57,20 @@ class ManageController extends BaseController {
     }
 
 
-    public function actionNew() {
+    public function actionNew()
+    {
         $this->view->title = 'Justice PLUS Admin - Add Tag';
         return $this->render('new');
     }
 
 
-    public function actionAdd() {
+    public function actionAdd()
+    {
         Yii::$app->response->format = Response::FORMAT_JSON;
 
         $name = Yii::$app->request->post('name');
 
-        if (empty($name) ) {
+        if (empty($name)) {
             return [
                 'code' => 1,
                 'message' => 'missing `name`'
@@ -90,7 +98,8 @@ class ManageController extends BaseController {
     }
 
 
-    public function actionEdit(int $tag_id) {
+    public function actionEdit(int $tag_id)
+    {
         $this->view->title = 'Justice PLUS Admin - Edit Tag';
 
         $tag = $this->tagService->getTagByID($tag_id);
@@ -100,7 +109,8 @@ class ManageController extends BaseController {
     }
 
 
-    public function actionUpdate() {
+    public function actionUpdate()
+    {
         Yii::$app->response->format = Response::FORMAT_JSON;
 
         $tag_id = Yii::$app->request->post('tag_id');
@@ -151,7 +161,8 @@ class ManageController extends BaseController {
      * @throws \yii\db\StaleObjectException
      * @desc
      */
-    public function actionDelete() {
+    public function actionDelete()
+    {
         Yii::$app->response->format = Response::FORMAT_JSON;
 
         $tag_id = Yii::$app->request->post('tag_id');

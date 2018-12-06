@@ -1,5 +1,0 @@
-<?php
-/** @noinspection SpellCheckingInspection */
-
-return [
-];

@@ -7,8 +7,10 @@ use Raven_ErrorHandler;
 use Yii;
 use yii\web\Controller;
 
-class BaseController extends Controller {
-    public function init() {
+class BaseController extends Controller
+{
+    public function init()
+    {
         parent::init();
 
         $client = new Raven_Client(Yii::$app->params['sentryDSN']);

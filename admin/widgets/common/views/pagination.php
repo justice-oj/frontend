@@ -1,19 +1,19 @@
 <nav>
-    <ul class="pagination">
+    <ul class="pagination justify-content-center">
         <?php
         /**
          * @var array $pagination
          * @var string $uri
          * @var array $query
          */
-        foreach ((array) $pagination as $page => $cell) {
+        foreach ((array)$pagination as $page => $cell) {
             if ($cell == 'current') {
-                printf('<li class="active"><span>%d</span></li>', $page);
+                printf('<li class="page-item disabled"><a class="page-link" href="#" tabindex="-1">%d</a></li>', $page);
             } elseif ($cell == 'less' || $cell == 'more') {
-                echo '<li class="disabled"><span>...</span></li>';
+                echo '<li class="page-item disabled"><span><a class="page-link" href="#" tabindex="-1">...</a></span></li>';
             } else {
                 $query['page'] = $page;
-                printf('<li><a href="%s">%d</a></li>', $uri . http_build_query($query), $page);
+                printf('<li class="page-item"><a class="page-link" href="%s">%d</a></li>', $uri . http_build_query($query), $page);
             }
         }
         ?>

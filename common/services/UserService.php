@@ -2,7 +2,6 @@
 
 namespace common\services;
 
-use common\models\Problem;
 use common\models\Submission;
 use common\models\User;
 use Yii;
@@ -31,7 +30,7 @@ class UserService {
      * @mail    i@liuchao.me
      * @param   string $email
      * @desc
-     * @return  \common\models\User|null
+     * @return  array|User|\yii\db\ActiveRecord|null
      */
     public function getUserByEmail(string $email) {
         return User::find()->where(['email' => $email])->one();
@@ -42,7 +41,7 @@ class UserService {
      * @author  liuchao
      * @mail    i@liuchao.me
      * @param   string $username
-     * @return  \common\models\User|null
+     * @return  array|User|\yii\db\ActiveRecord|null
      * @desc
      */
     public function getUserByName(string $username) {
@@ -153,7 +152,7 @@ class UserService {
         return Submission::find()
             ->select('problem_id')
             ->where(['user_id' => $user_id])
-            ->andWhere(['status' => Problem::STATUS_SOLVED])
+            ->andWhere(['status' => Submission::STATUS_AC])
             ->groupBy(['problem_id'])
             ->count();
     }

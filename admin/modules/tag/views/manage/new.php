@@ -1,16 +1,70 @@
-<h2 class="text-center">Add Tag</h2>
-<form>
-    <div class="form-group">
-        <label for="name">Name</label>
-        <input class="form-control" id="name" placeholder="Tag Name">
-    </div>
-    <div class="form-group">
-        <button class="btn btn-primary" id="submit">Add</button>
-    </div>
-</form>
-<div class="modal fade" id="error" tabindex="-1" role="dialog" style="padding-top: 15%">
-    <div class="modal-dialog" role="document">
-        <div id="error_message" class="alert alert-danger" role="alert"></div>
+<div class="d-flex align-items-stretch">
+    <nav id="sidebar">
+        <span class="heading">Main</span>
+        <ul class="list-unstyled">
+            <li>
+                <a href="/"> <i class="fa fa-tachometer"></i>Dashboard</a>
+            </li>
+        </ul>
+        <span class="heading">Management</span>
+        <ul class="list-unstyled">
+            <li>
+                <a href="/user"> <i class="fa fa-user-circle"></i>User</a>
+            </li>
+            <li>
+                <a href="/problem"> <i class="fa fa-question-circle"></i>Problem</a>
+            </li>
+            <li class="active">
+                <a href="/tag"> <i class="fa fa-tags"></i>Tag</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="page-content">
+        <div class="page-header">
+            <div class="container-fluid">
+                <h2 class="h5 no-margin-bottom">Add Tag</h2>
+            </div>
+        </div>
+        <section class="no-padding-top no-padding-bottom">
+            <div class="col-lg-12">
+                <div class="block-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="name" class="sr-only">Name</label>
+                            <input id="name" type="text" placeholder="Tag Name" class="mr-sm-2 form-control">
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary" id="submit">Add</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <div class="modal fade" id="error" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Error</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span>&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="error_message">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="footer__block block no-margin-bottom">
+                <div class="container-fluid text-center">
+                    <p class="no-margin-bottom"><script>document.write((new Date()).getFullYear() + "");</script> &copy; Justice PLUS. Design by <a href="https://bootstrapious.com">Bootstrapious</a>.
+                    </p>
+                </div>
+            </div>
+        </footer>
     </div>
 </div>
 <script>
@@ -23,7 +77,7 @@
                 error = $('#error');
 
             if (name.length === 0) {
-                error_message.text("please fill all the blanks");
+                error_message.text("Please fill the blank");
                 error.modal();
                 return;
             }

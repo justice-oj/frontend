@@ -36,8 +36,6 @@ return [
             'admin/web/assets',
             'www/runtime',
             'www/web/assets',
-            'm/runtime',
-            'm/web/assets',
         ],
         'setExecutable' => [
             'yii',
@@ -46,7 +44,6 @@ return [
         'setCookieValidationKey' => [
             'admin/config/main-local.php',
             'www/config/main-local.php',
-            'm/config/main-local.php',
         ],
     ],
     'Test' => [
@@ -69,8 +66,6 @@ return [
             'admin/web/assets',
             'www/runtime',
             'www/web/assets',
-            'm/runtime',
-            'm/web/assets',
         ],
         'setExecutable' => [
             'yii',
@@ -78,7 +73,6 @@ return [
         'setCookieValidationKey' => [
             'admin/config/main-local.php',
             'www/config/main-local.php',
-            'm/config/main-local.php',
         ],
     ],
 ];

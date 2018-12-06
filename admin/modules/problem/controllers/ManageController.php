@@ -10,7 +10,8 @@ use Yii;
 use yii\helpers\Html;
 use yii\web\Response;
 
-class ManageController extends BaseController {
+class ManageController extends BaseController
+{
     protected $problemService;
 
 
@@ -19,20 +20,23 @@ class ManageController extends BaseController {
         $module,
         ProblemService $problemService,
         $config = []
-    ) {
+    )
+    {
         $this->problemService = $problemService;
         parent::__construct($id, $module, $config);
     }
 
 
-    public function behaviors() {
+    public function behaviors()
+    {
         return [
-            ['class' => AdminLoggedInFilter::className()],
+            ['class' => AdminLoggedInFilter::class],
         ];
     }
 
 
-    public function actionIndex(string $id = null, string $title = null) {
+    public function actionIndex(string $id = null, string $title = null)
+    {
         $this->view->title = 'Justice PLUS Admin - Problems';
 
         $query = $this->problemService->searchProblems($id, $title)->orderBy(['id' => SORT_DESC]);
@@ -51,13 +55,15 @@ class ManageController extends BaseController {
     }
 
 
-    public function actionNew() {
+    public function actionNew()
+    {
         $this->view->title = 'Justice PLUS Admin - Add Problem';
         return $this->render('new');
     }
 
 
-    public function actionAdd() {
+    public function actionAdd()
+    {
         Yii::$app->response->format = Response::FORMAT_JSON;
 
         $title = Yii::$app->request->post('title');
@@ -88,7 +94,8 @@ class ManageController extends BaseController {
     }
 
 
-    public function actionEdit(int $problem_id) {
+    public function actionEdit(int $problem_id)
+    {
         $this->view->title = 'Justice PLUS Admin - Edit Problem';
 
         $problem = $this->problemService->getProblemByID($problem_id);
@@ -99,7 +106,8 @@ class ManageController extends BaseController {
     }
 
 
-    public function actionUpdate() {
+    public function actionUpdate()
+    {
         Yii::$app->response->format = Response::FORMAT_JSON;
 
         $problem_id = intval(Yii::$app->request->post('problem_id'));
@@ -149,7 +157,8 @@ class ManageController extends BaseController {
      * @throws \Throwable
      * @throws \yii\db\StaleObjectException
      */
-    public function actionDelete() {
+    public function actionDelete()
+    {
         Yii::$app->response->format = Response::FORMAT_JSON;
 
         $problem_id = intval(Yii::$app->request->post('problem_id'));

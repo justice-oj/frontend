@@ -2,12 +2,13 @@
 
 namespace admin\controllers;
 
-use common\services\AdminService;
 use admin\filters\AdminLoginFilter;
+use common\services\AdminService;
 use Yii;
 use yii\web\Response;
 
-class LoginController extends BaseController {
+class LoginController extends BaseController
+{
     protected $adminService;
 
 
@@ -16,26 +17,30 @@ class LoginController extends BaseController {
         $module,
         AdminService $adminService,
         $config = []
-    ) {
+    )
+    {
         $this->adminService = $adminService;
         parent::__construct($id, $module, $config);
     }
 
 
-    public function behaviors() {
+    public function behaviors()
+    {
         return [
-            ['class' => AdminLoginFilter::className(), 'only' => ['auth']],
+            ['class' => AdminLoginFilter::class, 'only' => ['auth']],
         ];
     }
 
 
-    public function actionIndex() {
+    public function actionIndex()
+    {
         $this->layout = 'login';
         return $this->render('index');
     }
 
 
-    public function actionAuth() {
+    public function actionAuth()
+    {
         Yii::$app->response->format = Response::FORMAT_JSON;
         $username = Yii::$app->request->post('username');
         $password = Yii::$app->request->post('password');
@@ -49,7 +54,7 @@ class LoginController extends BaseController {
             ];
         } else {
             return [
-                'message' => 'login failed',
+                'message' => 'Login failed',
                 'code' => 1
             ];
         }

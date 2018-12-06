@@ -11,7 +11,8 @@ use Yii;
 use yii\helpers\Html;
 use yii\web\Response;
 
-class TestCaseController extends BaseController {
+class TestCaseController extends BaseController
+{
     protected $problemService;
     protected $testCaseService;
 
@@ -22,21 +23,24 @@ class TestCaseController extends BaseController {
         ProblemService $problemService,
         TestCaseService $testCaseService,
         $config = []
-    ) {
+    )
+    {
         $this->problemService = $problemService;
         $this->testCaseService = $testCaseService;
         parent::__construct($id, $module, $config);
     }
 
 
-    public function behaviors() {
+    public function behaviors()
+    {
         return [
-            ['class' => AdminLoggedInFilter::className()],
+            ['class' => AdminLoggedInFilter::class],
         ];
     }
 
 
-    public function actionIndex(int $problem_id, string $input = null, string $output = null) {
+    public function actionIndex(int $problem_id, string $input = null, string $output = null)
+    {
         $this->view->title = 'Justice PLUS Admin - Test Cases';
 
         $query = $this->problemService->searchTestCasesByProblemID($problem_id, $input, $output);
@@ -56,7 +60,8 @@ class TestCaseController extends BaseController {
     }
 
 
-    public function actionNew(int $problem_id) {
+    public function actionNew(int $problem_id)
+    {
         $this->view->title = 'Justice PLUS Admin - Add Test Case';
         return $this->render('new', [
             'problem_id' => $problem_id,
@@ -64,7 +69,8 @@ class TestCaseController extends BaseController {
     }
 
 
-    public function actionAdd() {
+    public function actionAdd()
+    {
         Yii::$app->response->format = Response::FORMAT_JSON;
 
         $problem_id = intval(Yii::$app->request->post('problem_id'));
@@ -93,7 +99,8 @@ class TestCaseController extends BaseController {
     }
 
 
-    public function actionEdit(int $id) {
+    public function actionEdit(int $id)
+    {
         $this->view->title = 'Justice PLUS Admin - Edit Test Case';
 
         $test_case = $this->testCaseService->getTestCaseByID($id);
@@ -103,7 +110,8 @@ class TestCaseController extends BaseController {
     }
 
 
-    public function actionUpdate() {
+    public function actionUpdate()
+    {
         Yii::$app->response->format = Response::FORMAT_JSON;
 
         $test_case_id = intval(Yii::$app->request->post('test_case_id'));
@@ -148,7 +156,8 @@ class TestCaseController extends BaseController {
      * @throws \yii\db\StaleObjectException
      * @desc
      */
-    public function actionDelete() {
+    public function actionDelete()
+    {
         Yii::$app->response->format = Response::FORMAT_JSON;
 
         $test_case_id = intval(Yii::$app->request->post('test_case_id'));
