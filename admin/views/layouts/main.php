@@ -14,8 +14,10 @@ use yii\helpers\Url;
         <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
         <link rel="manifest" href="/manifest.json">
         <link href="<?= Yii::$app->params['staticFile']['Bootstrap']['css'] ?>" rel="stylesheet">
+        <link href="<?= Yii::$app->params['staticFile']['Toastr']['css'] ?>" rel="stylesheet">
         <script src="<?= Yii::$app->params['staticFile']['jQuery'] ?>"></script>
         <script src="<?= Yii::$app->params['staticFile']['Bootstrap']['js'] ?>"></script>
+        <script src="<?= Yii::$app->params['staticFile']['Toastr']['js'] ?>"></script>
         <link href="<?= Yii::$app->params['staticFile']['FontAwesome'] ?>"
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:300,400,700">
         <link rel="stylesheet" href="<?= Url::home(true) ?>css/violet.css" id="theme-stylesheet">
