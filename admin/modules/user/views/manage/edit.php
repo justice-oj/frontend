@@ -115,7 +115,7 @@
                 timeout: 3000,
                 success: function (res) {
                     if (res.code === 0) {
-                        alert("Success!");
+                        toastr["success"]("Success!");
                     } else {
                         error_message.text(res.message);
                         error.modal();

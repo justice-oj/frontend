@@ -13,10 +13,16 @@ use yii\helpers\Url;
         <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
         <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
         <link rel="manifest" href="/manifest.json">
-        <link href="<?= Yii::$app->params['staticFile']['Bootstrap']['css'] ?>" rel="stylesheet">
         <script src="<?= Yii::$app->params['staticFile']['jQuery'] ?>"></script>
+        <link href="<?= Yii::$app->params['staticFile']['Bootstrap']['css'] ?>" rel="stylesheet">
         <script src="<?= Yii::$app->params['staticFile']['Bootstrap']['js'] ?>"></script>
-        <link href="<?= Yii::$app->params['staticFile']['FontAwesome'] ?>"
+        <link href="<?= Yii::$app->params['staticFile']['FontAwesome'] ?>" rel="stylesheet">
+        <link href="<?= Yii::$app->params['staticFile']['Toastr']['css'] ?>" rel="stylesheet">
+        <script src="<?= Yii::$app->params['staticFile']['Toastr']['js'] ?>"></script>
+        <link href="<?= Yii::$app->params['staticFile']['KaTex']['css'] ?>" rel="stylesheet">
+        <script src="<?= Yii::$app->params['staticFile']['KaTex']['js'] ?>"></script>
+        <link href="<?= Yii::$app->params['staticFile']['Quill']['css'] ?>" rel="stylesheet">
+        <script src="<?= Yii::$app->params['staticFile']['Quill']['js'] ?>"></script>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:300,400,700">
         <link rel="stylesheet" href="<?= Url::home(true) ?>css/violet.css" id="theme-stylesheet">
         <?= Html::csrfMetaTags() ?>
@@ -28,6 +34,24 @@ use yii\helpers\Url;
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
+
+            toastr.options = {
+                "closeButton": true,
+                "debug": false,
+                "newestOnTop": true,
+                "progressBar": true,
+                "positionClass": "toast-top-full-width",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "3000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            }
         </script>
     </head>
     <body>

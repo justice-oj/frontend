@@ -127,11 +127,11 @@ TAG;
                     if (res.code === 0) {
                         location.reload();
                     } else {
-                        alert(res.message);
+                        toastr["error"](res.message);
                     }
                 },
                 error: function () {
-                    alert("An error occurred, please try later.");
+                    toastr["error"]("An error occurred, please try later.");
                 }
             });
         });
@@ -154,12 +154,12 @@ TAG;
                     if (res.code === 0) {
                         location.reload();
                     } else {
-                        alert(res.message);
+                        toastr["error"](res.message);
                         $('#modal').modal('hide');
                     }
                 },
                 error: function () {
-                    alert("An error occurred, please try later.");
+                    toastr["error"]("An error occurred, please try later.");
                     $('#modal').modal('hide');
                 }
             });
