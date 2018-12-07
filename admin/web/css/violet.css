@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 /*
 ==============================================================
 ==============================================================
@@ -7,11 +9,13 @@ Dark Admin Bootstrap Template by Bootstrapious.com
 ==============================================================
 ==============================================================
  */
+
 /*
 * ==========================================================
 *     GENERAL STYLING 
 * ==========================================================
 */
+
 body {
     position: relative;
 }
@@ -226,8 +230,7 @@ pre {
     background: #22252a;
     min-height: 100vh;
     width: calc(100% - 280px);
-    padding: 0;
-    padding-bottom: 70px;
+    padding: 0 0 70px;
 }
 
 .page-content.active {
@@ -836,8 +839,7 @@ nav#sidebar li a i {
 }
 
 nav#sidebar li li a {
-    padding: 14px;
-    padding-left: 60px;
+    padding: 14px 14px 14px 60px;
     background: #22252a;
 }
 
@@ -2084,32 +2086,6 @@ input.input-material ~ label.is-invalid ~ label {
     section.tables {
         padding: 0;
     }
-}
-
-/*
-
-=====================
-STYLE SWITCHER FOR DEMO
-=====================
-
-*/
-#style-switch-button {
-    position: fixed;
-    top: 120px;
-    right: 0px;
-    border-radius: 0;
-    z-index: 2;
-}
-
-#style-switch {
-    width: 300px;
-    padding: 20px;
-    position: fixed;
-    top: 160px;
-    right: 0;
-    background: #22252a;
-    border: solid 1px #6a6c70;
-    z-index: 2000;
 }
 
 /* ========================================= 
@@ -3495,7 +3471,6 @@ pre code {
     border-color: #34373d;
 }
 
-@charset "UTF-8";
 
 @font-face {
     font-family: "dark-dashboard";
@@ -3721,4 +3696,39 @@ pre code {
 
 .icon-user-1:before {
     content: "\55";
+}
+
+/*
+ QuillJS
+*/
+
+.ql-toolbar.ql-snow{
+    background-color: #2d3035;
+    border: 1px solid violet;
+}
+
+.ql-container.ql-snow{
+    background-color: #2d3035;
+    border: 1px solid violet;
+    color:violet;
+}
+
+.ql-snow .ql-fill, .ql-snow .ql-stroke.ql-fill {
+    fill: violet;
+}
+
+.ql-snow .ql-picker{
+    color:violet;
+}
+
+.ql-snow .ql-picker.ql-expanded .ql-picker-label .ql-stroke {
+    stroke: violet;
+}
+
+.ql-snow .ql-toolbar.snow, .ql-snow .ql-stroke{
+    stroke:violet;
+}
+
+.ql-editor.ql-blank::before {
+    color: violet;
 }

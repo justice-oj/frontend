@@ -131,7 +131,7 @@ TESTCASE;
     $(document).ready(function () {
         $('.remove').on('click', function () {
             $('#confirm').val($(this).data('id'));
-            $('#modal-title').html('Remove test case <code>#' + $(this).data('id') + '</code>');
+            $('#modal-title').html('Remove test case <code>#' + $(this).data('id') + '</code> ?');
             $('#i').html($(this).data('input'));
             $('#o').html($(this).data('output'));
             $('#modal').modal();
@@ -149,12 +149,12 @@ TESTCASE;
                     if (res.code === 0) {
                         location.reload();
                     } else {
-                        alert(res.message);
+                        toastr["error"](res.message);
                         $('#modal').modal('hide');
                     }
                 },
                 error: function () {
-                    alert("An error occurred, please try later.");
+                    toastr["error"]("An error occurred, please try later.");
                     $('#modal').modal('hide');
                 }
             });

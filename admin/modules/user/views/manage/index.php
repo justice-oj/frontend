@@ -134,7 +134,7 @@ USER;
     $(document).ready(function () {
         $('.remove').on('click', function () {
             $('#confirm').val($(this).data('user-id'));
-            $('#modal-title').html('Remove user <code>#' + $(this).data('user-id') + ' ' + $(this).data('user-name') + '</code>');
+            $('#modal-title').html('Remove user <code>#' + $(this).data('user-id') + ' ' + $(this).data('user-name') + '</code> ?');
             $('#modal').modal();
         });
 
@@ -150,12 +150,12 @@ USER;
                     if (res.code === 0) {
                         location.reload();
                     } else {
-                        alert(res.message);
+                        toastr["error"](res.message);
                         $('#modal').modal('hide');
                     }
                 },
                 error: function () {
-                    alert("An error occurred, please try later.");
+                    toastr["error"]("An error occurred, please try later.");
                     $('#modal').modal('hide');
                 }
             });

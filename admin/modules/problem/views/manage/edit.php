@@ -1,39 +1,3 @@
-<link href="<?= Yii::$app->params['staticFile']['KaTex']['css'] ?>" rel="stylesheet">
-<script src="<?= Yii::$app->params['staticFile']['KaTex']['js'] ?>"></script>
-<link href="<?= Yii::$app->params['staticFile']['Quill']['css'] ?>" rel="stylesheet">
-<script src="<?= Yii::$app->params['staticFile']['Quill']['js'] ?>"></script>
-<style>
-    .ql-toolbar.ql-snow{
-        background-color: #2d3035;
-        border: 1px solid violet;
-    }
-
-    .ql-container.ql-snow{
-        background-color: #2d3035;
-        border: 1px solid violet;
-        color:violet;
-    }
-
-    .ql-snow .ql-fill, .ql-snow .ql-stroke.ql-fill {
-        fill: violet;
-    }
-
-    .ql-snow .ql-picker{
-        color:violet;
-    }
-
-    .ql-snow .ql-picker.ql-expanded .ql-picker-label .ql-stroke {
-        stroke: violet;
-    }
-
-    .ql-snow .ql-toolbar.snow, .ql-snow .ql-stroke{
-        stroke:violet;
-    }
-
-    .ql-editor.ql-blank::before {
-        color: violet;
-    }
-</style>
 <input type="hidden" id="problem_id" value="<?= /** @var $problem \common\models\Problem */ $problem->id ?>">
 
 <div class="d-flex align-items-stretch">
@@ -165,8 +129,6 @@
                 return;
             }
 
-            console.log(description);
-
             $.ajax({
                 type: 'POST',
                 url: '/problem/manage/update',
@@ -181,7 +143,7 @@
                 timeout: 3000,
                 success: function (res) {
                     if (res.code === 0) {
-                        location.href = "/problem/manage/edit?problem_id=" + res.data.problem_id;
+                        toastr["success"]("Success!");
                     } else {
                         error_message.text(res.message);
                         error.modal();

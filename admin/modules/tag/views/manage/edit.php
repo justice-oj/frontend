@@ -79,7 +79,7 @@
                 error = $('#error');
 
             if (name.length === 0) {
-                error_message.text("please fill all the blanks");
+                error_message.text("Please fill all the blanks");
                 error.modal();
                 return;
             }
@@ -94,14 +94,14 @@
                 timeout: 3000,
                 success: function (res) {
                     if (res.code === 0) {
-                        alert("Success!");
+                        toastr["success"]("Success!");
                     } else {
                         error_message.text(res.message);
                         error.modal();
                     }
                 },
                 error: function () {
-                    error_message.text("An error occurred, please try later.");
+                    error_message.text("An error occurred, please try later");
                     error.modal();
                 }
             });
