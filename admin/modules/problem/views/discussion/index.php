@@ -1,9 +1,5 @@
 <?php use admin\widgets\common\PaginationWidget; ?>
 
-<link href="<?= Yii::$app->params['staticFile']['KaTex']['css'] ?>" rel="stylesheet">
-<script src="<?= Yii::$app->params['staticFile']['KaTex']['js'] ?>"></script>
-<link href="<?= Yii::$app->params['staticFile']['Quill']['css'] ?>" rel="stylesheet">
-<script src="<?= Yii::$app->params['staticFile']['Quill']['js'] ?>"></script>
 <div class="d-flex align-items-stretch">
     <nav id="sidebar">
         <span class="heading">Main</span>

@@ -39,7 +39,7 @@ $user_presenter = new \www\presenters\UserPresenter();
         // human readable time format
         $t = Carbon::createFromFormat('Y-m-d H:i:s', $discussion['created_at'], date_default_timezone_get())->diffForHumans();
         // up-voted style
-        $empty = Yii::$app->get('redis')->getbit(/** @var string $key */ $key, $discussion['id']) ? '' : 'empty';
+        $outline = Yii::$app->get('redis')->getbit(/** @var string $key */ $key, $discussion['id']) ? '' : 'outline';
 
         /** @lang html */
         echo <<< DISCUSSION
@@ -52,7 +52,7 @@ $user_presenter = new \www\presenters\UserPresenter();
             <a class="author" href="/profile?name={$discussion['username']}">{$discussion['username']}</a>
             <div class="metadata">
                 <div class="rating" data-id="{$discussion['id']}">
-                    {$discussion['up_vote']}<i class="{$empty} star icon"></i>
+                    {$discussion['up_vote']}<i class="star {$outline} icon"></i>
                 </div>
                 <div class="date">{$t}</div>
             </div>

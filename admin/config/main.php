@@ -29,7 +29,7 @@ return [
             ],
         ],
         'errorHandler' => [
-            'errorAction' => 'error',
+            'errorAction' => 'error/index',
         ],
         'assetManager' => [
             'forceCopy' => true,

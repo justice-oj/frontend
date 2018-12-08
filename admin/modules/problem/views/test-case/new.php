@@ -23,7 +23,7 @@
     <div class="page-content">
         <div class="page-header">
             <div class="container-fluid">
-                <h2 class="h5 no-margin-bottom">Add test case</code></h2>
+                <h2 class="h5 no-margin-bottom">Add test case</h2>
             </div>
         </div>
         <section class="no-padding-top no-padding-bottom">
@@ -44,7 +44,7 @@
                 </div>
             </div>
         </section>
-        <section class="no-padding-top no-padding-bottom">
+        <section class="no-padding-top padding-bottom-sm">
             <div class="col-lg-12">
                 <button class="btn btn-primary" id="submit">Add Test Case</button>
             </div>
