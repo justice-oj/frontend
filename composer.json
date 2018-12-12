@@ -29,7 +29,6 @@
     "php": "~7.2.0",
     "yiisoft/yii2": "~2.0.0",
     "yiisoft/yii2-redis": "~2.0.0",
-    "sentry/sentry": "~1.10.0",
     "amstaffix/pagination": "~1.1.0",
     "php-amqplib/php-amqplib": "~2.8.0",
     "nesbot/carbon": "~2.6.0",
