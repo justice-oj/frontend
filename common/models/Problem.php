@@ -30,14 +30,14 @@ class Problem extends ActiveRecord {
 
     public function getSubmissionCount() {
         return $this
-            ->hasMany(Submission::className(), ['problem_id' => 'id'])
+            ->hasMany(Submission::class, ['problem_id' => 'id'])
             ->count();
     }
 
 
     public function getAcceptedCount() {
         return $this
-            ->hasMany(Submission::className(), ['problem_id' => 'id'])
+            ->hasMany(Submission::class, ['problem_id' => 'id'])
             ->andOnCondition(['status' => Submission::STATUS_AC])
             ->count();
     }

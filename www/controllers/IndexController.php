@@ -7,7 +7,7 @@ use www\filters\UserLoggedInFilter;
 class IndexController extends BaseController {
     public function behaviors() {
         return [
-            ['class' => UserLoggedInFilter::className(), 'except' => ['index']],
+            ['class' => UserLoggedInFilter::class, 'except' => ['index']],
         ];
     }
 

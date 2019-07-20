@@ -9,6 +9,7 @@ use Kilte\Pagination\Pagination;
 use www\filters\ProblemExistsFilter;
 use www\filters\UserLoggedInFilter;
 use Yii;
+use yii\db\Exception;
 use yii\helpers\Html;
 
 class SubmissionsController extends BaseController {
@@ -31,8 +32,8 @@ class SubmissionsController extends BaseController {
 
     public function behaviors() {
         return [
-            ['class' => UserLoggedInFilter::className()],
-            ['class' => ProblemExistsFilter::className()]
+            ['class' => UserLoggedInFilter::class],
+            ['class' => ProblemExistsFilter::class]
         ];
     }
 
@@ -42,7 +43,7 @@ class SubmissionsController extends BaseController {
      * @mail    i@liuchao.me
      * @param   int $problem_id
      * @return  string
-     * @throws  \yii\db\Exception
+     * @throws  Exception
      */
     public function actionIndex(int $problem_id) {
         $problem = $this->problemService->getProblemByID($problem_id);

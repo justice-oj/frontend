@@ -25,7 +25,7 @@ class ProblemsController extends BaseController {
 
     public function behaviors() {
         return [
-            ['class' => UserLoggedInFilter::className()],
+            ['class' => UserLoggedInFilter::class],
         ];
     }
 

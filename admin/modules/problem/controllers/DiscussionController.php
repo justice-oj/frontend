@@ -7,7 +7,10 @@ use admin\filters\AdminLoggedInFilter;
 use common\services\DiscussionService;
 use common\services\ProblemService;
 use Kilte\Pagination\Pagination;
+use Throwable;
 use Yii;
+use yii\db\Exception;
+use yii\db\StaleObjectException;
 use yii\web\Response;
 
 class DiscussionController extends BaseController
@@ -39,12 +42,12 @@ class DiscussionController extends BaseController
 
 
     /**
+     * @param int $problem_id
+     * @return  string
+     * @throws  Exception
+     * @desc
      * @author  liuchao
      * @mail    i@liuchao.me
-     * @param   int $problem_id
-     * @return  string
-     * @throws \yii\db\Exception
-     * @desc
      */
     public function actionIndex(int $problem_id)
     {
@@ -112,13 +115,13 @@ class DiscussionController extends BaseController
 
 
     /**
-     * @author  liuchao
-     * @mail    i@liuchao.me
      * @return array
      * @throws \Exception
-     * @throws \Throwable
-     * @throws \yii\db\StaleObjectException
+     * @throws Throwable
+     * @throws StaleObjectException
      * @desc
+     * @author  liuchao
+     * @mail    i@liuchao.me
      */
     public function actionDelete()
     {

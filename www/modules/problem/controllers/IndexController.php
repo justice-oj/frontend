@@ -32,9 +32,9 @@ class IndexController extends BaseController {
 
     public function behaviors() {
         return [
-            ['class' => UserLoggedInFilter::className()],
-            ['class' => ProblemExistsFilter::className(), 'only' => ['index']],
-            ['class' => SubmitRateLimiterFilter::className(), 'only' => ['submit']],
+            ['class' => UserLoggedInFilter::class],
+            ['class' => ProblemExistsFilter::class, 'only' => ['index']],
+            ['class' => SubmitRateLimiterFilter::class, 'only' => ['submit']],
         ];
     }
 

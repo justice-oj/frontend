@@ -23,7 +23,7 @@ class LoginController extends BaseController {
 
     public function behaviors() {
         return [
-            ['class' => UserLoginFilter::className(), 'only' => ['auth']],
+            ['class' => UserLoginFilter::class, 'only' => ['auth']],
         ];
     }
 

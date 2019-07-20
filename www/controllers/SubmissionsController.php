@@ -8,6 +8,7 @@ use common\services\UserService;
 use Kilte\Pagination\Pagination;
 use www\filters\UserLoggedInFilter;
 use Yii;
+use yii\db\Exception;
 
 class SubmissionsController extends BaseController {
     protected $submissionService;
@@ -29,7 +30,7 @@ class SubmissionsController extends BaseController {
 
     public function behaviors() {
         return [
-            ['class' => UserLoggedInFilter::className()],
+            ['class' => UserLoggedInFilter::class],
         ];
     }
 
@@ -37,7 +38,7 @@ class SubmissionsController extends BaseController {
     /**
      * @author  liuchao
      * @mail    i@liuchao.me
-     * @throws \yii\db\Exception
+     * @throws  Exception
      */
     public function actionIndex() {
         $page = intval(Yii::$app->request->get('page', 1));

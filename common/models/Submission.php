@@ -41,7 +41,7 @@ class Submission extends ActiveRecord {
     public function behaviors() {
         return [
             [
-                'class' => TimestampBehavior::className(),
+                'class' => TimestampBehavior::class,
                 'attributes' => [
                     ActiveRecord::EVENT_BEFORE_INSERT => ['created_at', 'updated_at'],
                     ActiveRecord::EVENT_BEFORE_UPDATE => ['updated_at'],
@@ -58,11 +58,11 @@ class Submission extends ActiveRecord {
 
 
     public function getProblem() {
-        return $this->hasOne(Problem::className(), ['id' => 'problem_id'])->one();
+        return $this->hasOne(Problem::class, ['id' => 'problem_id'])->one();
     }
 
 
     public function getUser() {
-        return $this->hasOne(User::className(), ['id' => 'user_id'])->one();
+        return $this->hasOne(User::class, ['id' => 'user_id'])->one();
     }
 }

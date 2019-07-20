@@ -3,6 +3,7 @@
 namespace www\controllers;
 
 use common\services\UserService;
+use Exception;
 use www\filters\UserLoggedInFilter;
 use Yii;
 use yii\web\Response;
@@ -24,7 +25,7 @@ class SettingsController extends BaseController {
 
     public function behaviors() {
         return [
-            ['class' => UserLoggedInFilter::className()],
+            ['class' => UserLoggedInFilter::class],
         ];
     }
 
@@ -58,7 +59,7 @@ class SettingsController extends BaseController {
                 'code' => 0,
                 'message' => 'OK'
             ];
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return [
                 'code' => 255,
                 'message' => 'Error'
@@ -98,7 +99,7 @@ class SettingsController extends BaseController {
                     'message' => 'Old password not match, please re-check again.'
                 ];
             }
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return [
                 'code' => 255,
                 'message' => 'Error'

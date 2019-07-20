@@ -29,8 +29,8 @@ class EditorialController extends BaseController {
 
     public function behaviors() {
         return [
-            ['class' => UserLoggedInFilter::className()],
-            ['class' => ProblemExistsFilter::className()]
+            ['class' => UserLoggedInFilter::class],
+            ['class' => ProblemExistsFilter::class]
         ];
     }
 

@@ -10,6 +10,7 @@ use Kilte\Pagination\Pagination;
 use www\filters\ProblemExistsFilter;
 use www\filters\UserLoggedInFilter;
 use Yii;
+use yii\db\Exception;
 use yii\helpers\Html;
 use yii\web\Response;
 
@@ -33,8 +34,8 @@ class DiscussionsController extends BaseController {
 
     public function behaviors() {
         return [
-            ['class' => UserLoggedInFilter::className()],
-            ['class' => ProblemExistsFilter::className(), 'only' => ['index']]
+            ['class' => UserLoggedInFilter::class],
+            ['class' => ProblemExistsFilter::class, 'only' => ['index']]
         ];
     }
 
@@ -44,7 +45,7 @@ class DiscussionsController extends BaseController {
      * @mail    i@liuchao.me
      * @param   int $problem_id
      * @return  string
-     * @throws  \yii\db\Exception
+     * @throws  Exception
      */
     public function actionIndex(int $problem_id) {
         $problem = $this->problemService->getProblemByID($problem_id);

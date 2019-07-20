@@ -26,11 +26,11 @@ class Discussion extends ActiveRecord {
 
 
     public function getProblem() {
-        return $this->hasOne(Problem::className(), ['id' => 'problem_id'])->one();
+        return $this->hasOne(Problem::class, ['id' => 'problem_id'])->one();
     }
 
 
     public function getUser() {
-        return $this->hasOne(User::className(), ['id' => 'user_id'])->one();
+        return $this->hasOne(User::class, ['id' => 'user_id'])->one();
     }
 }
