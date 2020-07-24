@@ -26,7 +26,7 @@
   },
   "minimum-stability": "stable",
   "require": {
-    "php": "~7.3.0",
+    "php": "~7.4.0",
     "yiisoft/yii2": "~2.0.0",
     "yiisoft/yii2-redis": "~2.0.0",
     "amstaffix/pagination": "~1.1.0",

@@ -1,19 +1,22 @@
 <?php
+
+use common\components\queue\BasicRabbitMQProducer;
+
 return [
     'components' => [
         'db' => [
             'class' => 'yii\db\Connection',
             'dsn' => 'mysql:host=127.0.0.1;dbname=www_justice_plus',
             'username' => 'root',
-            'password' => 'xaiTIVP7kB$oHuJecEooq#YsziVvVAzW',
+            'password' => 'root',
             'charset' => 'utf8',
         ],
         'rabbitMQ' => [
-            'class' => \common\components\queue\BasicRabbitMQProducer::class,
+            'class' => BasicRabbitMQProducer::class,
             'host' => '127.0.0.1',
             'port' => 5672,
             'user' => 'justice',
-            'password' => 'SQuHbc9FJTLqJqMUeTqdmsqORFPWVfWAHyrdJEaU',
+            'password' => 'justice',
             'queueName' => 'justice',
             'exchangeName' => 'justice',
             'exchangeType' => 'topic',
