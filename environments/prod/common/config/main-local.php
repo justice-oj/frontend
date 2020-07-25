@@ -9,7 +9,8 @@ return [
             'dsn' => 'mysql:host=localhost;dbname=www_justice_plus',
             'username' => 'root',
             'password' => 'root',
-            'charset' => 'utf8',
+            'charset' => 'utf8mb4',
+            'attributes' => [PDO::ATTR_CASE => PDO::CASE_LOWER], // https://github.com/yiisoft/yii2/issues/18171
         ],
         'rabbitMQ' => [
             'class' => BasicRabbitMQProducer::class,

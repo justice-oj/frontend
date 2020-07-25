@@ -19,7 +19,7 @@ use www\widgets\common\GoogleAdSenseWidget;
         <h2>System specification</h2>
     </div>
     <div class="ui secondary segment">
-        <p>Ubuntu 18.04.1 LTS (Bionic Beaver)</p>
+        <p>Debian 10 "buster"</p>
     </div>
     <div class="ui segment">
         <h2>Supported languages</h2>

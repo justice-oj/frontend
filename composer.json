@@ -34,7 +34,8 @@
     "nesbot/carbon": "~2.6.0",
     "bandwidth-throttle/token-bucket": "~2.0.0",
     "fxp/composer-asset-plugin": "~1.4.0",
-    "ext-json": "*"
+    "ext-json": "*",
+    "ext-pdo": "*"
   },
   "require-dev": {
     "yiisoft/yii2-debug": "~2.0.0",
